@@ -38,6 +38,7 @@
             this.thursday_lbl = new System.Windows.Forms.Label();
             this.friday_lbl = new System.Windows.Forms.Label();
             this.saturday_lbl = new System.Windows.Forms.Label();
+            this.month_year_lbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // month_container
@@ -55,6 +56,7 @@
             this.prevBtn.TabIndex = 1;
             this.prevBtn.Text = "Previous";
             this.prevBtn.UseVisualStyleBackColor = true;
+            this.prevBtn.Click += new System.EventHandler(this.prevBtn_Click);
             // 
             // nextBtn
             // 
@@ -64,6 +66,7 @@
             this.nextBtn.TabIndex = 2;
             this.nextBtn.Text = "Next";
             this.nextBtn.UseVisualStyleBackColor = true;
+            this.nextBtn.Click += new System.EventHandler(this.nextBtn_Click);
             // 
             // sunday_lbl
             // 
@@ -135,11 +138,21 @@
             this.saturday_lbl.TabIndex = 9;
             this.saturday_lbl.Text = "Saturday";
             // 
+            // month_year_lbl
+            // 
+            this.month_year_lbl.AutoSize = true;
+            this.month_year_lbl.Location = new System.Drawing.Point(52, 13);
+            this.month_year_lbl.Name = "month_year_lbl";
+            this.month_year_lbl.Size = new System.Drawing.Size(171, 20);
+            this.month_year_lbl.TabIndex = 10;
+            this.month_year_lbl.Text = "MonthYearPlaceholder";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1473, 1170);
+            this.Controls.Add(this.month_year_lbl);
             this.Controls.Add(this.saturday_lbl);
             this.Controls.Add(this.friday_lbl);
             this.Controls.Add(this.thursday_lbl);
@@ -169,6 +182,7 @@
         private System.Windows.Forms.Label thursday_lbl;
         private System.Windows.Forms.Label friday_lbl;
         private System.Windows.Forms.Label saturday_lbl;
+        private System.Windows.Forms.Label month_year_lbl;
     }
 }
 
