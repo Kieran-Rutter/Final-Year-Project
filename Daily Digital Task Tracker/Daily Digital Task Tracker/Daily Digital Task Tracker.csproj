@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DayExpanded.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DayExpanded.Designer.cs">
+      <DependentUpon>DayExpanded.cs</DependentUpon>
+    </Compile>
     <Compile Include="DayUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="DayExpanded.resx">
+      <DependentUpon>DayExpanded.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DayUserControl.resx">
       <DependentUpon>DayUserControl.cs</DependentUpon>
     </EmbeddedResource>

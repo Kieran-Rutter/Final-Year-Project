@@ -48,6 +48,7 @@
             this.Controls.Add(this.date_lbl);
             this.Name = "DayUserControl";
             this.Size = new System.Drawing.Size(200, 175);
+            this.Click += new System.EventHandler(this.DayUserControl_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 

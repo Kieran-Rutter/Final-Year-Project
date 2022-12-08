@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,20 +16,32 @@ namespace Daily_Digital_Task_Tracker
     {
         //gets date
         static DateTime currentTime = DateTime.Now;
-        static int month = currentTime.Month;
-        static int year = currentTime.Year;
+        public static int month = currentTime.Month;
+        public static int year = currentTime.Year;
         public Form1()
         {
             InitializeComponent();
+            CreateCSV();
             dateDisplay();
         }
-        private void Form1_Load(object sender, EventArgs e)
+
+        //Creates file in bin/debug
+        private void CreateCSV()
         {
-            dateDisplay();
+            //Makes sure that the files exist if not they are made.
+            try
+            {
+                StreamWriter sw = new StreamWriter(File.Open("Events.csv", System.IO.FileMode.CreateNew));
+                Console.WriteLine("File created");
+                sw.Close();
+            }
+            catch (IOException)
+            {
+                Console.WriteLine("File already exists");
+            }
         }
 
-
-        private void dateDisplay()
+            private void dateDisplay()
         {
 
             /*
@@ -111,5 +124,7 @@ namespace Daily_Digital_Task_Tracker
 
 /* Refrences
  * https://stackoverflow.com/questions/3184121/get-month-name-from-month-number
+ * https://github.com/cccu-uk/autorentals-Kieran-Rutter/tree/master/FormAutoRentals
+ * 
  * 
  */

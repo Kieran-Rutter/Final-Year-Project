@@ -12,6 +12,7 @@ namespace Daily_Digital_Task_Tracker
 {
     public partial class DayUserControl : UserControl
     {
+        public static string day_stc;
         public DayUserControl()
         {
             InitializeComponent();
@@ -20,6 +21,13 @@ namespace Daily_Digital_Task_Tracker
         public void day(int day)
         {
             date_lbl.Text = day + "";
+        }
+
+        private void DayUserControl_Click(object sender, EventArgs e)
+        {
+            day_stc = date_lbl.Text;
+            DayExpanded dayExpanded = new DayExpanded();
+            dayExpanded.Show();
         }
     }
 }
