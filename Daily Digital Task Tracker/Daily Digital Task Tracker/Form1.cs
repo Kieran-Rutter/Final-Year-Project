@@ -54,7 +54,6 @@ namespace Daily_Digital_Task_Tracker
 
             private void dateDisplay()
         {
-
             /*
              * Sets variables to current time
              */
@@ -100,6 +99,7 @@ namespace Daily_Digital_Task_Tracker
         //Used to go to next month
         private void nextBtn_Click(object sender, EventArgs e)
         {
+            //Clears the container
             month_container.Controls.Clear();
 
             //Checks to see if next changes year
@@ -129,6 +129,14 @@ namespace Daily_Digital_Task_Tracker
             {
                 month -= 1;
             }
+            dateDisplay();
+        }
+
+        private void Form1_Activated(object sender, EventArgs e)
+        {
+            month_container.Controls.Clear();
+            Console.WriteLine("aact");
+            CreateCSV();
             dateDisplay();
         }
     }

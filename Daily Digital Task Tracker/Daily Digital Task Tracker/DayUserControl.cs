@@ -26,10 +26,23 @@ namespace Daily_Digital_Task_Tracker
 
         public void eventsDisplay(int day)
         {
-            string search = Form1.month.ToString() + "/" + day.ToString() + "/" + Form1.year.ToString();
+            string search = day.ToString() + "/" + Form1.month.ToString() + "/" + Form1.year.ToString();
             Console.WriteLine(search);
             File.WriteAllLines("Temp.csv", File.ReadAllLines("Events.csv").Where(line => search.Equals(line.Split(',')[0])));
-            eventsDisplay_txt.Text = File.ReadAllText("Temp.csv");
+
+            using (StreamReader tempRead = new StreamReader("Temp.csv"))
+            {
+                String line;
+
+                while ((line = tempRead.ReadLine()) != null)
+                {
+                    string[] parts = line.Split(',');
+
+                    Console.WriteLine(parts[1]);
+
+                    eventsDisplay_txt.AppendText(parts[1] + "\r\n");
+                }
+            }
         }
 
         private void DayUserControl_Click(object sender, EventArgs e)

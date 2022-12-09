@@ -43,10 +43,13 @@
             // 
             // eventsDisplay_txt
             // 
-            this.eventsDisplay_txt.Location = new System.Drawing.Point(4, 28);
+            this.eventsDisplay_txt.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.eventsDisplay_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.eventsDisplay_txt.Enabled = false;
+            this.eventsDisplay_txt.Location = new System.Drawing.Point(8, 28);
             this.eventsDisplay_txt.Multiline = true;
             this.eventsDisplay_txt.Name = "eventsDisplay_txt";
-            this.eventsDisplay_txt.Size = new System.Drawing.Size(193, 144);
+            this.eventsDisplay_txt.Size = new System.Drawing.Size(189, 133);
             this.eventsDisplay_txt.TabIndex = 1;
             // 
             // DayUserControl
