@@ -51,6 +51,7 @@
             this.eventsDisplay_txt.Name = "eventsDisplay_txt";
             this.eventsDisplay_txt.Size = new System.Drawing.Size(189, 133);
             this.eventsDisplay_txt.TabIndex = 1;
+            this.eventsDisplay_txt.WordWrap = false;
             // 
             // DayUserControl
             // 

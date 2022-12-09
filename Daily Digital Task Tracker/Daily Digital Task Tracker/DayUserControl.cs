@@ -13,6 +13,7 @@ namespace Daily_Digital_Task_Tracker
 {
     public partial class DayUserControl : UserControl
     {
+        private int num = 0;
         public static string day_stc;
         public DayUserControl()
         {
@@ -40,7 +41,9 @@ namespace Daily_Digital_Task_Tracker
 
                     Console.WriteLine(parts[1]);
 
-                    eventsDisplay_txt.AppendText(parts[1] + "\r\n");
+                    num++;
+
+                    eventsDisplay_txt.AppendText(num +". "+ parts[1] + "\r\n");
                 }
             }
         }
