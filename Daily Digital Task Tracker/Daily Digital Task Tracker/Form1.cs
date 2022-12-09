@@ -39,6 +39,17 @@ namespace Daily_Digital_Task_Tracker
             {
                 Console.WriteLine("File already exists");
             }
+
+            try
+            {
+                StreamWriter sw = new StreamWriter(File.Open("Temp.csv", System.IO.FileMode.CreateNew));
+                Console.WriteLine("File created");
+                sw.Close();
+            }
+            catch (IOException)
+            {
+                Console.WriteLine("File already exists");
+            }
         }
 
             private void dateDisplay()
@@ -78,6 +89,7 @@ namespace Daily_Digital_Task_Tracker
                 DayUserControl duc = new DayUserControl();
                 duc.day(i);
                 month_container.Controls.Add(duc);
+                duc.eventsDisplay(i);
             }
         }
 

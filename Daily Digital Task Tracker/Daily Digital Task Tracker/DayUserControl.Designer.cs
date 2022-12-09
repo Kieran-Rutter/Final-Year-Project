@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.date_lbl = new System.Windows.Forms.Label();
+            this.eventsDisplay_txt = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // date_lbl
@@ -40,11 +41,20 @@
             this.date_lbl.TabIndex = 0;
             this.date_lbl.Text = "blankDate";
             // 
+            // eventsDisplay_txt
+            // 
+            this.eventsDisplay_txt.Location = new System.Drawing.Point(4, 28);
+            this.eventsDisplay_txt.Multiline = true;
+            this.eventsDisplay_txt.Name = "eventsDisplay_txt";
+            this.eventsDisplay_txt.Size = new System.Drawing.Size(193, 144);
+            this.eventsDisplay_txt.TabIndex = 1;
+            // 
             // DayUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Controls.Add(this.eventsDisplay_txt);
             this.Controls.Add(this.date_lbl);
             this.Name = "DayUserControl";
             this.Size = new System.Drawing.Size(200, 175);
@@ -57,5 +67,6 @@
         #endregion
 
         private System.Windows.Forms.Label date_lbl;
+        private System.Windows.Forms.TextBox eventsDisplay_txt;
     }
 }

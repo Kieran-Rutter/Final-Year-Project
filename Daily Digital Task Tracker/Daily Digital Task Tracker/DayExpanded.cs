@@ -21,12 +21,13 @@ namespace Daily_Digital_Task_Tracker
 
         private void onLoad()
         {
-            eventDate_txt.Text = DayUserControl.day_stc + "/" + Form1.month.ToString() + "/" + Form1.year.ToString();
+            eventDate_txt.Text = Form1.month.ToString() + "/" + DayUserControl.day_stc + "/" + Form1.year.ToString();
         }
 
         private void CreateEvent_btn_Click(object sender, EventArgs e)
         {
             File.AppendAllText("Events.csv", eventDate_txt.Text + "," + eventName_txt.Text + "\n");
+            MessageBox.Show("Created");
         }
     }
 }
