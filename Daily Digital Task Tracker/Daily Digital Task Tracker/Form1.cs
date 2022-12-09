@@ -14,6 +14,8 @@ namespace Daily_Digital_Task_Tracker
 {
     public partial class Form1 : Form
     {
+
+
         //gets date
         static DateTime currentTime = DateTime.Now;
         public static int month = currentTime.Month;
@@ -139,6 +141,7 @@ namespace Daily_Digital_Task_Tracker
             CreateCSV();
             dateDisplay();
         }
+
     }
 }
 

@@ -50,6 +50,8 @@
             // 
             // prevBtn
             // 
+            this.prevBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.prevBtn.AutoSize = true;
             this.prevBtn.Location = new System.Drawing.Point(12, 1040);
             this.prevBtn.Name = "prevBtn";
             this.prevBtn.Size = new System.Drawing.Size(136, 118);
@@ -60,6 +62,8 @@
             // 
             // nextBtn
             // 
+            this.nextBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.nextBtn.AutoSize = true;
             this.nextBtn.Location = new System.Drawing.Point(154, 1040);
             this.nextBtn.Name = "nextBtn";
             this.nextBtn.Size = new System.Drawing.Size(139, 118);
@@ -163,6 +167,7 @@
             this.Controls.Add(this.nextBtn);
             this.Controls.Add(this.prevBtn);
             this.Controls.Add(this.month_container);
+            this.MinimumSize = new System.Drawing.Size(1495, 1226);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Activated += new System.EventHandler(this.Form1_Activated);
