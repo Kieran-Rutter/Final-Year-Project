@@ -39,6 +39,7 @@
             this.friday_lbl = new System.Windows.Forms.Label();
             this.saturday_lbl = new System.Windows.Forms.Label();
             this.month_year_lbl = new System.Windows.Forms.Label();
+            this.Themebtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // month_container
@@ -151,11 +152,24 @@
             this.month_year_lbl.TabIndex = 10;
             this.month_year_lbl.Text = "MonthYearPlaceholder";
             // 
+            // Themebtn
+            // 
+            this.Themebtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Themebtn.AutoSize = true;
+            this.Themebtn.Location = new System.Drawing.Point(299, 1040);
+            this.Themebtn.Name = "Themebtn";
+            this.Themebtn.Size = new System.Drawing.Size(139, 118);
+            this.Themebtn.TabIndex = 11;
+            this.Themebtn.Text = "Theme";
+            this.Themebtn.UseVisualStyleBackColor = true;
+            this.Themebtn.Click += new System.EventHandler(this.Themebtn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1473, 1170);
+            this.Controls.Add(this.Themebtn);
             this.Controls.Add(this.month_year_lbl);
             this.Controls.Add(this.saturday_lbl);
             this.Controls.Add(this.friday_lbl);
@@ -189,6 +203,7 @@
         private System.Windows.Forms.Label friday_lbl;
         private System.Windows.Forms.Label saturday_lbl;
         private System.Windows.Forms.Label month_year_lbl;
+        private System.Windows.Forms.Button Themebtn;
     }
 }
 

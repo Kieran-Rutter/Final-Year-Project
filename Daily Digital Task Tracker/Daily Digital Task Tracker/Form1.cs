@@ -24,12 +24,25 @@ namespace Daily_Digital_Task_Tracker
         {
             InitializeComponent();
             CreateCSV();
+            getIni();
             dateDisplay();
         }
 
         //Creates file in bin/debug
         private void CreateCSV()
         {
+            try
+            {
+                StreamWriter sw = new StreamWriter(File.Open("config.ini", System.IO.FileMode.CreateNew));
+                Console.WriteLine("File created");
+                sw.Close();
+                File.AppendAllText("config.ini", "[SECTION]" + "\n");
+                File.AppendAllText("config.ini", "key = light" + "\n");
+            }
+            catch (IOException)
+            {
+                Console.WriteLine("File already exists");
+            }
             //Makes sure that the files exist if not they are made.
             try
             {
@@ -54,7 +67,35 @@ namespace Daily_Digital_Task_Tracker
             }
         }
 
-            private void dateDisplay()
+        private void getIni()
+        {
+            Settings settings = new Settings();
+            settings.readIni();
+            if (settings.theme == "dark")
+            {
+                this.BackColor = Color.Black;
+            }
+        }
+        private void Themebtn_Click(object sender, EventArgs e)
+        {
+            Settings set = new Settings();
+            Console.WriteLine(set.theme);
+            set.readIni();
+            if (set.theme == "light")
+            {
+                set.writeini("SECTION", "key", "dark");
+                Console.WriteLine("dark already exists");
+            }
+            else if (set.theme == "dark")
+            {
+                set.writeini("SECTION", "key", "light");
+                Console.WriteLine("light already exists");
+            }
+            getIni();
+        }
+
+
+        private void dateDisplay()
         {
             /*
              * Sets variables to current time
@@ -141,7 +182,6 @@ namespace Daily_Digital_Task_Tracker
             CreateCSV();
             dateDisplay();
         }
-
     }
 }
 
