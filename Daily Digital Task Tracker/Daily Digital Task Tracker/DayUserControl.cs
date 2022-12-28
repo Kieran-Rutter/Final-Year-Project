@@ -27,6 +27,7 @@ namespace Daily_Digital_Task_Tracker
 
         public void eventsDisplay(int day)
         {
+            getIni();
             string search = day.ToString() + "/" + Form1.month.ToString() + "/" + Form1.year.ToString();
             Console.WriteLine(search);
             File.WriteAllLines("Temp.csv", File.ReadAllLines("Events.csv").Where(line => search.Equals(line.Split(',')[0])));
@@ -54,6 +55,23 @@ namespace Daily_Digital_Task_Tracker
             DayExpanded dayExpanded = new DayExpanded();
             dayExpanded.Show();
         }
+
+        private void getIni()
+        {
+            Settings settings = new Settings();
+            settings.readIni();
+
+                backColour = Form1.buttonBackColor;
+                textColour = Form1.textColour;
+
+            //User control colours
+            this.BackColor = ColorTranslator.FromHtml(backColour);
+            this.eventsDisplay_txt.BackColor = ColorTranslator.FromHtml(backColour);
+            this.eventsDisplay_txt.ForeColor = ColorTranslator.FromHtml(textColour);
+            this.date_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
+        }
+        public static String backColour;
+        public static String textColour;
     }
     //https://stackoverflow.com/questions/2189376/how-to-change-row-color-in-datagridview
 }

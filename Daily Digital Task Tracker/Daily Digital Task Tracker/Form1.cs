@@ -171,6 +171,10 @@ namespace Daily_Digital_Task_Tracker
                 Console.WriteLine("light already exists");
             }
             getIni();
+            month_container.Controls.Clear();
+            Console.WriteLine("aact");
+            CreateCSV();
+            dateDisplay();
         }
 
         //https://learn.microsoft.com/en-us/visualstudio/extensibility/ux-guidelines/color-value-reference-for-visual-studio?view=vs-2022
@@ -180,6 +184,14 @@ namespace Daily_Digital_Task_Tracker
             settings.readIni();
             //https://coolors.co/palettes/trending
             //https://coolors.co/palette/131316-1c1c21-26262c-2f3037-393a41-4b4c52-5b5c62-6a6b70
+            if (settings.theme == "light")
+            {
+                backColour = "#F8F9FA";
+                textColour = "#000000";
+                buttonBackColor = "#CED4DA";
+                buttonBorderColour = "#ADB5BD";
+            }
+
             if (settings.theme == "dark")
             {
                 backColour = "#1C1C21";
@@ -194,10 +206,18 @@ namespace Daily_Digital_Task_Tracker
             //Button colours
             nextBtn.FlatStyle = FlatStyle.Flat;
             this.nextBtn.ForeColor = ColorTranslator.FromHtml(textColour);
-
             this.nextBtn.BackColor = ColorTranslator.FromHtml(buttonBackColor);
-            this.nextBtn.FlatAppearance.BorderColor = ColorTranslator.FromHtml("#4B4C52");
+            this.nextBtn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
 
+            prevBtn.FlatStyle = FlatStyle.Flat;
+            this.prevBtn.ForeColor = ColorTranslator.FromHtml(textColour);
+            this.prevBtn.BackColor = ColorTranslator.FromHtml(buttonBackColor);
+            this.prevBtn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
+
+            Themebtn.FlatStyle = FlatStyle.Flat;
+            this.Themebtn.ForeColor = ColorTranslator.FromHtml(textColour);
+            this.Themebtn.BackColor = ColorTranslator.FromHtml(buttonBackColor);
+            this.Themebtn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
             //Label colours
             this.month_year_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
             this.monday_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
