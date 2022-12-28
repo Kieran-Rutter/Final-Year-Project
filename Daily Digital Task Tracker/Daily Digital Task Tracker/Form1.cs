@@ -16,6 +16,7 @@ namespace Daily_Digital_Task_Tracker
     {
 
 
+
         //gets date
         static DateTime currentTime = DateTime.Now;
         public static int month = currentTime.Month;
@@ -188,7 +189,7 @@ namespace Daily_Digital_Task_Tracker
             {
                 backColour = "#F8F9FA";
                 textColour = "#000000";
-                buttonBackColor = "#CED4DA";
+                buttonBackColour = "#CED4DA";
                 buttonBorderColour = "#ADB5BD";
             }
 
@@ -196,7 +197,7 @@ namespace Daily_Digital_Task_Tracker
             {
                 backColour = "#1C1C21";
                 textColour = "#FFF1F1F1";
-                buttonBackColor = "#393A41";
+                buttonBackColour = "#393A41";
                 buttonBorderColour = "#4B4C52";
             }
 
@@ -204,19 +205,16 @@ namespace Daily_Digital_Task_Tracker
             this.BackColor = ColorTranslator.FromHtml(backColour);
 
             //Button colours
-            nextBtn.FlatStyle = FlatStyle.Flat;
             this.nextBtn.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.nextBtn.BackColor = ColorTranslator.FromHtml(buttonBackColor);
+            this.nextBtn.BackColor = ColorTranslator.FromHtml(buttonBackColour);
             this.nextBtn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
 
-            prevBtn.FlatStyle = FlatStyle.Flat;
             this.prevBtn.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.prevBtn.BackColor = ColorTranslator.FromHtml(buttonBackColor);
+            this.prevBtn.BackColor = ColorTranslator.FromHtml(buttonBackColour);
             this.prevBtn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
 
-            Themebtn.FlatStyle = FlatStyle.Flat;
             this.Themebtn.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.Themebtn.BackColor = ColorTranslator.FromHtml(buttonBackColor);
+            this.Themebtn.BackColor = ColorTranslator.FromHtml(buttonBackColour);
             this.Themebtn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
             //Label colours
             this.month_year_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
@@ -230,7 +228,7 @@ namespace Daily_Digital_Task_Tracker
         }
         public static String backColour;
         public static String textColour;
-        public static String buttonBackColor;
+        public static String buttonBackColour;
         public static String buttonBorderColour;
     }
 }

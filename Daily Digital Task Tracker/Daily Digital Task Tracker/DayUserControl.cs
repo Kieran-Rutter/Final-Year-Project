@@ -56,12 +56,19 @@ namespace Daily_Digital_Task_Tracker
             dayExpanded.Show();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            day_stc = date_lbl.Text;
+            DayExpanded dayExpanded = new DayExpanded();
+            dayExpanded.Show();
+        }
+
         private void getIni()
         {
             Settings settings = new Settings();
             settings.readIni();
 
-                backColour = Form1.buttonBackColor;
+                backColour = Form1.buttonBackColour;
                 textColour = Form1.textColour;
 
             //User control colours
@@ -69,6 +76,11 @@ namespace Daily_Digital_Task_Tracker
             this.eventsDisplay_txt.BackColor = ColorTranslator.FromHtml(backColour);
             this.eventsDisplay_txt.ForeColor = ColorTranslator.FromHtml(textColour);
             this.date_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
+
+            //Expand button
+            this.expand_btn.ForeColor = ColorTranslator.FromHtml(textColour);
+            this.expand_btn.BackColor = ColorTranslator.FromHtml(backColour);
+            this.expand_btn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(textColour);
         }
         public static String backColour;
         public static String textColour;

@@ -30,6 +30,7 @@
         {
             this.date_lbl = new System.Windows.Forms.Label();
             this.eventsDisplay_txt = new System.Windows.Forms.TextBox();
+            this.expand_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // date_lbl
@@ -45,19 +46,31 @@
             // 
             this.eventsDisplay_txt.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.eventsDisplay_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.eventsDisplay_txt.Enabled = false;
             this.eventsDisplay_txt.Location = new System.Drawing.Point(8, 28);
             this.eventsDisplay_txt.Multiline = true;
             this.eventsDisplay_txt.Name = "eventsDisplay_txt";
-            this.eventsDisplay_txt.Size = new System.Drawing.Size(189, 133);
+            this.eventsDisplay_txt.ReadOnly = true;
+            this.eventsDisplay_txt.Size = new System.Drawing.Size(189, 117);
             this.eventsDisplay_txt.TabIndex = 1;
             this.eventsDisplay_txt.WordWrap = false;
+            // 
+            // expand_btn
+            // 
+            this.expand_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.expand_btn.Location = new System.Drawing.Point(0, 138);
+            this.expand_btn.Name = "expand_btn";
+            this.expand_btn.Size = new System.Drawing.Size(200, 37);
+            this.expand_btn.TabIndex = 2;
+            this.expand_btn.Text = "+";
+            this.expand_btn.UseVisualStyleBackColor = true;
+            this.expand_btn.Click += new System.EventHandler(this.button1_Click);
             // 
             // DayUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Controls.Add(this.expand_btn);
             this.Controls.Add(this.eventsDisplay_txt);
             this.Controls.Add(this.date_lbl);
             this.Name = "DayUserControl";
@@ -72,5 +85,6 @@
 
         private System.Windows.Forms.Label date_lbl;
         private System.Windows.Forms.TextBox eventsDisplay_txt;
+        private System.Windows.Forms.Button expand_btn;
     }
 }

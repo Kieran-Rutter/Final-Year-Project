@@ -22,6 +22,7 @@ namespace Daily_Digital_Task_Tracker
         private void onLoad()
         {
             eventDate_txt.Text = DayUserControl.day_stc + "/" + Form1.month.ToString() + "/" + Form1.year.ToString();
+            getIni();
         }
 
         private void CreateEvent_btn_Click(object sender, EventArgs e)
@@ -30,5 +31,23 @@ namespace Daily_Digital_Task_Tracker
             MessageBox.Show("Created");
 
         }
+        private void getIni()
+        {
+            Settings settings = new Settings();
+            settings.readIni();
+
+            backColour = Form1.backColour;
+            textColour = Form1.textColour;
+
+            //User control colours
+            this.BackColor = ColorTranslator.FromHtml(backColour);
+
+
+            //Expand button
+
+        }
+        public static String backColour;
+        public static String textColour;
+        public static String buttonBackColour;
     }
 }

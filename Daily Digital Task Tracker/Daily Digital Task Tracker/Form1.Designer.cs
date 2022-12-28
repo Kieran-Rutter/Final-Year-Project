@@ -53,6 +53,7 @@
             // 
             this.prevBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.prevBtn.AutoSize = true;
+            this.prevBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.prevBtn.Location = new System.Drawing.Point(12, 1040);
             this.prevBtn.Name = "prevBtn";
             this.prevBtn.Size = new System.Drawing.Size(136, 118);
@@ -65,6 +66,7 @@
             // 
             this.nextBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.nextBtn.AutoSize = true;
+            this.nextBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.nextBtn.Location = new System.Drawing.Point(154, 1040);
             this.nextBtn.Name = "nextBtn";
             this.nextBtn.Size = new System.Drawing.Size(139, 118);
@@ -156,6 +158,7 @@
             // 
             this.Themebtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Themebtn.AutoSize = true;
+            this.Themebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Themebtn.Location = new System.Drawing.Point(299, 1040);
             this.Themebtn.Name = "Themebtn";
             this.Themebtn.Size = new System.Drawing.Size(139, 118);
@@ -166,8 +169,8 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1473, 1170);
             this.Controls.Add(this.Themebtn);
             this.Controls.Add(this.month_year_lbl);
