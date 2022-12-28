@@ -67,34 +67,6 @@ namespace Daily_Digital_Task_Tracker
             }
         }
 
-        private void getIni()
-        {
-            Settings settings = new Settings();
-            settings.readIni();
-            if (settings.theme == "dark")
-            {
-                this.BackColor = Color.Black;
-            }
-        }
-        private void Themebtn_Click(object sender, EventArgs e)
-        {
-            Settings set = new Settings();
-            Console.WriteLine(set.theme);
-            set.readIni();
-            if (set.theme == "light")
-            {
-                set.writeini("SECTION", "key", "dark");
-                Console.WriteLine("dark already exists");
-            }
-            else if (set.theme == "dark")
-            {
-                set.writeini("SECTION", "key", "light");
-                Console.WriteLine("light already exists");
-            }
-            getIni();
-        }
-
-
         private void dateDisplay()
         {
             /*
@@ -182,6 +154,64 @@ namespace Daily_Digital_Task_Tracker
             CreateCSV();
             dateDisplay();
         }
+
+        private void Themebtn_Click(object sender, EventArgs e)
+        {
+            Settings set = new Settings();
+            Console.WriteLine(set.theme);
+            set.readIni();
+            if (set.theme == "light")
+            {
+                set.writeini("SECTION", "key", "dark");
+                Console.WriteLine("dark already exists");
+            }
+            else if (set.theme == "dark")
+            {
+                set.writeini("SECTION", "key", "light");
+                Console.WriteLine("light already exists");
+            }
+            getIni();
+        }
+
+        //https://learn.microsoft.com/en-us/visualstudio/extensibility/ux-guidelines/color-value-reference-for-visual-studio?view=vs-2022
+        private void getIni()
+        {
+            Settings settings = new Settings();
+            settings.readIni();
+            //https://coolors.co/palettes/trending
+            //https://coolors.co/palette/131316-1c1c21-26262c-2f3037-393a41-4b4c52-5b5c62-6a6b70
+            if (settings.theme == "dark")
+            {
+                backColour = "#1C1C21";
+                textColour = "#FFF1F1F1";
+                buttonBackColor = "#393A41";
+                buttonBorderColour = "#4B4C52";
+            }
+
+
+            this.BackColor = ColorTranslator.FromHtml(backColour);
+
+            //Button colours
+            nextBtn.FlatStyle = FlatStyle.Flat;
+            this.nextBtn.ForeColor = ColorTranslator.FromHtml(textColour);
+
+            this.nextBtn.BackColor = ColorTranslator.FromHtml(buttonBackColor);
+            this.nextBtn.FlatAppearance.BorderColor = ColorTranslator.FromHtml("#4B4C52");
+
+            //Label colours
+            this.month_year_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
+            this.monday_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
+            this.tuesday_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
+            this.wednesday_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
+            this.thursday_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
+            this.friday_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
+            this.saturday_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
+            this.sunday_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
+        }
+        public static String backColour;
+        public static String textColour;
+        public static String buttonBackColor;
+        public static String buttonBorderColour;
     }
 }
 

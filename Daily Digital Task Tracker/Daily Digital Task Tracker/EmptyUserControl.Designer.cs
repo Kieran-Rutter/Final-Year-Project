@@ -28,32 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.date_lbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // date_lbl
-            // 
-            this.date_lbl.AutoSize = true;
-            this.date_lbl.Location = new System.Drawing.Point(4, 4);
-            this.date_lbl.Name = "date_lbl";
-            this.date_lbl.Size = new System.Drawing.Size(45, 20);
-            this.date_lbl.TabIndex = 0;
-            this.date_lbl.Text = "temp";
             // 
             // EmptyUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.date_lbl);
             this.Name = "EmptyUserControl";
             this.Size = new System.Drawing.Size(200, 175);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label date_lbl;
     }
 }
