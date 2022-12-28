@@ -184,6 +184,7 @@
             this.Controls.Add(this.nextBtn);
             this.Controls.Add(this.prevBtn);
             this.Controls.Add(this.month_container);
+            this.MaximumSize = new System.Drawing.Size(1495, 1226);
             this.MinimumSize = new System.Drawing.Size(1495, 1226);
             this.Name = "Form1";
             this.Text = "Form1";
