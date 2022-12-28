@@ -84,6 +84,7 @@ namespace Daily_Digital_Task_Tracker
         }
         public static String backColour;
         public static String textColour;
+
     }
     //https://stackoverflow.com/questions/2189376/how-to-change-row-color-in-datagridview
 }

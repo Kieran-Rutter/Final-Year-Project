@@ -14,9 +14,6 @@ namespace Daily_Digital_Task_Tracker
 {
     public partial class Form1 : Form
     {
-
-
-
         //gets date
         static DateTime currentTime = DateTime.Now;
         public static int month = currentTime.Month;
@@ -68,7 +65,7 @@ namespace Daily_Digital_Task_Tracker
             }
         }
 
-        private void dateDisplay()
+        public void dateDisplay()
         {
             /*
              * Sets variables to current time
@@ -86,26 +83,40 @@ namespace Daily_Digital_Task_Tracker
 
             //Converts monthstart to an ineger
             int daysInWeek = Convert.ToInt32(monthStart.DayOfWeek.ToString("d"));
-            
+
             /*
              * Loops for user control
              */
 
+            //Suspends the container to stop flickering while controls are added
+            month_container.SuspendLayout();
+
             //Blank user control for last months
-            for(int i = 1;i < daysInWeek; i++)
+            for (int i = 1;i < daysInWeek; i++)
             {
                 EmptyUserControl euc = new EmptyUserControl();
                 month_container.Controls.Add(euc);
             }
-
+            int row = 0;
             //This months user control
             for(int i = 1;i <= days; i++)
             {
                 DayUserControl duc = new DayUserControl();
                 duc.day(i);
+
+                if (i % 7 == 0) { row++;}
+
+                duc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top
+                    | System.Windows.Forms.AnchorStyles.Bottom)
+                    | System.Windows.Forms.AnchorStyles.Left) 
+                    | System.Windows.Forms.AnchorStyles.Right)));
+
                 month_container.Controls.Add(duc);
                 duc.eventsDisplay(i);
             }
+
+            //Resume container to update the visuals
+            month_container.ResumeLayout();
         }
 
         /*
@@ -117,7 +128,7 @@ namespace Daily_Digital_Task_Tracker
         {
             //Clears the container
             month_container.Controls.Clear();
-
+            month_container.Controls.Clear();
             //Checks to see if next changes year
             if (month == 12)
             {
@@ -151,8 +162,6 @@ namespace Daily_Digital_Task_Tracker
         private void Form1_Activated(object sender, EventArgs e)
         {
             month_container.Controls.Clear();
-            Console.WriteLine("aact");
-            CreateCSV();
             dateDisplay();
         }
 
@@ -173,8 +182,6 @@ namespace Daily_Digital_Task_Tracker
             }
             getIni();
             month_container.Controls.Clear();
-            Console.WriteLine("aact");
-            CreateCSV();
             dateDisplay();
         }
 
@@ -203,6 +210,7 @@ namespace Daily_Digital_Task_Tracker
 
 
             this.BackColor = ColorTranslator.FromHtml(backColour);
+            month_container.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
 
             //Button colours
             this.nextBtn.ForeColor = ColorTranslator.FromHtml(textColour);
@@ -230,6 +238,60 @@ namespace Daily_Digital_Task_Tracker
         public static String textColour;
         public static String buttonBackColour;
         public static String buttonBorderColour;
+
+
+        //Dynamic scale
+        public static Rectangle originalFormSize;
+        private Rectangle ThemebtnOriginalRectangle;
+        private Rectangle nextBtnOriginalRectangle;
+        private Rectangle prevBtnOriginalRectangle;
+        private Rectangle month_containerOriginalRectangle;
+        private Rectangle tableLayoutPanel1OriginalRectangle;
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Width, this.Height);
+            ThemebtnOriginalRectangle = new Rectangle(Themebtn.Location.X, Themebtn.Location.Y, Themebtn.Width, Themebtn.Height);
+            nextBtnOriginalRectangle = new Rectangle(nextBtn.Location.X, nextBtn.Location.Y, nextBtn.Width, nextBtn.Height);
+            prevBtnOriginalRectangle = new Rectangle(prevBtn.Location.X, prevBtn.Location.Y, prevBtn.Width, prevBtn.Height);
+            month_containerOriginalRectangle = new Rectangle(month_container.Location.X, month_container.Location.Y, month_container.Width, month_container.Height);
+            tableLayoutPanel1OriginalRectangle = new Rectangle(month_container.Location.X, month_container.Location.Y, month_container.Width, month_container.Height);
+        }
+        private void resizeControl(Rectangle r, Control c)
+        {
+            float xRatio = (float)(this.Width) / (float)(originalFormSize.Width );
+            float yRatio = (float)(this.Height) / (float)(originalFormSize.Height);
+
+            int newX = (int)(r.Location.X * xRatio);
+            int newY = (int)(r.Location.Y * yRatio);
+
+            int newWidth = (int)(r.Width * xRatio);
+            int newHeight = (int)(r.Height * yRatio);
+
+            c.Location = new Point(newX, newY);
+            c.Size = new Size(newWidth, newHeight);
+        }
+        private void Form1_ResizeBegin(object sender, EventArgs e)
+        {
+            //Suspends the container to stop lag during resize
+            month_container.SuspendLayout();
+        }
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            resizeControl(ThemebtnOriginalRectangle, Themebtn);
+            resizeControl(nextBtnOriginalRectangle, nextBtn);
+            resizeControl(prevBtnOriginalRectangle, prevBtn);
+            resizeControl(month_containerOriginalRectangle, month_container);
+            resizeControl(tableLayoutPanel1OriginalRectangle, month_container);
+        }
+
+        private void Form1_ResizeEnd(object sender, EventArgs e)
+        {
+            //Resume container to update the visuals
+            month_container.ResumeLayout();
+        }
+
+
     }
 }
 

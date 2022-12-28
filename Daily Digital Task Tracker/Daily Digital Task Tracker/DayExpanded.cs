@@ -29,7 +29,6 @@ namespace Daily_Digital_Task_Tracker
         {
             File.AppendAllText("Events.csv", eventDate_txt.Text + "," + eventName_txt.Text + "\n");
             MessageBox.Show("Created");
-
         }
         private void getIni()
         {
