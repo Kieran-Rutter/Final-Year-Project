@@ -39,8 +39,8 @@
             this.saturday_lbl = new System.Windows.Forms.Label();
             this.month_year_lbl = new System.Windows.Forms.Label();
             this.Themebtn = new System.Windows.Forms.Button();
-            this.month_container = new System.Windows.Forms.TableLayoutPanel();
             this.Dates_lbl_Container = new System.Windows.Forms.TableLayoutPanel();
+            this.month_container = new System.Windows.Forms.TableLayoutPanel();
             this.Dates_lbl_Container.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -199,28 +199,6 @@
             this.Themebtn.UseVisualStyleBackColor = true;
             this.Themebtn.Click += new System.EventHandler(this.Themebtn_Click);
             // 
-            // month_container
-            // 
-            this.month_container.ColumnCount = 7;
-            this.month_container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.month_container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.month_container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.month_container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.month_container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.month_container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.month_container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.month_container.Location = new System.Drawing.Point(12, 118);
-            this.month_container.Name = "month_container";
-            this.month_container.RowCount = 5;
-            this.month_container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.month_container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.month_container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.month_container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.month_container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.month_container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.month_container.Size = new System.Drawing.Size(1470, 966);
-            this.month_container.TabIndex = 12;
-            // 
             // Dates_lbl_Container
             // 
             this.Dates_lbl_Container.ColumnCount = 7;
@@ -244,8 +222,31 @@
             this.Dates_lbl_Container.RowCount = 2;
             this.Dates_lbl_Container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.Dates_lbl_Container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.Dates_lbl_Container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.Dates_lbl_Container.Size = new System.Drawing.Size(1470, 100);
             this.Dates_lbl_Container.TabIndex = 13;
+            // 
+            // month_container
+            // 
+            this.month_container.ColumnCount = 7;
+            this.month_container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.month_container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.month_container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.month_container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.month_container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.month_container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.month_container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.month_container.Location = new System.Drawing.Point(12, 118);
+            this.month_container.Name = "month_container";
+            this.month_container.RowCount = 5;
+            this.month_container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.month_container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.month_container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.month_container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.month_container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.month_container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
+            this.month_container.Size = new System.Drawing.Size(1470, 966);
+            this.month_container.TabIndex = 12;
             // 
             // Form1
             // 
@@ -284,8 +285,8 @@
         private System.Windows.Forms.Label saturday_lbl;
         private System.Windows.Forms.Label month_year_lbl;
         private System.Windows.Forms.Button Themebtn;
-        public System.Windows.Forms.TableLayoutPanel month_container;
         private System.Windows.Forms.TableLayoutPanel Dates_lbl_Container;
+        public System.Windows.Forms.TableLayoutPanel month_container;
     }
 }
 

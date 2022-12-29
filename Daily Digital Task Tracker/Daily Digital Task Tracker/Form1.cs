@@ -213,7 +213,7 @@ namespace Daily_Digital_Task_Tracker
 
 
             this.BackColor = ColorTranslator.FromHtml(backColour);
-            month_container.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
+            month_container.CellBorderStyle = TableLayoutPanelCellBorderStyle.None;
 
             //Button colours
             this.nextBtn.ForeColor = ColorTranslator.FromHtml(textColour);
