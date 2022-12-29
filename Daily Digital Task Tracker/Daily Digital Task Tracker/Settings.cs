@@ -8,7 +8,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
 namespace Daily_Digital_Task_Tracker
-{
+{//This reads an ini file to get the current theme.
     class Settings
     {
         public string iniPath = Application.StartupPath + @"\config.ini";

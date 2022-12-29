@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace Daily_Digital_Task_Tracker
 {
+    //Blank user control to be placed at start of the month is the 1st is not a sunday.
     public partial class EmptyUserControl : UserControl
     {
         public EmptyUserControl()

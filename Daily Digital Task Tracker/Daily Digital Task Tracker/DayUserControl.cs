@@ -42,25 +42,34 @@ namespace Daily_Digital_Task_Tracker
 
                     num++;
 
+                    //If there are more than 3 tasks stop adding them to the text box.
                     if (num <= 3)
                     {
                         eventsDisplay_txt.AppendText(num + ". " + parts[1] + "\r\n");
                     }
                 }
+                //displays the total number of tasks
                 if (num != 0)
                 {
                     eventsDisplay_txt.Text = num + " Tasks:" + "\r\n" + eventsDisplay_txt.Text;
                 }
             }
         }
-
+        //Loads day expanded form
         private void DayUserControl_Click(object sender, EventArgs e)
         {
             day_stc = date_lbl.Text;
             DayExpanded dayExpanded = new DayExpanded();
             dayExpanded.Show();
         }
-
+        private void eventsDisplay_txt_Click(object sender, EventArgs e)
+        {
+            //Loads day expanded form
+            day_stc = date_lbl.Text;
+            DayExpanded dayExpanded = new DayExpanded();
+            dayExpanded.Show();
+        }
+        //Function to set the theme
         private void getIni()
         {
             Settings settings = new Settings();
@@ -79,21 +88,16 @@ namespace Daily_Digital_Task_Tracker
         public static String backColour;
         public static String textColour;
 
-        private void eventsDisplay_txt_Click(object sender, EventArgs e)
-        {
-            day_stc = date_lbl.Text;
-            DayExpanded dayExpanded = new DayExpanded();
-            dayExpanded.Show();
-        }
-
         private void DayUserControl_Resize(object sender, EventArgs e)
         {
+            //Sets the text size based on Form1's resized size
             date_lbl.Font = Form1.largeFont;
             eventsDisplay_txt.Font = Form1.smallFont;
         }
 
         private void DayUserControl_Load(object sender, EventArgs e)
         {
+            //Sets the text size based on Form1's current size
             date_lbl.Font = Form1.largeFont;
             eventsDisplay_txt.Font = Form1.smallFont;
         }

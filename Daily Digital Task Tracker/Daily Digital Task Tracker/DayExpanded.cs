@@ -32,13 +32,16 @@ namespace Daily_Digital_Task_Tracker
                 this.mins_cmb.Items.Add(i.ToString());
             }
         }
-
+        //Creates a new task in the events csv file
         private void CreateEvent_btn_Click(object sender, EventArgs e)
         {
             File.AppendAllText("Events.csv", eventDate_txt.Text + "," + eventName_txt.Text + "," + 
                 seconds_cmb.Text + "," + mins_cmb.Text + "," + hours_cmb.Text + "\n");
             MessageBox.Show("Created");
+            //Adds new event to the combo box
+            task_cmb.Items.Add(eventName_txt.Text);
         }
+
         private void getIni()
         {
             Settings settings = new Settings();
@@ -105,10 +108,12 @@ namespace Daily_Digital_Task_Tracker
             minutes = (minutes + (hours * 60));
             counter = (seconds + (minutes * 60));
 
+            //Sets the progress bar settings
             progressBar1.Maximum = counter * 1000;
             progressBar1.Step = 1000;
             progressBar1.Value = 0;
 
+            //Sets the timer settings
             timer1 = new Timer();
             timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Interval = 1000;
@@ -117,11 +122,12 @@ namespace Daily_Digital_Task_Tracker
             label1.Text = counter.ToString();
 
         }
+        //Function is run when the timer ticks
         private void timer1_Tick(object sender, EventArgs e)
         {
             counter--;
 
-            // Perform one step
+            // Performs one step
             progressBar1.PerformStep();
 
             if (timer1.Enabled)
@@ -133,7 +139,7 @@ namespace Daily_Digital_Task_Tracker
                 timer1.Stop();
             }
         }
-
+        //Inserts the time into the input fields when a task is selected
         private void task_cmb_SelectedIndexChanged(object sender, EventArgs e)
         {
             searchCSV(task_cmb.Text, 1, 2, "time");
