@@ -25,11 +25,18 @@ namespace Daily_Digital_Task_Tracker
             getIni();
 
             searchCSV(eventDate_txt.Text, 0, 1, "startup");
+
+            for (int i = 0; i < 60; i++)
+            {
+                this.seconds_cmb.Items.Add(i.ToString());
+                this.mins_cmb.Items.Add(i.ToString());
+            }
         }
 
         private void CreateEvent_btn_Click(object sender, EventArgs e)
         {
-            File.AppendAllText("Events.csv", eventDate_txt.Text + "," + eventName_txt.Text + "," + eventTime_txt.Text + "\n");
+            File.AppendAllText("Events.csv", eventDate_txt.Text + "," + eventName_txt.Text + "," + 
+                seconds_cmb.Text + "," + mins_cmb.Text + "," + hours_cmb.Text + "\n");
             MessageBox.Show("Created");
         }
         private void getIni()
@@ -62,7 +69,7 @@ namespace Daily_Digital_Task_Tracker
             foreach (var line in lines)
             {
                 var values = line.Split(',');
-                if (values.Length == 3)
+                if (values.Length == 5)
                 {
                     if(values[0] == this.Text)
                     {
@@ -70,16 +77,66 @@ namespace Daily_Digital_Task_Tracker
                         {
                             if (mode == "startup")
                             {
+                                Console.WriteLine("startup " + values[posWrite]);
                                 task_cmb.Items.Add(values[posWrite]);
                             }
                             else if (mode == "time")
                             {
                                 Console.WriteLine(values[posWrite]);
+                                seconds_cmb.Text = values[posWrite];
+                                mins_cmb.Text = values[posWrite + 1];
+                                hours_cmb.Text = values[posWrite + 2];
                             }
                         }
                     }
                 }
             }
+        }
+        private int counter;
+        DateTime dt = new DateTime();
+        //https://stackoverflow.com/questions/10576024/c-sharp-windows-form-countdown-timer
+        private void start_btn_Click(object sender, EventArgs e)
+        {
+            //Calculates how long the counter needs to be
+            int seconds = Int32.Parse(seconds_cmb.Text);
+            int minutes = Int32.Parse(mins_cmb.Text);
+            int hours = Int32.Parse(hours_cmb.Text);
+
+            minutes = (minutes + (hours * 60));
+            counter = (seconds + (minutes * 60));
+
+            progressBar1.Maximum = counter * 1000;
+            progressBar1.Step = 1000;
+            progressBar1.Value = 0;
+
+            timer1 = new Timer();
+            timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Interval = 1000;
+            timer1.Start();
+
+            label1.Text = counter.ToString();
+
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            counter--;
+
+            // Perform one step
+            progressBar1.PerformStep();
+
+            if (timer1.Enabled)
+            {
+                label1.Text = dt.AddSeconds(counter).ToString("hh:mm:ss");
+            }
+            if (counter == 0)
+            {
+                timer1.Stop();
+            }
+        }
+
+        private void task_cmb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            searchCSV(task_cmb.Text, 1, 2, "time");
         }
     }
 }

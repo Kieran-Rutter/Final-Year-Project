@@ -29,13 +29,11 @@ namespace Daily_Digital_Task_Tracker
             resaultSize = GetPrivateProfileString("SECTION", "key", "", sbTheme, sbTheme.Capacity, iniPath);
         
             this.theme = sbTheme.ToString();
-            Console.WriteLine("Reading");
 
         }
         public void writeini(string section, string key, string value)
         {
             WritePrivateProfileString(section, key, value, iniPath);
-            Console.WriteLine("Writing");
         }
     }
 }

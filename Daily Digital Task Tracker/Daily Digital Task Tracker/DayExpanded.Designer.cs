@@ -28,11 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.eventName_txt = new System.Windows.Forms.TextBox();
             this.eventDate_txt = new System.Windows.Forms.TextBox();
             this.CreateEvent_btn = new System.Windows.Forms.Button();
-            this.eventTime_txt = new System.Windows.Forms.TextBox();
             this.time_btn = new System.Windows.Forms.Button();
+            this.seconds_cmb = new System.Windows.Forms.ComboBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.start_btn = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.mins_cmb = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.hours_cmb = new System.Windows.Forms.ComboBox();
             this.task_cmb = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
@@ -62,14 +69,6 @@
             this.CreateEvent_btn.UseVisualStyleBackColor = true;
             this.CreateEvent_btn.Click += new System.EventHandler(this.CreateEvent_btn_Click);
             // 
-            // eventTime_txt
-            // 
-            this.eventTime_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eventTime_txt.Location = new System.Drawing.Point(12, 94);
-            this.eventTime_txt.Name = "eventTime_txt";
-            this.eventTime_txt.Size = new System.Drawing.Size(437, 35);
-            this.eventTime_txt.TabIndex = 3;
-            // 
             // time_btn
             // 
             this.time_btn.Location = new System.Drawing.Point(453, 372);
@@ -80,13 +79,68 @@
             this.time_btn.UseVisualStyleBackColor = true;
             this.time_btn.Click += new System.EventHandler(this.time_btn_Click);
             // 
+            // seconds_cmb
+            // 
+            this.seconds_cmb.FormattingEnabled = true;
+            this.seconds_cmb.Location = new System.Drawing.Point(665, 215);
+            this.seconds_cmb.Name = "seconds_cmb";
+            this.seconds_cmb.Size = new System.Drawing.Size(123, 28);
+            this.seconds_cmb.TabIndex = 5;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // start_btn
+            // 
+            this.start_btn.Location = new System.Drawing.Point(574, 372);
+            this.start_btn.Name = "start_btn";
+            this.start_btn.Size = new System.Drawing.Size(101, 66);
+            this.start_btn.TabIndex = 7;
+            this.start_btn.Text = "Start";
+            this.start_btn.UseVisualStyleBackColor = true;
+            this.start_btn.Click += new System.EventHandler(this.start_btn_Click);
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(453, 326);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(335, 40);
+            this.progressBar1.TabIndex = 8;
+            // 
+            // mins_cmb
+            // 
+            this.mins_cmb.FormattingEnabled = true;
+            this.mins_cmb.Location = new System.Drawing.Point(665, 181);
+            this.mins_cmb.Name = "mins_cmb";
+            this.mins_cmb.Size = new System.Drawing.Size(123, 28);
+            this.mins_cmb.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(592, 281);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(71, 20);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "00:00:00";
+            // 
+            // hours_cmb
+            // 
+            this.hours_cmb.FormattingEnabled = true;
+            this.hours_cmb.Location = new System.Drawing.Point(665, 147);
+            this.hours_cmb.Name = "hours_cmb";
+            this.hours_cmb.Size = new System.Drawing.Size(123, 28);
+            this.hours_cmb.TabIndex = 12;
+            // 
             // task_cmb
             // 
             this.task_cmb.FormattingEnabled = true;
-            this.task_cmb.Location = new System.Drawing.Point(12, 136);
+            this.task_cmb.Location = new System.Drawing.Point(12, 147);
             this.task_cmb.Name = "task_cmb";
             this.task_cmb.Size = new System.Drawing.Size(437, 28);
-            this.task_cmb.TabIndex = 5;
+            this.task_cmb.TabIndex = 13;
+            this.task_cmb.SelectedIndexChanged += new System.EventHandler(this.task_cmb_SelectedIndexChanged);
             // 
             // DayExpanded
             // 
@@ -94,8 +148,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.task_cmb);
+            this.Controls.Add(this.hours_cmb);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.mins_cmb);
+            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.start_btn);
+            this.Controls.Add(this.seconds_cmb);
             this.Controls.Add(this.time_btn);
-            this.Controls.Add(this.eventTime_txt);
             this.Controls.Add(this.CreateEvent_btn);
             this.Controls.Add(this.eventDate_txt);
             this.Controls.Add(this.eventName_txt);
@@ -112,8 +171,14 @@
         private System.Windows.Forms.TextBox eventName_txt;
         private System.Windows.Forms.TextBox eventDate_txt;
         private System.Windows.Forms.Button CreateEvent_btn;
-        private System.Windows.Forms.TextBox eventTime_txt;
         private System.Windows.Forms.Button time_btn;
+        private System.Windows.Forms.ComboBox seconds_cmb;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button start_btn;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ComboBox mins_cmb;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox hours_cmb;
         private System.Windows.Forms.ComboBox task_cmb;
     }
 }

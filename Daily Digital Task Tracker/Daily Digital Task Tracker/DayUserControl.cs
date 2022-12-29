@@ -29,7 +29,7 @@ namespace Daily_Digital_Task_Tracker
         {
             getIni();
             string search = day.ToString() + "/" + Form1.month.ToString() + "/" + Form1.year.ToString();
-            Console.WriteLine(search);
+
             File.WriteAllLines("Temp.csv", File.ReadAllLines("Events.csv").Where(line => search.Equals(line.Split(',')[0])));
 
             using (StreamReader tempRead = new StreamReader("Temp.csv"))

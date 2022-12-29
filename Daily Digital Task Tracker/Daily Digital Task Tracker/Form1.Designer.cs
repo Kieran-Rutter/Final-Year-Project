@@ -97,7 +97,7 @@
             this.monday_lbl.Name = "monday_lbl";
             this.monday_lbl.Size = new System.Drawing.Size(203, 50);
             this.monday_lbl.TabIndex = 4;
-            this.monday_lbl.Text = "Mon";
+            this.monday_lbl.Text = "MON";
             this.monday_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tuesday_lbl
