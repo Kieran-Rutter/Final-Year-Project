@@ -12,6 +12,7 @@ using System.Windows.Forms;
 
 namespace Daily_Digital_Task_Tracker
 {
+
     public partial class Form1 : Form
     {
         //gets date
@@ -24,6 +25,16 @@ namespace Daily_Digital_Task_Tracker
             CreateCSV();
             getIni();
             dateDisplay();
+        }
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams handleparam = base.CreateParams;
+                handleparam.ExStyle |= 0x02000000;
+                return handleparam;
+            }
         }
 
         //Creates file in bin/debug
@@ -87,10 +98,6 @@ namespace Daily_Digital_Task_Tracker
             /*
              * Loops for user control
              */
-
-            //Suspends the container to stop flickering while controls are added
-            month_container.SuspendLayout();
-
             //Blank user control for last months
             for (int i = 1;i < daysInWeek; i++)
             {
@@ -114,9 +121,6 @@ namespace Daily_Digital_Task_Tracker
                 month_container.Controls.Add(duc);
                 duc.eventsDisplay(i);
             }
-
-            //Resume container to update the visuals
-            month_container.ResumeLayout();
         }
 
         /*
@@ -127,7 +131,6 @@ namespace Daily_Digital_Task_Tracker
         private void nextBtn_Click(object sender, EventArgs e)
         {
             //Clears the container
-            month_container.Controls.Clear();
             month_container.Controls.Clear();
             //Checks to see if next changes year
             if (month == 12)
@@ -245,6 +248,7 @@ namespace Daily_Digital_Task_Tracker
         private Rectangle ThemebtnOriginalRectangle;
         private Rectangle nextBtnOriginalRectangle;
         private Rectangle prevBtnOriginalRectangle;
+        private Rectangle Dates_lbl_ContainerOriginalRectangle;
         private Rectangle month_containerOriginalRectangle;
         private Rectangle tableLayoutPanel1OriginalRectangle;
 
@@ -254,6 +258,8 @@ namespace Daily_Digital_Task_Tracker
             ThemebtnOriginalRectangle = new Rectangle(Themebtn.Location.X, Themebtn.Location.Y, Themebtn.Width, Themebtn.Height);
             nextBtnOriginalRectangle = new Rectangle(nextBtn.Location.X, nextBtn.Location.Y, nextBtn.Width, nextBtn.Height);
             prevBtnOriginalRectangle = new Rectangle(prevBtn.Location.X, prevBtn.Location.Y, prevBtn.Width, prevBtn.Height);
+            Dates_lbl_ContainerOriginalRectangle = new Rectangle(Dates_lbl_Container.Location.X,
+                Dates_lbl_Container.Location.Y, Dates_lbl_Container.Width, Dates_lbl_Container.Height);
             month_containerOriginalRectangle = new Rectangle(month_container.Location.X, month_container.Location.Y, month_container.Width, month_container.Height);
             tableLayoutPanel1OriginalRectangle = new Rectangle(month_container.Location.X, month_container.Location.Y, month_container.Width, month_container.Height);
         }
@@ -281,14 +287,14 @@ namespace Daily_Digital_Task_Tracker
             resizeControl(ThemebtnOriginalRectangle, Themebtn);
             resizeControl(nextBtnOriginalRectangle, nextBtn);
             resizeControl(prevBtnOriginalRectangle, prevBtn);
+            resizeControl(Dates_lbl_ContainerOriginalRectangle, Dates_lbl_Container);
             resizeControl(month_containerOriginalRectangle, month_container);
             resizeControl(tableLayoutPanel1OriginalRectangle, month_container);
         }
 
         private void Form1_ResizeEnd(object sender, EventArgs e)
         {
-            //Resume container to update the visuals
-            month_container.ResumeLayout();
+
         }
 
 
