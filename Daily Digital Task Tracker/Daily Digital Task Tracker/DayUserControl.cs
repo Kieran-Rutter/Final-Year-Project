@@ -40,23 +40,21 @@ namespace Daily_Digital_Task_Tracker
                 {
                     string[] parts = line.Split(',');
 
-                    Console.WriteLine(parts[1]);
-
                     num++;
 
-                    eventsDisplay_txt.AppendText(num +". "+ parts[1] + "\r\n");
+                    if (num <= 3)
+                    {
+                        eventsDisplay_txt.AppendText(num + ". " + parts[1] + "\r\n");
+                    }
+                }
+                if (num != 0)
+                {
+                    eventsDisplay_txt.Text = num + " Tasks:" + "\r\n" + eventsDisplay_txt.Text;
                 }
             }
         }
 
         private void DayUserControl_Click(object sender, EventArgs e)
-        {
-            day_stc = date_lbl.Text;
-            DayExpanded dayExpanded = new DayExpanded();
-            dayExpanded.Show();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
         {
             day_stc = date_lbl.Text;
             DayExpanded dayExpanded = new DayExpanded();
@@ -77,14 +75,28 @@ namespace Daily_Digital_Task_Tracker
             this.eventsDisplay_txt.ForeColor = ColorTranslator.FromHtml(textColour);
             this.date_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
 
-            //Expand button
-            this.expand_btn.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.expand_btn.BackColor = ColorTranslator.FromHtml(backColour);
-            this.expand_btn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(textColour);
         }
         public static String backColour;
         public static String textColour;
 
+        private void eventsDisplay_txt_Click(object sender, EventArgs e)
+        {
+            day_stc = date_lbl.Text;
+            DayExpanded dayExpanded = new DayExpanded();
+            dayExpanded.Show();
+        }
+
+        private void DayUserControl_Resize(object sender, EventArgs e)
+        {
+            date_lbl.Font = Form1.largeFont;
+            eventsDisplay_txt.Font = Form1.smallFont;
+        }
+
+        private void DayUserControl_Load(object sender, EventArgs e)
+        {
+            date_lbl.Font = Form1.largeFont;
+            eventsDisplay_txt.Font = Form1.smallFont;
+        }
     }
     //https://stackoverflow.com/questions/2189376/how-to-change-row-color-in-datagridview
 }

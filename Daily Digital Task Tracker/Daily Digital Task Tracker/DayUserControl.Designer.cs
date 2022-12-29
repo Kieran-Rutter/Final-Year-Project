@@ -30,14 +30,15 @@
         {
             this.date_lbl = new System.Windows.Forms.Label();
             this.eventsDisplay_txt = new System.Windows.Forms.TextBox();
-            this.expand_btn = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // date_lbl
             // 
             this.date_lbl.AutoSize = true;
             this.date_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.date_lbl.Location = new System.Drawing.Point(4, 4);
+            this.date_lbl.Location = new System.Drawing.Point(3, 0);
             this.date_lbl.Name = "date_lbl";
             this.date_lbl.Size = new System.Drawing.Size(121, 29);
             this.date_lbl.TabIndex = 0;
@@ -51,40 +52,43 @@
             this.eventsDisplay_txt.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.eventsDisplay_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.eventsDisplay_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eventsDisplay_txt.Location = new System.Drawing.Point(3, 36);
+            this.eventsDisplay_txt.Location = new System.Drawing.Point(3, 32);
             this.eventsDisplay_txt.Multiline = true;
             this.eventsDisplay_txt.Name = "eventsDisplay_txt";
             this.eventsDisplay_txt.ReadOnly = true;
-            this.eventsDisplay_txt.Size = new System.Drawing.Size(194, 96);
+            this.eventsDisplay_txt.Size = new System.Drawing.Size(188, 134);
             this.eventsDisplay_txt.TabIndex = 1;
             this.eventsDisplay_txt.WordWrap = false;
+            this.eventsDisplay_txt.Click += new System.EventHandler(this.eventsDisplay_txt_Click);
             // 
-            // expand_btn
+            // tableLayoutPanel1
             // 
-            this.expand_btn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.expand_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.expand_btn.Location = new System.Drawing.Point(0, 138);
-            this.expand_btn.Name = "expand_btn";
-            this.expand_btn.Size = new System.Drawing.Size(200, 37);
-            this.expand_btn.TabIndex = 2;
-            this.expand_btn.Text = "+";
-            this.expand_btn.UseVisualStyleBackColor = true;
-            this.expand_btn.Click += new System.EventHandler(this.button1_Click);
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.date_lbl, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.eventsDisplay_txt, 0, 1);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(194, 169);
+            this.tableLayoutPanel1.TabIndex = 2;
             // 
             // DayUserControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Controls.Add(this.expand_btn);
-            this.Controls.Add(this.eventsDisplay_txt);
-            this.Controls.Add(this.date_lbl);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "DayUserControl";
             this.Size = new System.Drawing.Size(200, 175);
+            this.Load += new System.EventHandler(this.DayUserControl_Load);
             this.Click += new System.EventHandler(this.DayUserControl_Click);
+            this.Resize += new System.EventHandler(this.DayUserControl_Resize);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -92,6 +96,6 @@
 
         private System.Windows.Forms.Label date_lbl;
         private System.Windows.Forms.TextBox eventsDisplay_txt;
-        private System.Windows.Forms.Button expand_btn;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

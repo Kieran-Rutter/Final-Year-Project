@@ -244,13 +244,17 @@ namespace Daily_Digital_Task_Tracker
 
 
         //Dynamic scale
-        public static Rectangle originalFormSize;
+        private Rectangle originalFormSize;
         private Rectangle ThemebtnOriginalRectangle;
         private Rectangle nextBtnOriginalRectangle;
         private Rectangle prevBtnOriginalRectangle;
         private Rectangle Dates_lbl_ContainerOriginalRectangle;
         private Rectangle month_containerOriginalRectangle;
-        private Rectangle tableLayoutPanel1OriginalRectangle;
+
+        private float lblOriginalFontSize;
+        private float buttonlOriginalFontSize;
+
+        private float fontScale = 1f;
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -261,9 +265,16 @@ namespace Daily_Digital_Task_Tracker
             Dates_lbl_ContainerOriginalRectangle = new Rectangle(Dates_lbl_Container.Location.X,
                 Dates_lbl_Container.Location.Y, Dates_lbl_Container.Width, Dates_lbl_Container.Height);
             month_containerOriginalRectangle = new Rectangle(month_container.Location.X, month_container.Location.Y, month_container.Width, month_container.Height);
-            tableLayoutPanel1OriginalRectangle = new Rectangle(month_container.Location.X, month_container.Location.Y, month_container.Width, month_container.Height);
+
+
+            //Text
+            lblOriginalFontSize = sunday_lbl.Font.Size;
+            buttonlOriginalFontSize = nextBtn.Font.Size;
+
+            largeFont = sunday_lbl.Font;
+            smallFont = nextBtn.Font;
         }
-        private void resizeControl(Rectangle r, Control c)
+        public void resizeControl(Rectangle r, Control c, float originalFontSize)
         {
             float xRatio = (float)(this.Width) / (float)(originalFormSize.Width );
             float yRatio = (float)(this.Height) / (float)(originalFormSize.Height);
@@ -276,20 +287,43 @@ namespace Daily_Digital_Task_Tracker
 
             c.Location = new Point(newX, newY);
             c.Size = new Size(newWidth, newHeight);
+
+            float ratio = xRatio;
+            if(xRatio >= yRatio)
+            {
+                ratio = yRatio;
+            }
+
+            float newFontSize = originalFontSize * ratio * fontScale;
+            Font newFont = new Font(c.Font.FontFamily, newFontSize);
+            c.Font = newFont;
         }
         private void Form1_ResizeBegin(object sender, EventArgs e)
         {
-            //Suspends the container to stop lag during resize
-            month_container.SuspendLayout();
+
         }
+        public static Font largeFont;
+        public static Font smallFont;
         private void Form1_Resize(object sender, EventArgs e)
         {
-            resizeControl(ThemebtnOriginalRectangle, Themebtn);
-            resizeControl(nextBtnOriginalRectangle, nextBtn);
-            resizeControl(prevBtnOriginalRectangle, prevBtn);
-            resizeControl(Dates_lbl_ContainerOriginalRectangle, Dates_lbl_Container);
-            resizeControl(month_containerOriginalRectangle, month_container);
-            resizeControl(tableLayoutPanel1OriginalRectangle, month_container);
+            resizeControl(ThemebtnOriginalRectangle, Themebtn, buttonlOriginalFontSize);
+            resizeControl(nextBtnOriginalRectangle, nextBtn, buttonlOriginalFontSize);
+            resizeControl(prevBtnOriginalRectangle, prevBtn, buttonlOriginalFontSize);
+            resizeControl(Dates_lbl_ContainerOriginalRectangle, Dates_lbl_Container, lblOriginalFontSize);
+            //Need to redo text size.
+            resizeControl(month_containerOriginalRectangle, month_container, lblOriginalFontSize);
+
+            resizeControl(month_containerOriginalRectangle, month_year_lbl, lblOriginalFontSize);
+            resizeControl(month_containerOriginalRectangle, sunday_lbl, lblOriginalFontSize);
+            resizeControl(month_containerOriginalRectangle, monday_lbl, lblOriginalFontSize);
+            resizeControl(month_containerOriginalRectangle, tuesday_lbl, lblOriginalFontSize);
+            resizeControl(month_containerOriginalRectangle, wednesday_lbl, lblOriginalFontSize);
+            resizeControl(month_containerOriginalRectangle, thursday_lbl, lblOriginalFontSize);
+            resizeControl(month_containerOriginalRectangle, friday_lbl, lblOriginalFontSize);
+            resizeControl(month_containerOriginalRectangle, saturday_lbl, lblOriginalFontSize);
+
+            largeFont = sunday_lbl.Font;
+            smallFont = nextBtn.Font;
         }
 
         private void Form1_ResizeEnd(object sender, EventArgs e)
