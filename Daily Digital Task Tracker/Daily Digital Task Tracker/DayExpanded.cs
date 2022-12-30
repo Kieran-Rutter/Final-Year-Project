@@ -35,37 +35,18 @@ namespace Daily_Digital_Task_Tracker
         //Creates a new task in the events csv file
         private void CreateEvent_btn_Click(object sender, EventArgs e)
         {
-            File.AppendAllText("Events.csv", eventDate_txt.Text + "," + eventName_txt.Text + "," + 
+            File.AppendAllText("Events.csv", eventDate_txt.Text + "," + task_cmb.Text + "," +
                 seconds_cmb.Text + "," + mins_cmb.Text + "," + hours_cmb.Text + "\n");
             MessageBox.Show("Created");
             //Adds new event to the combo box
-            task_cmb.Items.Add(eventName_txt.Text);
+            task_cmb.Items.Add(task_cmb.Text);
         }
-
-        private void getIni()
-        {
-            Settings settings = new Settings();
-            settings.readIni();
-
-            backColour = Form1.backColour;
-            textColour = Form1.textColour;
-
-            //User control colours
-            this.BackColor = ColorTranslator.FromHtml(backColour);
-
-
-            //Expand button
-
-        }
-        public static String backColour;
-        public static String textColour;
-        public static String buttonBackColour;
 
         private void time_btn_Click(object sender, EventArgs e)
         {
-            searchCSV(task_cmb.Text,1 ,2, "time");
+            searchCSV(task_cmb.Text, 1, 2, "time");
         }
-        private void searchCSV(string search,int posSearch, int posWrite, string mode)
+        private void searchCSV(string search, int posSearch, int posWrite, string mode)
         {
             //Loop to find time of task
             var lines = File.ReadAllLines("Events.csv");
@@ -74,7 +55,7 @@ namespace Daily_Digital_Task_Tracker
                 var values = line.Split(',');
                 if (values.Length == 5)
                 {
-                    if(values[0] == this.Text)
+                    if (values[0] == this.Text)
                     {
                         if (values[posSearch] == search)
                         {
@@ -118,9 +99,6 @@ namespace Daily_Digital_Task_Tracker
             timer1.Tick += new EventHandler(timer1_Tick);
             timer1.Interval = 1000;
             timer1.Start();
-
-            label1.Text = counter.ToString();
-
         }
         //Function is run when the timer ticks
         private void timer1_Tick(object sender, EventArgs e)
@@ -130,9 +108,10 @@ namespace Daily_Digital_Task_Tracker
             // Performs one step
             progressBar1.PerformStep();
 
+
             if (timer1.Enabled)
             {
-                label1.Text = dt.AddSeconds(counter).ToString("hh:mm:ss");
+                label1.Text = dt.AddSeconds(counter).ToString("HH:mm:ss");
             }
             if (counter == 0)
             {
@@ -144,5 +123,48 @@ namespace Daily_Digital_Task_Tracker
         {
             searchCSV(task_cmb.Text, 1, 2, "time");
         }
+
+        /*
+         * Functions for theme and auto sizing
+         */
+
+        public static String backColour;
+        public static String textColour;
+        public static String buttonBackColour;
+        public static String buttonBorderColour;
+        private void getIni()
+        {
+            Settings settings = new Settings();
+            settings.readIni();
+
+            backColour = settings.backColour;
+            textColour = settings.textColour;
+            buttonBackColour = settings.buttonBackColour;
+            buttonBorderColour = settings.buttonBorderColour;
+
+            //User control colours
+            this.BackColor = ColorTranslator.FromHtml(backColour);
+
+            //Buttons
+            this.CreateEvent_btn.ForeColor = ColorTranslator.FromHtml(textColour);
+            this.CreateEvent_btn.BackColor = ColorTranslator.FromHtml(buttonBackColour);
+            this.CreateEvent_btn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
+
+            this.time_btn.ForeColor = ColorTranslator.FromHtml(textColour);
+            this.time_btn.BackColor = ColorTranslator.FromHtml(buttonBackColour);
+            this.time_btn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
+
+            this.start_btn.ForeColor = ColorTranslator.FromHtml(textColour);
+            this.start_btn.BackColor = ColorTranslator.FromHtml(buttonBackColour);
+            this.start_btn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
+
+            //Progress bar
+            this.progressBar1.ForeColor = ColorTranslator.FromHtml(textColour);
+            this.progressBar1.BackColor = ColorTranslator.FromHtml(buttonBackColour);
+
+            //Labels
+            this.label1.ForeColor = ColorTranslator.FromHtml(textColour);
+        }
+
     }
 }

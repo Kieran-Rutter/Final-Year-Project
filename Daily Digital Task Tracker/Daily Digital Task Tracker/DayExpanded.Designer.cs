@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.eventName_txt = new System.Windows.Forms.TextBox();
             this.eventDate_txt = new System.Windows.Forms.TextBox();
             this.CreateEvent_btn = new System.Windows.Forms.Button();
             this.time_btn = new System.Windows.Forms.Button();
@@ -43,24 +42,19 @@
             this.task_cmb = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // eventName_txt
-            // 
-            this.eventName_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eventName_txt.Location = new System.Drawing.Point(12, 53);
-            this.eventName_txt.Name = "eventName_txt";
-            this.eventName_txt.Size = new System.Drawing.Size(437, 35);
-            this.eventName_txt.TabIndex = 0;
-            // 
             // eventDate_txt
             // 
+            this.eventDate_txt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.eventDate_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.eventDate_txt.Location = new System.Drawing.Point(12, 12);
             this.eventDate_txt.Name = "eventDate_txt";
-            this.eventDate_txt.Size = new System.Drawing.Size(437, 35);
+            this.eventDate_txt.Size = new System.Drawing.Size(126, 35);
             this.eventDate_txt.TabIndex = 1;
+            this.eventDate_txt.Text = "44/44/4444";
             // 
             // CreateEvent_btn
             // 
+            this.CreateEvent_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CreateEvent_btn.Location = new System.Drawing.Point(12, 372);
             this.CreateEvent_btn.Name = "CreateEvent_btn";
             this.CreateEvent_btn.Size = new System.Drawing.Size(101, 66);
@@ -71,6 +65,7 @@
             // 
             // time_btn
             // 
+            this.time_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.time_btn.Location = new System.Drawing.Point(453, 372);
             this.time_btn.Name = "time_btn";
             this.time_btn.Size = new System.Drawing.Size(101, 66);
@@ -81,6 +76,7 @@
             // 
             // seconds_cmb
             // 
+            this.seconds_cmb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.seconds_cmb.FormattingEnabled = true;
             this.seconds_cmb.Location = new System.Drawing.Point(665, 215);
             this.seconds_cmb.Name = "seconds_cmb";
@@ -93,6 +89,7 @@
             // 
             // start_btn
             // 
+            this.start_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.start_btn.Location = new System.Drawing.Point(574, 372);
             this.start_btn.Name = "start_btn";
             this.start_btn.Size = new System.Drawing.Size(101, 66);
@@ -103,13 +100,15 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(453, 326);
+            this.progressBar1.Location = new System.Drawing.Point(455, 326);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(335, 40);
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar1.TabIndex = 8;
             // 
             // mins_cmb
             // 
+            this.mins_cmb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mins_cmb.FormattingEnabled = true;
             this.mins_cmb.Location = new System.Drawing.Point(665, 181);
             this.mins_cmb.Name = "mins_cmb";
@@ -119,14 +118,16 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(592, 281);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(552, 286);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 20);
+            this.label1.Size = new System.Drawing.Size(143, 37);
             this.label1.TabIndex = 11;
             this.label1.Text = "00:00:00";
             // 
             // hours_cmb
             // 
+            this.hours_cmb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.hours_cmb.FormattingEnabled = true;
             this.hours_cmb.Location = new System.Drawing.Point(665, 147);
             this.hours_cmb.Name = "hours_cmb";
@@ -135,8 +136,9 @@
             // 
             // task_cmb
             // 
+            this.task_cmb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.task_cmb.FormattingEnabled = true;
-            this.task_cmb.Location = new System.Drawing.Point(12, 147);
+            this.task_cmb.Location = new System.Drawing.Point(12, 53);
             this.task_cmb.Name = "task_cmb";
             this.task_cmb.Size = new System.Drawing.Size(437, 28);
             this.task_cmb.TabIndex = 13;
@@ -157,7 +159,6 @@
             this.Controls.Add(this.time_btn);
             this.Controls.Add(this.CreateEvent_btn);
             this.Controls.Add(this.eventDate_txt);
-            this.Controls.Add(this.eventName_txt);
             this.Name = "DayExpanded";
             this.Text = "DayExpanded";
             this.Load += new System.EventHandler(this.DayExpanded_Load);
@@ -167,8 +168,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox eventName_txt;
         private System.Windows.Forms.TextBox eventDate_txt;
         private System.Windows.Forms.Button CreateEvent_btn;
         private System.Windows.Forms.Button time_btn;

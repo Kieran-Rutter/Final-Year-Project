@@ -168,29 +168,41 @@ namespace Daily_Digital_Task_Tracker
             dateDisplay();
         }
 
+        //Will be moved to another form later
         private void Themebtn_Click(object sender, EventArgs e)
         {
             Settings set = new Settings();
-            Console.WriteLine(set.theme);
             set.readIni();
             if (set.theme == "light")
             {
                 set.writeini("SECTION", "key", "dark");
-                Console.WriteLine("dark already exists");
+                set.writeini("SECTION", "backColour", "F8F9FA");
+                set.writeini("SECTION", "textColour", "000000");
+                set.writeini("SECTION", "buttonBackColour", "CED4DA");
+                set.writeini("SECTION", "buttonBorderColour", "ADB5BD");
             }
             else if (set.theme == "dark")
             {
+                Console.WriteLine("dark");
                 set.writeini("SECTION", "key", "light");
-                Console.WriteLine("light already exists");
+                set.writeini("SECTION", "backColour", "1C1C21");
+                set.writeini("SECTION", "textColour", "FFF1F1F1");
+                set.writeini("SECTION", "buttonBackColour", "393A41");
+                set.writeini("SECTION", "buttonBorderColour", "4B4C52");
             }
             getIni();
             month_container.Controls.Clear();
             dateDisplay();
         }
-        
+
         /*
          * Functions for theme and auto sizing
          */
+
+        public static String backColour;
+        public static String textColour;
+        public static String buttonBackColour;
+        public static String buttonBorderColour;
 
         //https://learn.microsoft.com/en-us/visualstudio/extensibility/ux-guidelines/color-value-reference-for-visual-studio?view=vs-2022
         private void getIni()
@@ -199,21 +211,11 @@ namespace Daily_Digital_Task_Tracker
             settings.readIni();
             //https://coolors.co/palettes/trending
             //https://coolors.co/palette/131316-1c1c21-26262c-2f3037-393a41-4b4c52-5b5c62-6a6b70
-            if (settings.theme == "light")
-            {
-                backColour = "#F8F9FA";
-                textColour = "#000000";
-                buttonBackColour = "#CED4DA";
-                buttonBorderColour = "#ADB5BD";
-            }
 
-            if (settings.theme == "dark")
-            {
-                backColour = "#1C1C21";
-                textColour = "#FFF1F1F1";
-                buttonBackColour = "#393A41";
-                buttonBorderColour = "#4B4C52";
-            }
+            backColour = settings.backColour;
+            textColour = settings.textColour;
+            buttonBackColour = settings.buttonBackColour;
+            buttonBorderColour = settings.buttonBorderColour;
 
 
             this.BackColor = ColorTranslator.FromHtml(backColour);
@@ -241,10 +243,7 @@ namespace Daily_Digital_Task_Tracker
             this.saturday_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
             this.sunday_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
         }
-        public static String backColour;
-        public static String textColour;
-        public static String buttonBackColour;
-        public static String buttonBorderColour;
+
 
 
         //Dynamic scale
