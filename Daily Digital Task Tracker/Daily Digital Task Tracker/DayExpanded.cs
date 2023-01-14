@@ -37,6 +37,11 @@ namespace Daily_Digital_Task_Tracker
                 this.hours_cmb.Items.Add(i.ToString());
             }
 
+            //Sets the timer settings
+            timer1 = new Timer();
+            timer1.Tick += new EventHandler(timer1_Tick);
+            timer1.Interval = 1000;
+
             //function at bottom to reduce code clutter.
             originalRectangle();
 
@@ -86,24 +91,31 @@ namespace Daily_Digital_Task_Tracker
         //https://stackoverflow.com/questions/10576024/c-sharp-windows-form-countdown-timer
         private void start_btn_Click(object sender, EventArgs e)
         {
-            //Calculates how long the counter needs to be
-            int seconds = Int32.Parse(seconds_cmb.Text);
-            int minutes = Int32.Parse(mins_cmb.Text);
-            int hours = Int32.Parse(hours_cmb.Text);
+            if (start_btn.Text == "Start"){
+                //Calculates how long the counter needs to be
+                int seconds = Int32.Parse(seconds_cmb.Text);
+                int minutes = Int32.Parse(mins_cmb.Text);
+                int hours = Int32.Parse(hours_cmb.Text);
 
-            minutes = (minutes + (hours * 60));
-            counter = (seconds + (minutes * 60));
+                minutes = (minutes + (hours * 60));
+                counter = (seconds + (minutes * 60));
 
-            //Sets the progress bar settings
-            progressBar1.Maximum = counter * 1000;
-            progressBar1.Step = 1000;
-            progressBar1.Value = 0;
+                //Sets the progress bar
+                progressBar.Series[0].Points[0].YValues[0] = counter;
 
-            //Sets the timer settings
-            timer1 = new Timer();
-            timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Interval = 1000;
-            timer1.Start();
+                timer1.Start();
+                start_btn.Text = "Pause";
+            }
+            else if (start_btn.Text == "Pause")
+            {
+                timer1.Stop();
+                start_btn.Text = "Resume";
+            }
+            else if (start_btn.Text == "Resume")
+            {
+                timer1.Start();
+                start_btn.Text = "Pause";
+            }
         }
         //Function is run when the timer ticks
         private void timer1_Tick(object sender, EventArgs e)
@@ -111,8 +123,9 @@ namespace Daily_Digital_Task_Tracker
             counter--;
 
             // Performs one step
-            progressBar1.PerformStep();
-
+            progressBar.Series[0].Points[0].YValues[0] -= 1;
+            progressBar.Series[0].Points[1].YValues[0] += 1;
+            progressBar.Refresh();
 
             if (timer1.Enabled)
             {
@@ -161,10 +174,6 @@ namespace Daily_Digital_Task_Tracker
             this.start_btn.BackColor = ColorTranslator.FromHtml(buttonBackColour);
             this.start_btn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
 
-            //Progress bar
-            this.progressBar1.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.progressBar1.BackColor = ColorTranslator.FromHtml(buttonBackColour);
-
             //Labels
             this.timer_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
             this.date_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
@@ -180,7 +189,7 @@ namespace Daily_Digital_Task_Tracker
             resizeControl(mins_cmbOriginalRectangle, mins_cmb, cmbOriginalFontSize);
             resizeControl(seconds_cmbOriginalRectangle, seconds_cmb, cmbOriginalFontSize);
 
-            resizeControl(progressBarOriginalRectangle, progressBar1, buttonlOriginalFontSize);
+            resizeControl(progressBarOriginalRectangle, progressBar, buttonlOriginalFontSize);
 
             //Labels
             resizeControl(date_lblOriginalRectangle, date_lbl, date_lblOriginalFontSize);
@@ -232,8 +241,8 @@ namespace Daily_Digital_Task_Tracker
                 seconds_cmb.Width, seconds_cmb.Height);
 
             //Progress bar
-            progressBarOriginalRectangle = new Rectangle(progressBar1.Location.X, progressBar1.Location.Y,
-                progressBar1.Width, progressBar1.Height);
+            progressBarOriginalRectangle = new Rectangle(progressBar.Location.X, progressBar.Location.Y,
+                progressBar.Width, progressBar.Height);
 
             //Labels
             date_lblOriginalRectangle = new Rectangle(date_lbl.Location.X, date_lbl.Location.Y,
@@ -270,5 +279,10 @@ namespace Daily_Digital_Task_Tracker
         private float timer_lblOriginalFontSize;
         private float buttonlOriginalFontSize;
         private float cmbOriginalFontSize;
+
+        private void progressBar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

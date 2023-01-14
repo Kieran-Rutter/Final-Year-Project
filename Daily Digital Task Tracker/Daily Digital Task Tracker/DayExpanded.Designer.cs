@@ -29,16 +29,21 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 100D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             this.CreateEvent_btn = new System.Windows.Forms.Button();
             this.seconds_cmb = new System.Windows.Forms.ComboBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.start_btn = new System.Windows.Forms.Button();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.mins_cmb = new System.Windows.Forms.ComboBox();
             this.timer_lbl = new System.Windows.Forms.Label();
             this.hours_cmb = new System.Windows.Forms.ComboBox();
             this.task_cmb = new System.Windows.Forms.ComboBox();
             this.date_lbl = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)(this.progressBar)).BeginInit();
             this.SuspendLayout();
             // 
             // CreateEvent_btn
@@ -78,14 +83,6 @@
             this.start_btn.Text = "Start";
             this.start_btn.UseVisualStyleBackColor = true;
             this.start_btn.Click += new System.EventHandler(this.start_btn_Click);
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Location = new System.Drawing.Point(455, 257);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(333, 37);
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.progressBar1.TabIndex = 8;
             // 
             // mins_cmb
             // 
@@ -138,17 +135,42 @@
             this.date_lbl.TabIndex = 14;
             this.date_lbl.Text = "44/44/4444";
             // 
+            // progressBar
+            // 
+            this.progressBar.BackColor = System.Drawing.Color.Transparent;
+            this.progressBar.BorderlineColor = System.Drawing.Color.Transparent;
+            chartArea1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.BackSecondaryColor = System.Drawing.Color.Transparent;
+            chartArea1.BorderColor = System.Drawing.Color.Transparent;
+            chartArea1.Name = "ChartArea1";
+            chartArea1.ShadowColor = System.Drawing.Color.Transparent;
+            this.progressBar.ChartAreas.Add(chartArea1);
+            this.progressBar.Location = new System.Drawing.Point(455, 62);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Berry;
+            series1.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.NotSet;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.Name = "Series1";
+            series1.Points.Add(dataPoint1);
+            series1.Points.Add(dataPoint2);
+            series1.ShadowColor = System.Drawing.Color.Transparent;
+            this.progressBar.Series.Add(series1);
+            this.progressBar.Size = new System.Drawing.Size(333, 253);
+            this.progressBar.TabIndex = 16;
+            this.progressBar.Click += new System.EventHandler(this.progressBar_Click);
+            // 
             // DayExpanded
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.date_lbl);
             this.Controls.Add(this.task_cmb);
             this.Controls.Add(this.hours_cmb);
             this.Controls.Add(this.timer_lbl);
             this.Controls.Add(this.mins_cmb);
-            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.start_btn);
             this.Controls.Add(this.seconds_cmb);
             this.Controls.Add(this.CreateEvent_btn);
@@ -156,6 +178,7 @@
             this.Text = "DayExpanded";
             this.Load += new System.EventHandler(this.DayExpanded_Load);
             this.Resize += new System.EventHandler(this.DayExpanded_Resize);
+            ((System.ComponentModel.ISupportInitialize)(this.progressBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -171,6 +194,6 @@
         private System.Windows.Forms.ComboBox hours_cmb;
         private System.Windows.Forms.ComboBox task_cmb;
         private System.Windows.Forms.Label date_lbl;
-        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart progressBar;
     }
 }
