@@ -68,10 +68,6 @@
             this.seconds_cmb.Size = new System.Drawing.Size(345, 37);
             this.seconds_cmb.TabIndex = 5;
             // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // start_btn
             // 
             this.start_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

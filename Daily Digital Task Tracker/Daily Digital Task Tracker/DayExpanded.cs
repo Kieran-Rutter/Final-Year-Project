@@ -13,6 +13,10 @@ namespace Daily_Digital_Task_Tracker
 {
     public partial class DayExpanded : Form
     {
+        public static int seconds;
+        public static int minutes;
+        public static int hours;
+
         public DayExpanded()
         {
             InitializeComponent();
@@ -36,11 +40,6 @@ namespace Daily_Digital_Task_Tracker
             {
                 this.hours_cmb.Items.Add(i.ToString());
             }
-
-            //Sets the timer settings
-            timer1 = new Timer();
-            timer1.Tick += new EventHandler(timer1_Tick);
-            timer1.Interval = 1000;
 
             //function at bottom to reduce code clutter.
             originalRectangle();
@@ -86,56 +85,21 @@ namespace Daily_Digital_Task_Tracker
                 }
             }
         }
-        private int counter;
-        DateTime dt = new DateTime();
         //https://stackoverflow.com/questions/10576024/c-sharp-windows-form-countdown-timer
         private void start_btn_Click(object sender, EventArgs e)
         {
-            if (start_btn.Text == "Start"){
-                //Calculates how long the counter needs to be
-                int seconds = Int32.Parse(seconds_cmb.Text);
-                int minutes = Int32.Parse(mins_cmb.Text);
-                int hours = Int32.Parse(hours_cmb.Text);
+            //Calculates how long the counter needs to be
+            seconds = Int32.Parse(seconds_cmb.Text);
+            minutes = Int32.Parse(mins_cmb.Text);
+            hours = Int32.Parse(hours_cmb.Text);
 
-                minutes = (minutes + (hours * 60));
-                counter = (seconds + (minutes * 60));
+            minutes = (minutes + (hours * 60));
 
-                //Sets the progress bar
-                progressBar.Series[0].Points[0].YValues[0] = counter;
 
-                timer1.Start();
-                start_btn.Text = "Pause";
-            }
-            else if (start_btn.Text == "Pause")
-            {
-                timer1.Stop();
-                start_btn.Text = "Resume";
-            }
-            else if (start_btn.Text == "Resume")
-            {
-                timer1.Start();
-                start_btn.Text = "Pause";
-            }
+            TimerExpanded timerExpanded = new TimerExpanded();
+            timerExpanded.Show();
         }
-        //Function is run when the timer ticks
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            counter--;
 
-            // Performs one step
-            progressBar.Series[0].Points[0].YValues[0] -= 1;
-            progressBar.Series[0].Points[1].YValues[0] += 1;
-            progressBar.Refresh();
-
-            if (timer1.Enabled)
-            {
-                timer_lbl.Text = dt.AddSeconds(counter).ToString("HH:mm:ss");
-            }
-            if (counter == 0)
-            {
-                timer1.Stop();
-            }
-        }
         //Inserts the time into the input fields when a task is selected
         private void task_cmb_SelectedIndexChanged(object sender, EventArgs e)
         {
