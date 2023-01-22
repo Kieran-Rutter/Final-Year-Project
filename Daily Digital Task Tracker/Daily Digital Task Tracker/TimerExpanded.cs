@@ -12,6 +12,8 @@ namespace Daily_Digital_Task_Tracker
 {
     public partial class TimerExpanded : Form
     {
+        //Shown used to make sure the form has fully loaded, used to make sure form does not try to resize before loaded.
+        private static bool shown = false;
         public TimerExpanded()
         {
             InitializeComponent();
@@ -151,13 +153,16 @@ namespace Daily_Digital_Task_Tracker
 
         private void TimerExpanded_Resize(object sender, EventArgs e)
         {
-            resizeControl(start_btnOriginalRectangle, start_btn, buttonlOriginalFontSize);
+            if (shown)
+            {
+                resizeControl(start_btnOriginalRectangle, start_btn, buttonlOriginalFontSize);
 
-            resizeControl(progressBarOriginalRectangle, progressBar, buttonlOriginalFontSize);
+                resizeControl(progressBarOriginalRectangle, progressBar, buttonlOriginalFontSize);
 
-            //Labels
-            resizeControl(timer_lblOriginalRectangle, timer_lbl, timer_lblOriginalFontSize);
-            progressBar.Titles[0].Font = timer_lbl.Font;
+                //Labels
+                resizeControl(timer_lblOriginalRectangle, timer_lbl, timer_lblOriginalFontSize);
+                progressBar.Titles[0].Font = timer_lbl.Font;
+            }
         }
 
         private void TimerExpanded_Shown(object sender, EventArgs e)
@@ -179,6 +184,8 @@ namespace Daily_Digital_Task_Tracker
             //Text
             timer_lblOriginalFontSize = timer_lbl.Font.Size;
             buttonlOriginalFontSize = start_btn.Font.Size;
+
+            shown = true;
         }
     }
 }

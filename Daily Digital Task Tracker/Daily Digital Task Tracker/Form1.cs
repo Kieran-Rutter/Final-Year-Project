@@ -13,9 +13,10 @@ using System.Windows.Forms;
 //https://icon-icons.com/license
 namespace Daily_Digital_Task_Tracker
 {
-
     public partial class Form1 : Form
     {
+        //Shown used to make sure the form has fully loaded, used to make sure form does not try to resize before loaded.
+        private static bool shown = false;
         //gets date
         static DateTime currentTime = DateTime.Now;
         public static int month = currentTime.Month;
@@ -284,30 +285,35 @@ namespace Daily_Digital_Task_Tracker
 
             largeFont = sunday_lbl.Font;
             smallFont = nextBtn.Font;
+
+            shown = true;
         }
         public static Font largeFont;
         public static Font smallFont;
         //When for is being reszied the resize control function is called to calculate new sizes
         private void Form1_Resize(object sender, EventArgs e)
         {
-            resizeControl(ThemebtnOriginalRectangle, Themebtn, buttonlOriginalFontSize);
-            resizeControl(nextBtnOriginalRectangle, nextBtn, buttonlOriginalFontSize);
-            resizeControl(prevBtnOriginalRectangle, prevBtn, buttonlOriginalFontSize);
-            resizeControl(Dates_lbl_ContainerOriginalRectangle, Dates_lbl_Container, lblOriginalFontSize);
-            //Need to redo text size.
-            resizeControl(month_containerOriginalRectangle, month_container, lblOriginalFontSize);
+            if (shown)
+            {
+                resizeControl(ThemebtnOriginalRectangle, Themebtn, buttonlOriginalFontSize);
+                resizeControl(nextBtnOriginalRectangle, nextBtn, buttonlOriginalFontSize);
+                resizeControl(prevBtnOriginalRectangle, prevBtn, buttonlOriginalFontSize);
+                resizeControl(Dates_lbl_ContainerOriginalRectangle, Dates_lbl_Container, lblOriginalFontSize);
+                //Need to redo text size.
+                resizeControl(month_containerOriginalRectangle, month_container, lblOriginalFontSize);
 
-            resizeControl(month_containerOriginalRectangle, month_year_lbl, lblOriginalFontSize);
-            resizeControl(month_containerOriginalRectangle, sunday_lbl, lblOriginalFontSize);
-            resizeControl(month_containerOriginalRectangle, monday_lbl, lblOriginalFontSize);
-            resizeControl(month_containerOriginalRectangle, tuesday_lbl, lblOriginalFontSize);
-            resizeControl(month_containerOriginalRectangle, wednesday_lbl, lblOriginalFontSize);
-            resizeControl(month_containerOriginalRectangle, thursday_lbl, lblOriginalFontSize);
-            resizeControl(month_containerOriginalRectangle, friday_lbl, lblOriginalFontSize);
-            resizeControl(month_containerOriginalRectangle, saturday_lbl, lblOriginalFontSize);
+                resizeControl(month_containerOriginalRectangle, month_year_lbl, lblOriginalFontSize);
+                resizeControl(month_containerOriginalRectangle, sunday_lbl, lblOriginalFontSize);
+                resizeControl(month_containerOriginalRectangle, monday_lbl, lblOriginalFontSize);
+                resizeControl(month_containerOriginalRectangle, tuesday_lbl, lblOriginalFontSize);
+                resizeControl(month_containerOriginalRectangle, wednesday_lbl, lblOriginalFontSize);
+                resizeControl(month_containerOriginalRectangle, thursday_lbl, lblOriginalFontSize);
+                resizeControl(month_containerOriginalRectangle, friday_lbl, lblOriginalFontSize);
+                resizeControl(month_containerOriginalRectangle, saturday_lbl, lblOriginalFontSize);
 
-            largeFont = sunday_lbl.Font;
-            smallFont = nextBtn.Font;
+                largeFont = sunday_lbl.Font;
+                smallFont = nextBtn.Font;
+            }
         }
         //Resize control function to calculate new sizes
         public void resizeControl(Rectangle r, Control c, float originalFontSize)

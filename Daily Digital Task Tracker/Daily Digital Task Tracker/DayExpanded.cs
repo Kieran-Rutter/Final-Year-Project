@@ -16,6 +16,8 @@ namespace Daily_Digital_Task_Tracker
         public static int seconds;
         public static int minutes;
         public static int hours;
+        //Shown used to make sure the form has fully loaded, used to make sure form does not try to resize before loaded.
+        private static bool shown = false;
 
         public DayExpanded()
         {
@@ -143,21 +145,23 @@ namespace Daily_Digital_Task_Tracker
 
         private void DayExpanded_Resize(object sender, EventArgs e)
         {
-            resizeControl(CreateEvent_btnlOriginalRectangle, CreateEvent_btn, buttonlOriginalFontSize);
-            //Combo box
-            resizeControl(task_cmbOriginalRectangle, task_cmb, cmbOriginalFontSize);
-            resizeControl(hours_cmbOriginalRectangle, hours_cmb, cmbOriginalFontSize);
-            resizeControl(mins_cmbOriginalRectangle, mins_cmb, cmbOriginalFontSize);
-            resizeControl(seconds_cmbOriginalRectangle, seconds_cmb, cmbOriginalFontSize);
+            if (shown)
+            {
+                resizeControl(CreateEvent_btnlOriginalRectangle, CreateEvent_btn, buttonlOriginalFontSize);
+                //Combo box
+                resizeControl(task_cmbOriginalRectangle, task_cmb, cmbOriginalFontSize);
+                resizeControl(hours_cmbOriginalRectangle, hours_cmb, cmbOriginalFontSize);
+                resizeControl(mins_cmbOriginalRectangle, mins_cmb, cmbOriginalFontSize);
+                resizeControl(seconds_cmbOriginalRectangle, seconds_cmb, cmbOriginalFontSize);
 
-            //Labels
-            resizeControl(date_lblOriginalRectangle, date_lbl, date_lblOriginalFontSize);
+                //Labels
+                resizeControl(date_lblOriginalRectangle, date_lbl, date_lblOriginalFontSize);
 
-            resizeControl(taskName_lblOriginalRectangle, taskName_lbl, time_lblOriginalFontSize);
-            resizeControl(hours_lblOriginalRectangle, hours_lbl, time_lblOriginalFontSize);
-            resizeControl(minutes_lblOriginalRectangle, mins_lbl, time_lblOriginalFontSize);
-            resizeControl(seconds_lblOriginalRectangle, seconds_lbl, time_lblOriginalFontSize);
-
+                resizeControl(taskName_lblOriginalRectangle, taskName_lbl, time_lblOriginalFontSize);
+                resizeControl(hours_lblOriginalRectangle, hours_lbl, time_lblOriginalFontSize);
+                resizeControl(minutes_lblOriginalRectangle, mins_lbl, time_lblOriginalFontSize);
+                resizeControl(seconds_lblOriginalRectangle, seconds_lbl, time_lblOriginalFontSize);
+            }
         }
 
         //Resize control function to calculate new sizes
@@ -221,6 +225,8 @@ namespace Daily_Digital_Task_Tracker
 
             date_lblOriginalFontSize = date_lbl.Font.Size;
             time_lblOriginalFontSize = taskName_lbl.Font.Size;
+
+            shown = true;
         }
 
 
