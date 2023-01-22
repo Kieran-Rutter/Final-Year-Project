@@ -45,8 +45,6 @@ namespace Daily_Digital_Task_Tracker
         private void TimerExpanded_Load(object sender, EventArgs e)
         {
             getIni();
-            //function at bottom to reduce code clutter.
-            originalRectangle();
 
             //Calculates how long the counter needs to be
             counter = (DayExpanded.seconds + (DayExpanded.minutes * 60));
@@ -140,27 +138,7 @@ namespace Daily_Digital_Task_Tracker
             c.Font = newFont;
         }
 
-        public void originalRectangle()
-        {
-            //Variables for resize
-            originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Width, this.Height);
-            start_btnOriginalRectangle = new Rectangle(start_btn.Location.X, start_btn.Location.Y,
-                start_btn.Width, start_btn.Height);
 
-
-            //Progress bar
-            progressBarOriginalRectangle = new Rectangle(progressBar.Location.X, progressBar.Location.Y,
-                progressBar.Width, progressBar.Height);
-
-            //Labels
-            timer_lblOriginalRectangle = new Rectangle(timer_lbl.Location.X, timer_lbl.Location.Y,
-                timer_lbl.Width, timer_lbl.Height);
-
-            //Text
-            timer_lblOriginalFontSize = timer_lbl.Font.Size;
-            buttonlOriginalFontSize = start_btn.Font.Size;
-
-        }
         private Rectangle originalFormSize;
         private Rectangle start_btnOriginalRectangle;
 
@@ -180,6 +158,27 @@ namespace Daily_Digital_Task_Tracker
             //Labels
             resizeControl(timer_lblOriginalRectangle, timer_lbl, timer_lblOriginalFontSize);
             progressBar.Titles[0].Font = timer_lbl.Font;
+        }
+
+        private void TimerExpanded_Shown(object sender, EventArgs e)
+        {
+            //Variables for resize
+            originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Width, this.Height);
+            start_btnOriginalRectangle = new Rectangle(start_btn.Location.X, start_btn.Location.Y,
+                start_btn.Width, start_btn.Height);
+
+
+            //Progress bar
+            progressBarOriginalRectangle = new Rectangle(progressBar.Location.X, progressBar.Location.Y,
+                progressBar.Width, progressBar.Height);
+
+            //Labels
+            timer_lblOriginalRectangle = new Rectangle(timer_lbl.Location.X, timer_lbl.Location.Y,
+                timer_lbl.Width, timer_lbl.Height);
+
+            //Text
+            timer_lblOriginalFontSize = timer_lbl.Font.Size;
+            buttonlOriginalFontSize = start_btn.Font.Size;
         }
     }
 }

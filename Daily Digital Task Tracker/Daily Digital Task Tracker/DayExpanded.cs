@@ -43,10 +43,6 @@ namespace Daily_Digital_Task_Tracker
             {
                 this.hours_cmb.Items.Add(i.ToString());
             }
-
-            //function at bottom to reduce code clutter.
-            originalRectangle();
-
         }
         //Creates a new task in the events csv file
         private void CreateEvent_btn_Click(object sender, EventArgs e)
@@ -189,10 +185,10 @@ namespace Daily_Digital_Task_Tracker
             Font newFont = new Font(c.Font.FontFamily, newFontSize);
             c.Font = newFont;
         }
-        public void originalRectangle()
+        private void DayExpanded_Shown(object sender, EventArgs e)
         {
-            //Variables for resize
-            originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Width, this.Height);
+        //Variables for resize
+        originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Width, this.Height);
             CreateEvent_btnlOriginalRectangle = new Rectangle(CreateEvent_btn.Location.X, CreateEvent_btn.Location.Y,
                 CreateEvent_btn.Width, CreateEvent_btn.Height);
             //Combo boxes
@@ -226,6 +222,8 @@ namespace Daily_Digital_Task_Tracker
             date_lblOriginalFontSize = date_lbl.Font.Size;
             time_lblOriginalFontSize = taskName_lbl.Font.Size;
         }
+
+
         private Rectangle originalFormSize;
         private Rectangle CreateEvent_btnlOriginalRectangle;
 

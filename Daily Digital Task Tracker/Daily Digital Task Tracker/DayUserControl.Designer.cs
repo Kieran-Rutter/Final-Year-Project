@@ -37,10 +37,10 @@
             // date_lbl
             // 
             this.date_lbl.AutoSize = true;
-            this.date_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
             this.date_lbl.Location = new System.Drawing.Point(3, 0);
             this.date_lbl.Name = "date_lbl";
-            this.date_lbl.Size = new System.Drawing.Size(121, 29);
+            this.date_lbl.Size = new System.Drawing.Size(179, 40);
             this.date_lbl.TabIndex = 0;
             this.date_lbl.Text = "blankDate";
             // 
@@ -52,7 +52,7 @@
             this.eventsDisplay_txt.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.eventsDisplay_txt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.eventsDisplay_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.eventsDisplay_txt.Location = new System.Drawing.Point(3, 32);
+            this.eventsDisplay_txt.Location = new System.Drawing.Point(3, 43);
             this.eventsDisplay_txt.Multiline = true;
             this.eventsDisplay_txt.Name = "eventsDisplay_txt";
             this.eventsDisplay_txt.ReadOnly = true;

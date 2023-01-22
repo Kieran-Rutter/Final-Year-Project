@@ -191,6 +191,7 @@
             this.Name = "DayExpanded";
             this.Text = "DayExpanded";
             this.Load += new System.EventHandler(this.DayExpanded_Load);
+            this.Shown += new System.EventHandler(this.DayExpanded_Shown);
             this.Resize += new System.EventHandler(this.DayExpanded_Resize);
             this.ResumeLayout(false);
             this.PerformLayout();

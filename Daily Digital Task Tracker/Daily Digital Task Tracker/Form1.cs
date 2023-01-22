@@ -249,8 +249,6 @@ namespace Daily_Digital_Task_Tracker
             this.sunday_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
         }
 
-
-
         //Dynamic scale
         private Rectangle originalFormSize;
         private Rectangle ThemebtnOriginalRectangle;
@@ -266,6 +264,10 @@ namespace Daily_Digital_Task_Tracker
 
         //Rectangles created when the for is loaded to save original sizes.
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+        private void Form1_Shown(object sender, EventArgs e)
         {
             originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Width, this.Height);
             ThemebtnOriginalRectangle = new Rectangle(Themebtn.Location.X, Themebtn.Location.Y, Themebtn.Width, Themebtn.Height);

@@ -109,6 +109,7 @@
             this.Name = "TimerExpanded";
             this.Text = "Timer";
             this.Load += new System.EventHandler(this.TimerExpanded_Load);
+            this.Shown += new System.EventHandler(this.TimerExpanded_Shown);
             this.Resize += new System.EventHandler(this.TimerExpanded_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.progressBar)).EndInit();
             this.ResumeLayout(false);
