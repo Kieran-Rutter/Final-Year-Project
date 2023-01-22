@@ -1,6 +1,6 @@
 ﻿namespace Daily_Digital_Task_Tracker
 {
-    partial class DayExpanded
+    partial class taskCreation
     {
         /// <summary>
         /// Required designer variable.

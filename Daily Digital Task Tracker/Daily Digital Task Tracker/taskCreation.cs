@@ -110,8 +110,6 @@ namespace Daily_Digital_Task_Tracker
         /*
          * Functions for theme and auto sizing
          */
-        //Dynamic scale
-        private float fontScale = 1f;
 
         public static String backColour;
         public static String textColour;
@@ -147,48 +145,23 @@ namespace Daily_Digital_Task_Tracker
         {
             if (shown)
             {
-                resizeControl(CreateEvent_btnlOriginalRectangle, CreateEvent_btn, buttonlOriginalFontSize);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(CreateEvent_btnlOriginalRectangle, CreateEvent_btn, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
                 //Combo box
-                resizeControl(task_cmbOriginalRectangle, task_cmb, cmbOriginalFontSize);
-                resizeControl(hours_cmbOriginalRectangle, hours_cmb, cmbOriginalFontSize);
-                resizeControl(mins_cmbOriginalRectangle, mins_cmb, cmbOriginalFontSize);
-                resizeControl(seconds_cmbOriginalRectangle, seconds_cmb, cmbOriginalFontSize);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(task_cmbOriginalRectangle, task_cmb, cmbOriginalFontSize, originalFormSize, this.Height, this.Width);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(hours_cmbOriginalRectangle, hours_cmb, cmbOriginalFontSize, originalFormSize, this.Height, this.Width);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(mins_cmbOriginalRectangle, mins_cmb, cmbOriginalFontSize, originalFormSize, this.Height, this.Width);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(seconds_cmbOriginalRectangle, seconds_cmb, cmbOriginalFontSize, originalFormSize, this.Height, this.Width);
 
                 //Labels
-                resizeControl(date_lblOriginalRectangle, date_lbl, date_lblOriginalFontSize);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(date_lblOriginalRectangle, date_lbl, date_lblOriginalFontSize, originalFormSize, this.Height, this.Width);
 
-                resizeControl(taskName_lblOriginalRectangle, taskName_lbl, time_lblOriginalFontSize);
-                resizeControl(hours_lblOriginalRectangle, hours_lbl, time_lblOriginalFontSize);
-                resizeControl(minutes_lblOriginalRectangle, mins_lbl, time_lblOriginalFontSize);
-                resizeControl(seconds_lblOriginalRectangle, seconds_lbl, time_lblOriginalFontSize);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(taskName_lblOriginalRectangle, taskName_lbl, time_lblOriginalFontSize, originalFormSize, this.Height, this.Width);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(hours_lblOriginalRectangle, hours_lbl, time_lblOriginalFontSize, originalFormSize, this.Height, this.Width);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(minutes_lblOriginalRectangle, mins_lbl, time_lblOriginalFontSize, originalFormSize, this.Height, this.Width);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(seconds_lblOriginalRectangle, seconds_lbl, time_lblOriginalFontSize, originalFormSize, this.Height, this.Width);
             }
         }
 
-        //Resize control function to calculate new sizes
-        public void resizeControl(Rectangle r, Control c, float originalFontSize)
-        {
-            float xRatio = (float)(this.Width) / (float)(originalFormSize.Width);
-            float yRatio = (float)(this.Height) / (float)(originalFormSize.Height);
-
-            int newX = (int)(r.Location.X * xRatio);
-            int newY = (int)(r.Location.Y * yRatio);
-
-            int newWidth = (int)(r.Width * xRatio);
-            int newHeight = (int)(r.Height * yRatio);
-
-            c.Location = new Point(newX, newY);
-            c.Size = new Size(newWidth, newHeight);
-
-            float ratio = xRatio;
-            if (xRatio >= yRatio)
-            {
-                ratio = yRatio;
-            }
-
-            float newFontSize = originalFontSize * ratio * fontScale;
-            Font newFont = new Font(c.Font.FontFamily, newFontSize);
-            c.Font = newFont;
-        }
         private void DayExpanded_Shown(object sender, EventArgs e)
         {
         //Variables for resize

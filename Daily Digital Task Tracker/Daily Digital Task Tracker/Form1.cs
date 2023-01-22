@@ -24,9 +24,6 @@ namespace Daily_Digital_Task_Tracker
         public Form1()
         {
             InitializeComponent();
-            CreateCSV();
-            getIni();
-            dateDisplay();
         }
         //Enables double buffering to stop page flicker on update
         protected override CreateParams CreateParams
@@ -261,12 +258,11 @@ namespace Daily_Digital_Task_Tracker
         private float lblOriginalFontSize;
         private float buttonlOriginalFontSize;
 
-        private float fontScale = 1f;
-
         //Rectangles created when the for is loaded to save original sizes.
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            CreateCSV();
+            getIni();
         }
         private void Form1_Shown(object sender, EventArgs e)
         {
@@ -287,6 +283,9 @@ namespace Daily_Digital_Task_Tracker
             smallFont = nextBtn.Font;
 
             shown = true;
+
+            month_container.Controls.Clear();
+            dateDisplay();
         }
         public static Font largeFont;
         public static Font smallFont;
@@ -295,50 +294,25 @@ namespace Daily_Digital_Task_Tracker
         {
             if (shown)
             {
-                resizeControl(ThemebtnOriginalRectangle, Themebtn, buttonlOriginalFontSize);
-                resizeControl(nextBtnOriginalRectangle, nextBtn, buttonlOriginalFontSize);
-                resizeControl(prevBtnOriginalRectangle, prevBtn, buttonlOriginalFontSize);
-                resizeControl(Dates_lbl_ContainerOriginalRectangle, Dates_lbl_Container, lblOriginalFontSize);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(ThemebtnOriginalRectangle, Themebtn, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(nextBtnOriginalRectangle, nextBtn, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(prevBtnOriginalRectangle, prevBtn, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(Dates_lbl_ContainerOriginalRectangle, Dates_lbl_Container, lblOriginalFontSize, originalFormSize, this.Height, this.Width);
                 //Need to redo text size.
-                resizeControl(month_containerOriginalRectangle, month_container, lblOriginalFontSize);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(month_containerOriginalRectangle, month_container, lblOriginalFontSize, originalFormSize, this.Height, this.Width);
 
-                resizeControl(month_containerOriginalRectangle, month_year_lbl, lblOriginalFontSize);
-                resizeControl(month_containerOriginalRectangle, sunday_lbl, lblOriginalFontSize);
-                resizeControl(month_containerOriginalRectangle, monday_lbl, lblOriginalFontSize);
-                resizeControl(month_containerOriginalRectangle, tuesday_lbl, lblOriginalFontSize);
-                resizeControl(month_containerOriginalRectangle, wednesday_lbl, lblOriginalFontSize);
-                resizeControl(month_containerOriginalRectangle, thursday_lbl, lblOriginalFontSize);
-                resizeControl(month_containerOriginalRectangle, friday_lbl, lblOriginalFontSize);
-                resizeControl(month_containerOriginalRectangle, saturday_lbl, lblOriginalFontSize);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(month_containerOriginalRectangle, month_year_lbl, lblOriginalFontSize, originalFormSize, this.Height, this.Width);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(month_containerOriginalRectangle, sunday_lbl, lblOriginalFontSize, originalFormSize, this.Height, this.Width);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(month_containerOriginalRectangle, monday_lbl, lblOriginalFontSize, originalFormSize, this.Height, this.Width);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(month_containerOriginalRectangle, tuesday_lbl, lblOriginalFontSize, originalFormSize, this.Height, this.Width);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(month_containerOriginalRectangle, wednesday_lbl, lblOriginalFontSize, originalFormSize, this.Height, this.Width);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(month_containerOriginalRectangle, thursday_lbl, lblOriginalFontSize, originalFormSize, this.Height, this.Width);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(month_containerOriginalRectangle, friday_lbl, lblOriginalFontSize, originalFormSize, this.Height, this.Width);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(month_containerOriginalRectangle, saturday_lbl, lblOriginalFontSize, originalFormSize, this.Height, this.Width);
 
                 largeFont = sunday_lbl.Font;
                 smallFont = nextBtn.Font;
             }
-        }
-        //Resize control function to calculate new sizes
-        public void resizeControl(Rectangle r, Control c, float originalFontSize)
-        {
-            float xRatio = (float)(this.Width) / (float)(originalFormSize.Width );
-            float yRatio = (float)(this.Height) / (float)(originalFormSize.Height);
-
-            int newX = (int)(r.Location.X * xRatio);
-            int newY = (int)(r.Location.Y * yRatio);
-
-            int newWidth = (int)(r.Width * xRatio);
-            int newHeight = (int)(r.Height * yRatio);
-
-            c.Location = new Point(newX, newY);
-            c.Size = new Size(newWidth, newHeight);
-
-            float ratio = xRatio;
-            if(xRatio >= yRatio)
-            {
-                ratio = yRatio;
-            }
-
-            float newFontSize = originalFontSize * ratio * fontScale;
-            Font newFont = new Font(c.Font.FontFamily, newFontSize);
-            c.Font = newFont;
         }
     }
 }

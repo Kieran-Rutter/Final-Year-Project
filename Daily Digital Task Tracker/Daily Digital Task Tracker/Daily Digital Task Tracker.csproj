@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Resize.cs" />
     <Compile Include="DayExpanded.cs">
       <SubType>Form</SubType>
     </Compile>

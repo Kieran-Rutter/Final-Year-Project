@@ -85,7 +85,6 @@ namespace Daily_Digital_Task_Tracker
          * Functions for theme and auto sizing
         */
         //Dynamic scale
-        private float fontScale = 1f;
 
         public static String backColour;
         public static String textColour;
@@ -114,33 +113,6 @@ namespace Daily_Digital_Task_Tracker
             this.progressBar.Titles[0].ForeColor = ColorTranslator.FromHtml(textColour);
         }
 
-        //Resize control function to calculate new sizes
-        public void resizeControl(Rectangle r, Control c, float originalFontSize)
-        {
-            float xRatio = (float)(this.Width) / (float)(originalFormSize.Width);
-            float yRatio = (float)(this.Height) / (float)(originalFormSize.Height);
-
-            int newX = (int)(r.Location.X * xRatio);
-            int newY = (int)(r.Location.Y * yRatio);
-
-            int newWidth = (int)(r.Width * xRatio);
-            int newHeight = (int)(r.Height * yRatio);
-
-            c.Location = new Point(newX, newY);
-            c.Size = new Size(newWidth, newHeight);
-
-            float ratio = xRatio;
-            if (xRatio >= yRatio)
-            {
-                ratio = yRatio;
-            }
-
-            float newFontSize = originalFontSize * ratio * fontScale;
-            Font newFont = new Font(c.Font.FontFamily, newFontSize);
-            c.Font = newFont;
-        }
-
-
         private Rectangle originalFormSize;
         private Rectangle start_btnOriginalRectangle;
 
@@ -155,12 +127,12 @@ namespace Daily_Digital_Task_Tracker
         {
             if (shown)
             {
-                resizeControl(start_btnOriginalRectangle, start_btn, buttonlOriginalFontSize);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(start_btnOriginalRectangle, start_btn, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
 
-                resizeControl(progressBarOriginalRectangle, progressBar, buttonlOriginalFontSize);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(progressBarOriginalRectangle, progressBar, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
 
                 //Labels
-                resizeControl(timer_lblOriginalRectangle, timer_lbl, timer_lblOriginalFontSize);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(timer_lblOriginalRectangle, timer_lbl, timer_lblOriginalFontSize, originalFormSize, this.Height, this.Width);
                 progressBar.Titles[0].Font = timer_lbl.Font;
             }
         }

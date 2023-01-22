@@ -59,14 +59,14 @@ namespace Daily_Digital_Task_Tracker
         private void DayUserControl_Click(object sender, EventArgs e)
         {
             day_stc = date_lbl.Text;
-            DayExpanded dayExpanded = new DayExpanded();
+            taskCreation dayExpanded = new taskCreation();
             dayExpanded.Show();
         }
         private void eventsDisplay_txt_Click(object sender, EventArgs e)
         {
             //Loads day expanded form
             day_stc = date_lbl.Text;
-            DayExpanded dayExpanded = new DayExpanded();
+            taskCreation dayExpanded = new taskCreation();
             dayExpanded.Show();
         }
         //Function to set the theme
