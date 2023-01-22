@@ -48,6 +48,10 @@ namespace Daily_Digital_Task_Tracker
                 sw.Close();
                 File.AppendAllText("config.ini", "[SECTION]" + "\n");
                 File.AppendAllText("config.ini", "key = light" + "\n");
+                File.AppendAllText("config.ini", "backColour = F8F9FA" + "\n");
+                File.AppendAllText("config.ini", "textColour = 000000" + "\n");
+                File.AppendAllText("config.ini", "buttonBackColour = CED4DA" + "\n");
+                File.AppendAllText("config.ini", "buttonBorderColour = ADB5BD" + "\n");
             }
             catch (IOException)
             {
