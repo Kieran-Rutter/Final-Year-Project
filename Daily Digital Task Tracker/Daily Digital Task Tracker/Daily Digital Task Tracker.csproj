@@ -129,5 +129,98 @@
   <ItemGroup>
     <None Include="Resources\blank.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\4.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\9.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\10.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\11.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\13.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\14.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\15.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\17.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\18.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\19.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\20.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\21.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\22.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\23.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\24.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\25.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\26.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\27.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\28.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\30.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\31.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

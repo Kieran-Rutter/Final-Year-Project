@@ -24,9 +24,8 @@ namespace Daily_Digital_Task_Tracker
 
         private void DayExpanded_Load(object sender, EventArgs e)
         {
-            string icon = "blank";
+            string icon = "_"+ DayUserControl.day_stc;
             this.Icon = (Icon)Properties.Resources.ResourceManager.GetObject(icon);
-            Console.WriteLine(DayUserControl.day_stc);
 
             date_lbl.Text = DayUserControl.day_stc + "/" + Form1.month.ToString() + "/" + Form1.year.ToString();
             this.Text = date_lbl.Text;
