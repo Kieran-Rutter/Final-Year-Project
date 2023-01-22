@@ -24,6 +24,10 @@ namespace Daily_Digital_Task_Tracker
 
         private void DayExpanded_Load(object sender, EventArgs e)
         {
+            string icon = "blank";
+            this.Icon = (Icon)Properties.Resources.ResourceManager.GetObject(icon);
+            Console.WriteLine(DayUserControl.day_stc);
+
             date_lbl.Text = DayUserControl.day_stc + "/" + Form1.month.ToString() + "/" + Form1.year.ToString();
             this.Text = date_lbl.Text;
             getIni();
@@ -93,7 +97,7 @@ namespace Daily_Digital_Task_Tracker
             minutes = Int32.Parse(mins_cmb.Text);
             hours = Int32.Parse(hours_cmb.Text);
 
-            minutes = (minutes + (hours * 60));
+            minutes += (hours * 60);
 
 
             TimerExpanded timerExpanded = new TimerExpanded();
@@ -134,30 +138,30 @@ namespace Daily_Digital_Task_Tracker
             this.CreateEvent_btn.BackColor = ColorTranslator.FromHtml(buttonBackColour);
             this.CreateEvent_btn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
 
-            this.start_btn.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.start_btn.BackColor = ColorTranslator.FromHtml(buttonBackColour);
-            this.start_btn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
-
             //Labels
-            this.timer_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
             this.date_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
+            this.taskName_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
+            this.hours_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
+            this.mins_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
+            this.seconds_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
         }
 
         private void DayExpanded_Resize(object sender, EventArgs e)
         {
             resizeControl(CreateEvent_btnlOriginalRectangle, CreateEvent_btn, buttonlOriginalFontSize);
-            resizeControl(start_btnOriginalRectangle, start_btn, buttonlOriginalFontSize);
             //Combo box
             resizeControl(task_cmbOriginalRectangle, task_cmb, cmbOriginalFontSize);
             resizeControl(hours_cmbOriginalRectangle, hours_cmb, cmbOriginalFontSize);
             resizeControl(mins_cmbOriginalRectangle, mins_cmb, cmbOriginalFontSize);
             resizeControl(seconds_cmbOriginalRectangle, seconds_cmb, cmbOriginalFontSize);
 
-            resizeControl(progressBarOriginalRectangle, progressBar, buttonlOriginalFontSize);
-
             //Labels
             resizeControl(date_lblOriginalRectangle, date_lbl, date_lblOriginalFontSize);
-            resizeControl(timer_lblOriginalRectangle, timer_lbl, timer_lblOriginalFontSize);
+
+            resizeControl(taskName_lblOriginalRectangle, taskName_lbl, time_lblOriginalFontSize);
+            resizeControl(hours_lblOriginalRectangle, hours_lbl, time_lblOriginalFontSize);
+            resizeControl(minutes_lblOriginalRectangle, mins_lbl, time_lblOriginalFontSize);
+            resizeControl(seconds_lblOriginalRectangle, seconds_lbl, time_lblOriginalFontSize);
 
         }
 
@@ -192,8 +196,6 @@ namespace Daily_Digital_Task_Tracker
             originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Width, this.Height);
             CreateEvent_btnlOriginalRectangle = new Rectangle(CreateEvent_btn.Location.X, CreateEvent_btn.Location.Y,
                 CreateEvent_btn.Width, CreateEvent_btn.Height);
-            start_btnOriginalRectangle = new Rectangle(start_btn.Location.X, start_btn.Location.Y,
-                start_btn.Width, start_btn.Height);
             //Combo boxes
             task_cmbOriginalRectangle = new Rectangle(task_cmb.Location.X, task_cmb.Location.Y,
                 task_cmb.Width, task_cmb.Height);
@@ -204,49 +206,45 @@ namespace Daily_Digital_Task_Tracker
             seconds_cmbOriginalRectangle = new Rectangle(seconds_cmb.Location.X, seconds_cmb.Location.Y,
                 seconds_cmb.Width, seconds_cmb.Height);
 
-            //Progress bar
-            progressBarOriginalRectangle = new Rectangle(progressBar.Location.X, progressBar.Location.Y,
-                progressBar.Width, progressBar.Height);
-
             //Labels
             date_lblOriginalRectangle = new Rectangle(date_lbl.Location.X, date_lbl.Location.Y,
                 date_lbl.Width, date_lbl.Height);
-            timer_lblOriginalRectangle = new Rectangle(timer_lbl.Location.X, timer_lbl.Location.Y,
-                timer_lbl.Width, timer_lbl.Height);
+
+            taskName_lblOriginalRectangle = new Rectangle(taskName_lbl.Location.X, taskName_lbl.Location.Y,
+                taskName_lbl.Width, taskName_lbl.Height);
+            hours_lblOriginalRectangle = new Rectangle(hours_lbl.Location.X, hours_lbl.Location.Y,
+                hours_lbl.Width, hours_lbl.Height);
+            minutes_lblOriginalRectangle = new Rectangle(mins_lbl.Location.X, mins_lbl.Location.Y,
+                mins_lbl.Width, mins_lbl.Height);
+            seconds_lblOriginalRectangle = new Rectangle(seconds_lbl.Location.X, seconds_lbl.Location.Y,
+                seconds_lbl.Width, seconds_lbl.Height);
+
 
             //Text
-            lblOriginalFontSize = date_lbl.Font.Size;
             buttonlOriginalFontSize = CreateEvent_btn.Font.Size;
             cmbOriginalFontSize = hours_cmb.Font.Size;
 
             date_lblOriginalFontSize = date_lbl.Font.Size;
-            timer_lblOriginalFontSize = timer_lbl.Font.Size;
+            time_lblOriginalFontSize = taskName_lbl.Font.Size;
         }
         private Rectangle originalFormSize;
         private Rectangle CreateEvent_btnlOriginalRectangle;
-        private Rectangle start_btnOriginalRectangle;
 
         private Rectangle task_cmbOriginalRectangle;
 
         private Rectangle hours_cmbOriginalRectangle;
         private Rectangle mins_cmbOriginalRectangle;
         private Rectangle seconds_cmbOriginalRectangle;
-
-        private Rectangle progressBarOriginalRectangle;
-
+        //Labels
         private Rectangle date_lblOriginalRectangle;
-        private Rectangle timer_lblOriginalRectangle;
-
-        private float lblOriginalFontSize;
+        private Rectangle taskName_lblOriginalRectangle;
+        private Rectangle hours_lblOriginalRectangle;
+        private Rectangle minutes_lblOriginalRectangle;
+        private Rectangle seconds_lblOriginalRectangle;
 
         private float date_lblOriginalFontSize;
-        private float timer_lblOriginalFontSize;
+        private float time_lblOriginalFontSize;
         private float buttonlOriginalFontSize;
         private float cmbOriginalFontSize;
-
-        private void progressBar_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

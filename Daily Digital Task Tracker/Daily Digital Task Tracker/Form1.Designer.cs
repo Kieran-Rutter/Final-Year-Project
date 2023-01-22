@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.prevBtn = new System.Windows.Forms.Button();
             this.nextBtn = new System.Windows.Forms.Button();
             this.sunday_lbl = new System.Windows.Forms.Label();
@@ -258,6 +259,7 @@
             this.Controls.Add(this.Themebtn);
             this.Controls.Add(this.nextBtn);
             this.Controls.Add(this.prevBtn);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Form1";
             this.Activated += new System.EventHandler(this.Form1_Activated);
