@@ -53,8 +53,74 @@ namespace Daily_Digital_Task_Tracker
 
         private void expandedDay_Load(object sender, EventArgs e)
         {
+            getIni();
             string day = DayUserControl.day_stc;
             taskDisplay(day);
+        }
+
+
+
+
+
+
+
+
+
+
+        /*
+ * Functions for theme and auto sizing
+*/
+        //Dynamic scale
+
+        public static String backColour;
+        public static String textColour;
+        public static String buttonBackColour;
+        public static String buttonBorderColour;
+        private void getIni()
+        {
+            Settings settings = new Settings();
+            settings.readIni();
+
+            backColour = settings.backColour;
+            textColour = settings.textColour;
+            buttonBackColour = settings.buttonBackColour;
+            buttonBorderColour = settings.buttonBorderColour;
+
+            //User control colours
+            this.BackColor = ColorTranslator.FromHtml(backColour);
+
+            //Buttons
+
+            //Labels
+        }
+
+        private Rectangle originalFormSize;
+        private Rectangle taskTBL_pnlOriginalRectangle;
+
+        private float buttonlOriginalFontSize;
+        private void expandedDay_Resize(object sender, EventArgs e)
+        {
+            if (shown)
+            {
+                Daily_Digital_Task_Tracker.Resize.resizeControl(taskTBL_pnlOriginalRectangle, taskTBL_pnl, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
+
+
+ 
+            }
+        }
+
+        private static bool shown = false;
+        private void expandedDay_Shown(object sender, EventArgs e)
+        {
+            //Variables for resize
+            originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Width, this.Height);
+            taskTBL_pnlOriginalRectangle = new Rectangle(taskTBL_pnl.Location.X, taskTBL_pnl.Location.Y, taskTBL_pnl.Width, taskTBL_pnl.Height);
+
+
+            //Text
+            buttonlOriginalFontSize = label1.Font.Size;
+
+            shown = true;
         }
     }
 }

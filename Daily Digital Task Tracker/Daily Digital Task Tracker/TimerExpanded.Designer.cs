@@ -34,22 +34,11 @@
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 100D);
             System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            this.timer_lbl = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.start_btn = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.progressBar)).BeginInit();
             this.SuspendLayout();
-            // 
-            // timer_lbl
-            // 
-            this.timer_lbl.AutoSize = true;
-            this.timer_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timer_lbl.Location = new System.Drawing.Point(134, 506);
-            this.timer_lbl.Name = "timer_lbl";
-            this.timer_lbl.Size = new System.Drawing.Size(143, 37);
-            this.timer_lbl.TabIndex = 18;
-            this.timer_lbl.Text = "00:00:00";
             // 
             // progressBar
             // 
@@ -102,8 +91,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(400, 552);
-            this.Controls.Add(this.timer_lbl);
+            this.ClientSize = new System.Drawing.Size(400, 495);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.start_btn);
             this.Name = "TimerExpanded";
@@ -113,13 +101,10 @@
             this.Resize += new System.EventHandler(this.TimerExpanded_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.progressBar)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label timer_lbl;
         private System.Windows.Forms.DataVisualization.Charting.Chart progressBar;
         private System.Windows.Forms.Button start_btn;
         private System.Windows.Forms.Timer timer1;

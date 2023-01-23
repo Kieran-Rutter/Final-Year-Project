@@ -49,7 +49,7 @@ namespace Daily_Digital_Task_Tracker
             getIni();
 
             //Calculates how long the counter needs to be
-            counter = (taskCreation.seconds + (taskCreation.minutes * 60));
+            counter = TaskUserControl.seconds;
 
             //Sets the timer settings
             timer1 = new Timer();
@@ -109,7 +109,6 @@ namespace Daily_Digital_Task_Tracker
             this.start_btn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
 
             //Labels
-            this.timer_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
             this.progressBar.Titles[0].ForeColor = ColorTranslator.FromHtml(textColour);
         }
 
@@ -118,9 +117,6 @@ namespace Daily_Digital_Task_Tracker
 
         private Rectangle progressBarOriginalRectangle;
 
-        private Rectangle timer_lblOriginalRectangle;
-
-        private float timer_lblOriginalFontSize;
         private float buttonlOriginalFontSize;
 
         private void TimerExpanded_Resize(object sender, EventArgs e)
@@ -131,9 +127,6 @@ namespace Daily_Digital_Task_Tracker
 
                 Daily_Digital_Task_Tracker.Resize.resizeControl(progressBarOriginalRectangle, progressBar, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
 
-                //Labels
-                Daily_Digital_Task_Tracker.Resize.resizeControl(timer_lblOriginalRectangle, timer_lbl, timer_lblOriginalFontSize, originalFormSize, this.Height, this.Width);
-                progressBar.Titles[0].Font = timer_lbl.Font;
             }
         }
 
@@ -149,12 +142,7 @@ namespace Daily_Digital_Task_Tracker
             progressBarOriginalRectangle = new Rectangle(progressBar.Location.X, progressBar.Location.Y,
                 progressBar.Width, progressBar.Height);
 
-            //Labels
-            timer_lblOriginalRectangle = new Rectangle(timer_lbl.Location.X, timer_lbl.Location.Y,
-                timer_lbl.Width, timer_lbl.Height);
-
             //Text
-            timer_lblOriginalFontSize = timer_lbl.Font.Size;
             buttonlOriginalFontSize = start_btn.Font.Size;
 
             shown = true;
