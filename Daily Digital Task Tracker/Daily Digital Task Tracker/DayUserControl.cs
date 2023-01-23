@@ -66,8 +66,11 @@ namespace Daily_Digital_Task_Tracker
         {
             //Loads day expanded form
             day_stc = date_lbl.Text;
-            taskCreation dayExpanded = new taskCreation();
-            dayExpanded.Show();
+            taskCreation TaskCreation = new taskCreation();
+            TaskCreation.Show();
+
+            expandedDay ExpandedDay = new expandedDay();
+            ExpandedDay.Show();
         }
         //Function to set the theme
         private void getIni()

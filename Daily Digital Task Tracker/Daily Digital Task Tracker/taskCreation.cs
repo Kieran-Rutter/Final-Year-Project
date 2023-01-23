@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace Daily_Digital_Task_Tracker
 {
-    public partial class DayExpanded : Form
+    public partial class taskCreation : Form
     {
         public static int seconds;
         public static int minutes;
@@ -19,7 +19,7 @@ namespace Daily_Digital_Task_Tracker
         //Shown used to make sure the form has fully loaded, used to make sure form does not try to resize before loaded.
         private static bool shown = false;
 
-        public DayExpanded()
+        public taskCreation()
         {
             InitializeComponent();
         }

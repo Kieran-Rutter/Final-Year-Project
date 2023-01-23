@@ -102,19 +102,17 @@ namespace Daily_Digital_Task_Tracker
              * Loops for user control
              */
             //Blank user control for last months
-            for (int i = 1;i < daysInWeek; i++)
+            for (int i = 0;i < daysInWeek; i++)
             {
                 EmptyUserControl euc = new EmptyUserControl();
                 month_container.Controls.Add(euc);
             }
-            int row = 0;
             //This months user control
             for(int i = 1;i <= days; i++)
             {
                 DayUserControl duc = new DayUserControl();
                 duc.day(i);
 
-                if (i % 7 == 0) { row++;}
 
                 duc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top
                     | System.Windows.Forms.AnchorStyles.Bottom)

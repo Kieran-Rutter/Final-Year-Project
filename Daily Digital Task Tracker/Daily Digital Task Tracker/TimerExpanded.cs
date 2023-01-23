@@ -49,7 +49,7 @@ namespace Daily_Digital_Task_Tracker
             getIni();
 
             //Calculates how long the counter needs to be
-            counter = (DayExpanded.seconds + (DayExpanded.minutes * 60));
+            counter = (taskCreation.seconds + (taskCreation.minutes * 60));
 
             //Sets the timer settings
             timer1 = new Timer();
