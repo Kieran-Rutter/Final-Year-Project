@@ -51,9 +51,10 @@
             this.prevBtn.AutoSize = true;
             this.prevBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.prevBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prevBtn.Location = new System.Drawing.Point(12, 1090);
+            this.prevBtn.Location = new System.Drawing.Point(8, 727);
+            this.prevBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.prevBtn.Name = "prevBtn";
-            this.prevBtn.Size = new System.Drawing.Size(136, 118);
+            this.prevBtn.Size = new System.Drawing.Size(91, 79);
             this.prevBtn.TabIndex = 1;
             this.prevBtn.Text = "Previous";
             this.prevBtn.UseVisualStyleBackColor = true;
@@ -65,9 +66,10 @@
             this.nextBtn.AutoSize = true;
             this.nextBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.nextBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nextBtn.Location = new System.Drawing.Point(154, 1090);
+            this.nextBtn.Location = new System.Drawing.Point(103, 727);
+            this.nextBtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nextBtn.Name = "nextBtn";
-            this.nextBtn.Size = new System.Drawing.Size(139, 118);
+            this.nextBtn.Size = new System.Drawing.Size(93, 79);
             this.nextBtn.TabIndex = 2;
             this.nextBtn.Text = "Next";
             this.nextBtn.UseVisualStyleBackColor = true;
@@ -80,9 +82,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.sunday_lbl.AutoSize = true;
             this.sunday_lbl.Font = new System.Drawing.Font("Ebrima", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sunday_lbl.Location = new System.Drawing.Point(3, 50);
+            this.sunday_lbl.Location = new System.Drawing.Point(2, 33);
+            this.sunday_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.sunday_lbl.Name = "sunday_lbl";
-            this.sunday_lbl.Size = new System.Drawing.Size(203, 50);
+            this.sunday_lbl.Size = new System.Drawing.Size(136, 34);
             this.sunday_lbl.TabIndex = 3;
             this.sunday_lbl.Text = "SUN";
             this.sunday_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -94,9 +97,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.monday_lbl.AutoSize = true;
             this.monday_lbl.Font = new System.Drawing.Font("Ebrima", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.monday_lbl.Location = new System.Drawing.Point(212, 50);
+            this.monday_lbl.Location = new System.Drawing.Point(142, 33);
+            this.monday_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.monday_lbl.Name = "monday_lbl";
-            this.monday_lbl.Size = new System.Drawing.Size(203, 50);
+            this.monday_lbl.Size = new System.Drawing.Size(136, 34);
             this.monday_lbl.TabIndex = 4;
             this.monday_lbl.Text = "MON";
             this.monday_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -108,9 +112,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tuesday_lbl.AutoSize = true;
             this.tuesday_lbl.Font = new System.Drawing.Font("Ebrima", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tuesday_lbl.Location = new System.Drawing.Point(421, 50);
+            this.tuesday_lbl.Location = new System.Drawing.Point(282, 33);
+            this.tuesday_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tuesday_lbl.Name = "tuesday_lbl";
-            this.tuesday_lbl.Size = new System.Drawing.Size(203, 50);
+            this.tuesday_lbl.Size = new System.Drawing.Size(136, 34);
             this.tuesday_lbl.TabIndex = 5;
             this.tuesday_lbl.Text = "TUE";
             this.tuesday_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -122,9 +127,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.wednesday_lbl.AutoSize = true;
             this.wednesday_lbl.Font = new System.Drawing.Font("Ebrima", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wednesday_lbl.Location = new System.Drawing.Point(630, 50);
+            this.wednesday_lbl.Location = new System.Drawing.Point(422, 33);
+            this.wednesday_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.wednesday_lbl.Name = "wednesday_lbl";
-            this.wednesday_lbl.Size = new System.Drawing.Size(203, 50);
+            this.wednesday_lbl.Size = new System.Drawing.Size(136, 34);
             this.wednesday_lbl.TabIndex = 6;
             this.wednesday_lbl.Text = "WED";
             this.wednesday_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -136,9 +142,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.thursday_lbl.AutoSize = true;
             this.thursday_lbl.Font = new System.Drawing.Font("Ebrima", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.thursday_lbl.Location = new System.Drawing.Point(839, 50);
+            this.thursday_lbl.Location = new System.Drawing.Point(562, 33);
+            this.thursday_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.thursday_lbl.Name = "thursday_lbl";
-            this.thursday_lbl.Size = new System.Drawing.Size(203, 50);
+            this.thursday_lbl.Size = new System.Drawing.Size(136, 34);
             this.thursday_lbl.TabIndex = 7;
             this.thursday_lbl.Text = "THU";
             this.thursday_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -150,9 +157,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.friday_lbl.AutoSize = true;
             this.friday_lbl.Font = new System.Drawing.Font("Ebrima", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.friday_lbl.Location = new System.Drawing.Point(1048, 50);
+            this.friday_lbl.Location = new System.Drawing.Point(702, 33);
+            this.friday_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.friday_lbl.Name = "friday_lbl";
-            this.friday_lbl.Size = new System.Drawing.Size(203, 50);
+            this.friday_lbl.Size = new System.Drawing.Size(136, 34);
             this.friday_lbl.TabIndex = 8;
             this.friday_lbl.Text = "FRI";
             this.friday_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -164,9 +172,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.saturday_lbl.AutoSize = true;
             this.saturday_lbl.Font = new System.Drawing.Font("Ebrima", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saturday_lbl.Location = new System.Drawing.Point(1257, 50);
+            this.saturday_lbl.Location = new System.Drawing.Point(842, 33);
+            this.saturday_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.saturday_lbl.Name = "saturday_lbl";
-            this.saturday_lbl.Size = new System.Drawing.Size(210, 50);
+            this.saturday_lbl.Size = new System.Drawing.Size(136, 34);
             this.saturday_lbl.TabIndex = 9;
             this.saturday_lbl.Text = "SAT";
             this.saturday_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -179,9 +188,10 @@
             this.month_year_lbl.AutoSize = true;
             this.Dates_lbl_Container.SetColumnSpan(this.month_year_lbl, 7);
             this.month_year_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.month_year_lbl.Location = new System.Drawing.Point(3, 0);
+            this.month_year_lbl.Location = new System.Drawing.Point(2, 0);
+            this.month_year_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.month_year_lbl.Name = "month_year_lbl";
-            this.month_year_lbl.Size = new System.Drawing.Size(1464, 50);
+            this.month_year_lbl.Size = new System.Drawing.Size(976, 33);
             this.month_year_lbl.TabIndex = 10;
             this.month_year_lbl.Text = "MonthYearPlaceholder";
             this.month_year_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -192,9 +202,10 @@
             this.Themebtn.AutoSize = true;
             this.Themebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Themebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Themebtn.Location = new System.Drawing.Point(299, 1090);
+            this.Themebtn.Location = new System.Drawing.Point(199, 727);
+            this.Themebtn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Themebtn.Name = "Themebtn";
-            this.Themebtn.Size = new System.Drawing.Size(139, 118);
+            this.Themebtn.Size = new System.Drawing.Size(93, 79);
             this.Themebtn.TabIndex = 11;
             this.Themebtn.Text = "Theme";
             this.Themebtn.UseVisualStyleBackColor = true;
@@ -218,13 +229,14 @@
             this.Dates_lbl_Container.Controls.Add(this.friday_lbl, 5, 1);
             this.Dates_lbl_Container.Controls.Add(this.wednesday_lbl, 3, 1);
             this.Dates_lbl_Container.Controls.Add(this.thursday_lbl, 4, 1);
-            this.Dates_lbl_Container.Location = new System.Drawing.Point(12, 12);
+            this.Dates_lbl_Container.Location = new System.Drawing.Point(8, 8);
+            this.Dates_lbl_Container.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Dates_lbl_Container.Name = "Dates_lbl_Container";
             this.Dates_lbl_Container.RowCount = 2;
             this.Dates_lbl_Container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.Dates_lbl_Container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.Dates_lbl_Container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.Dates_lbl_Container.Size = new System.Drawing.Size(1470, 100);
+            this.Dates_lbl_Container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
+            this.Dates_lbl_Container.Size = new System.Drawing.Size(980, 67);
             this.Dates_lbl_Container.TabIndex = 13;
             // 
             // month_container
@@ -237,7 +249,8 @@
             this.month_container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.month_container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.month_container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
-            this.month_container.Location = new System.Drawing.Point(12, 118);
+            this.month_container.Location = new System.Drawing.Point(8, 79);
+            this.month_container.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.month_container.Name = "month_container";
             this.month_container.RowCount = 5;
             this.month_container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -246,20 +259,21 @@
             this.month_container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.month_container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.month_container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.month_container.Size = new System.Drawing.Size(1470, 966);
+            this.month_container.Size = new System.Drawing.Size(980, 644);
             this.month_container.TabIndex = 12;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(1488, 1220);
+            this.ClientSize = new System.Drawing.Size(992, 813);
             this.Controls.Add(this.Dates_lbl_Container);
             this.Controls.Add(this.month_container);
             this.Controls.Add(this.Themebtn);
             this.Controls.Add(this.nextBtn);
             this.Controls.Add(this.prevBtn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Activated += new System.EventHandler(this.Form1_Activated);
