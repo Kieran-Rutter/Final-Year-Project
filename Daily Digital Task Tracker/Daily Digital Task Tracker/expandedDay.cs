@@ -88,39 +88,13 @@ namespace Daily_Digital_Task_Tracker
 
             //User control colours
             this.BackColor = ColorTranslator.FromHtml(backColour);
+            tasks_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
 
             //Buttons
-
+            create_btn.BackColor = ColorTranslator.FromHtml(buttonBackColour);
+            create_btn.ForeColor = ColorTranslator.FromHtml(textColour);
+            create_btn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
             //Labels
-        }
-
-        private Rectangle originalFormSize;
-        private Rectangle taskTBL_pnlOriginalRectangle;
-
-        private float buttonlOriginalFontSize;
-        private void expandedDay_Resize(object sender, EventArgs e)
-        {
-            if (shown)
-            {
-                Daily_Digital_Task_Tracker.Resize.resizeControl(taskTBL_pnlOriginalRectangle, taskTBL_pnl, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
-
-
- 
-            }
-        }
-
-        private static bool shown = false;
-        private void expandedDay_Shown(object sender, EventArgs e)
-        {
-            //Variables for resize
-            originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Width, this.Height);
-            taskTBL_pnlOriginalRectangle = new Rectangle(taskTBL_pnl.Location.X, taskTBL_pnl.Location.Y, taskTBL_pnl.Width, taskTBL_pnl.Height);
-
-
-            //Text
-            buttonlOriginalFontSize = label1.Font.Size;
-
-            shown = true;
         }
 
         private void create_btn_Click(object sender, EventArgs e)
@@ -129,5 +103,38 @@ namespace Daily_Digital_Task_Tracker
             taskCreation TaskCreation = new taskCreation();
             TaskCreation.Show();
         }
+
+        private Rectangle originalFormSize;
+        private Rectangle create_btnOriginalRectangle;
+        private Rectangle taskTBL_pnlOriginalRectangle;
+        private Rectangle tasks_lblOriginalRectangle;
+
+        private float buttonlOriginalFontSize;
+        private void expandedDay_Resize(object sender, EventArgs e)
+        {
+            if (shown)
+            {
+                Daily_Digital_Task_Tracker.Resize.resizeControl(taskTBL_pnlOriginalRectangle, taskTBL_pnl, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(tasks_lblOriginalRectangle, tasks_lbl, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(create_btnOriginalRectangle, create_btn, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
+
+            }
+        }
+
+        private static bool shown = false;
+        private void expandedDay_Shown(object sender, EventArgs e)
+        {
+            //Variables for resize
+            originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Width, this.Height);
+            create_btnOriginalRectangle = new Rectangle(create_btn.Location.X, create_btn.Location.Y, create_btn.Width, create_btn.Height);
+            taskTBL_pnlOriginalRectangle = new Rectangle(taskTBL_pnl.Location.X, taskTBL_pnl.Location.Y, taskTBL_pnl.Width, taskTBL_pnl.Height);
+            tasks_lblOriginalRectangle = new Rectangle(tasks_lbl.Location.X, tasks_lbl.Location.Y, tasks_lbl.Width, tasks_lbl.Height);
+
+            //Text
+            buttonlOriginalFontSize = tasks_lbl.Font.Size;
+
+            shown = true;
+        }
+
     }
 }

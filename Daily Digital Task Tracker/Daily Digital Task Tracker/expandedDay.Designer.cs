@@ -30,8 +30,9 @@
         {
             this.task_pnl = new System.Windows.Forms.TableLayoutPanel();
             this.taskTBL_pnl = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tasks_lbl = new System.Windows.Forms.Label();
             this.create_btn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.taskTBL_pnl.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,15 +61,16 @@
             this.taskTBL_pnl.Size = new System.Drawing.Size(138, 454);
             this.taskTBL_pnl.TabIndex = 1;
             // 
-            // label1
+            // tasks_lbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 19);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.tasks_lbl.AutoSize = true;
+            this.tasks_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tasks_lbl.Location = new System.Drawing.Point(35, 9);
+            this.tasks_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.tasks_lbl.Name = "tasks_lbl";
+            this.tasks_lbl.Size = new System.Drawing.Size(78, 29);
+            this.tasks_lbl.TabIndex = 2;
+            this.tasks_lbl.Text = "Tasks";
             // 
             // create_btn
             // 
@@ -85,16 +87,29 @@
             this.create_btn.UseVisualStyleBackColor = true;
             this.create_btn.Click += new System.EventHandler(this.create_btn_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(207, 291);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(281, 29);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Graphs to be added here";
+            // 
             // expandedDay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(533, 561);
-            this.Controls.Add(this.create_btn);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.create_btn);
+            this.Controls.Add(this.tasks_lbl);
             this.Controls.Add(this.taskTBL_pnl);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.MaximumSize = new System.Drawing.Size(553, 611);
+            this.MaximumSize = new System.Drawing.Size(549, 600);
+            this.MinimumSize = new System.Drawing.Size(549, 600);
             this.Name = "expandedDay";
             this.Text = "expandedDay";
             this.Load += new System.EventHandler(this.expandedDay_Load);
@@ -111,7 +126,8 @@
 
         private System.Windows.Forms.TableLayoutPanel task_pnl;
         private System.Windows.Forms.Panel taskTBL_pnl;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label tasks_lbl;
         private System.Windows.Forms.Button create_btn;
+        private System.Windows.Forms.Label label1;
     }
 }

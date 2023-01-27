@@ -24,9 +24,9 @@ namespace Daily_Digital_Task_Tracker
         public void taskDisplay()
         {
             task_lbl.Text = expandedDay.task[1];
-            hours_lbl.Text = expandedDay.task[4];
-            mins_lbl.Text = expandedDay.task[3];
-            seconds_lbl.Text = expandedDay.task[2];
+            hours_lbl.Text = "H: " + expandedDay.task[4];
+            mins_lbl.Text = "M: " + expandedDay.task[3];
+            seconds_lbl.Text = "S: " +expandedDay.task[2];
         }
 
         private void TaskUserControl_Load(object sender, EventArgs e)
@@ -37,9 +37,9 @@ namespace Daily_Digital_Task_Tracker
         private void TaskUserControl_Click(object sender, EventArgs e)
         {
             //Calculates how long the counter needs to be
-            seconds = Int32.Parse(seconds_lbl.Text);
-            minutes = Int32.Parse(mins_lbl.Text);
-            hours = Int32.Parse(hours_lbl.Text);
+            seconds = Int32.Parse(expandedDay.task[2]);
+            minutes = Int32.Parse(expandedDay.task[3]);
+            hours = Int32.Parse(expandedDay.task[4]);
 
             minutes += (hours * 60);
             seconds += (minutes * 60);
