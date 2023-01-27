@@ -26,6 +26,7 @@ namespace Daily_Digital_Task_Tracker
 
         private void DayExpanded_Load(object sender, EventArgs e)
         {
+            shown = false;
             string icon = "_"+ DayUserControl.day_stc;
             this.Icon = (Icon)Properties.Resources.ResourceManager.GetObject(icon);
 

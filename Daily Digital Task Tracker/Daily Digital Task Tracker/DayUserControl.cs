@@ -66,8 +66,6 @@ namespace Daily_Digital_Task_Tracker
         {
             //Loads day expanded form
             day_stc = date_lbl.Text;
-            taskCreation TaskCreation = new taskCreation();
-            TaskCreation.Show();
 
             expandedDay ExpandedDay = new expandedDay();
             ExpandedDay.Show();

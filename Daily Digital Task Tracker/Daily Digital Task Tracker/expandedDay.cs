@@ -122,5 +122,12 @@ namespace Daily_Digital_Task_Tracker
 
             shown = true;
         }
+
+        private void create_btn_Click(object sender, EventArgs e)
+        {
+            //Loads day expanded form
+            taskCreation TaskCreation = new taskCreation();
+            TaskCreation.Show();
+        }
     }
 }
