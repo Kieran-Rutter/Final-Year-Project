@@ -44,7 +44,7 @@
             this.task_pnl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.task_pnl.Dock = System.Windows.Forms.DockStyle.Top;
             this.task_pnl.Location = new System.Drawing.Point(0, 0);
-            this.task_pnl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.task_pnl.Margin = new System.Windows.Forms.Padding(2);
             this.task_pnl.Name = "task_pnl";
             this.task_pnl.RowCount = 1;
             this.task_pnl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -56,7 +56,7 @@
             this.taskTBL_pnl.AutoScroll = true;
             this.taskTBL_pnl.Controls.Add(this.task_pnl);
             this.taskTBL_pnl.Location = new System.Drawing.Point(8, 36);
-            this.taskTBL_pnl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.taskTBL_pnl.Margin = new System.Windows.Forms.Padding(2);
             this.taskTBL_pnl.Name = "taskTBL_pnl";
             this.taskTBL_pnl.Size = new System.Drawing.Size(138, 454);
             this.taskTBL_pnl.TabIndex = 1;
@@ -83,7 +83,7 @@
             this.create_btn.Name = "create_btn";
             this.create_btn.Size = new System.Drawing.Size(138, 55);
             this.create_btn.TabIndex = 12;
-            this.create_btn.Text = "Create";
+            this.create_btn.Text = "Create / Edit";
             this.create_btn.UseVisualStyleBackColor = true;
             this.create_btn.Click += new System.EventHandler(this.create_btn_Click);
             // 
@@ -107,7 +107,7 @@
             this.Controls.Add(this.create_btn);
             this.Controls.Add(this.tasks_lbl);
             this.Controls.Add(this.taskTBL_pnl);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(549, 600);
             this.MinimumSize = new System.Drawing.Size(549, 600);
             this.Name = "expandedDay";

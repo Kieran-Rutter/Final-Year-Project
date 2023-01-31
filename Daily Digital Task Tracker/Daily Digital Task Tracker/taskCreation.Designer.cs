@@ -49,7 +49,7 @@
             this.CreateEvent_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CreateEvent_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CreateEvent_btn.Location = new System.Drawing.Point(8, 276);
-            this.CreateEvent_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CreateEvent_btn.Margin = new System.Windows.Forms.Padding(2);
             this.CreateEvent_btn.Name = "CreateEvent_btn";
             this.CreateEvent_btn.Size = new System.Drawing.Size(73, 36);
             this.CreateEvent_btn.TabIndex = 2;
@@ -59,33 +59,36 @@
             // 
             // seconds_cmb
             // 
+            this.seconds_cmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.seconds_cmb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.seconds_cmb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.seconds_cmb.FormattingEnabled = true;
             this.seconds_cmb.Location = new System.Drawing.Point(7, 244);
-            this.seconds_cmb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.seconds_cmb.Margin = new System.Windows.Forms.Padding(2);
             this.seconds_cmb.Name = "seconds_cmb";
             this.seconds_cmb.Size = new System.Drawing.Size(227, 28);
             this.seconds_cmb.TabIndex = 5;
             // 
             // mins_cmb
             // 
+            this.mins_cmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.mins_cmb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mins_cmb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mins_cmb.FormattingEnabled = true;
             this.mins_cmb.Location = new System.Drawing.Point(8, 186);
-            this.mins_cmb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mins_cmb.Margin = new System.Windows.Forms.Padding(2);
             this.mins_cmb.Name = "mins_cmb";
             this.mins_cmb.Size = new System.Drawing.Size(227, 28);
             this.mins_cmb.TabIndex = 10;
             // 
             // hours_cmb
             // 
+            this.hours_cmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.hours_cmb.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.hours_cmb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.hours_cmb.FormattingEnabled = true;
             this.hours_cmb.Location = new System.Drawing.Point(8, 122);
-            this.hours_cmb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.hours_cmb.Margin = new System.Windows.Forms.Padding(2);
             this.hours_cmb.Name = "hours_cmb";
             this.hours_cmb.Size = new System.Drawing.Size(227, 28);
             this.hours_cmb.TabIndex = 12;
@@ -96,7 +99,7 @@
             this.task_cmb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.task_cmb.FormattingEnabled = true;
             this.task_cmb.Location = new System.Drawing.Point(8, 64);
-            this.task_cmb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.task_cmb.Margin = new System.Windows.Forms.Padding(2);
             this.task_cmb.Name = "task_cmb";
             this.task_cmb.Size = new System.Drawing.Size(227, 28);
             this.task_cmb.TabIndex = 13;
@@ -163,24 +166,26 @@
             this.delete_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.delete_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.delete_btn.Location = new System.Drawing.Point(162, 276);
-            this.delete_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.delete_btn.Margin = new System.Windows.Forms.Padding(2);
             this.delete_btn.Name = "delete_btn";
             this.delete_btn.Size = new System.Drawing.Size(73, 36);
             this.delete_btn.TabIndex = 19;
             this.delete_btn.Text = "Delete";
             this.delete_btn.UseVisualStyleBackColor = true;
+            this.delete_btn.Click += new System.EventHandler(this.delete_btn_Click);
             // 
             // edit_btn
             // 
             this.edit_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.edit_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.edit_btn.Location = new System.Drawing.Point(85, 276);
-            this.edit_btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.edit_btn.Margin = new System.Windows.Forms.Padding(2);
             this.edit_btn.Name = "edit_btn";
             this.edit_btn.Size = new System.Drawing.Size(73, 36);
             this.edit_btn.TabIndex = 20;
             this.edit_btn.Text = "Edit";
             this.edit_btn.UseVisualStyleBackColor = true;
+            this.edit_btn.Click += new System.EventHandler(this.edit_btn_Click);
             // 
             // taskCreation
             // 
@@ -199,7 +204,7 @@
             this.Controls.Add(this.mins_cmb);
             this.Controls.Add(this.seconds_cmb);
             this.Controls.Add(this.CreateEvent_btn);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimumSize = new System.Drawing.Size(261, 343);
             this.Name = "taskCreation";
             this.Text = "Task Create";

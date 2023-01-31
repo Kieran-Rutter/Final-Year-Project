@@ -57,6 +57,26 @@ namespace Daily_Digital_Task_Tracker
             task_cmb.Items.Add(task_cmb.Text);
         }
 
+        private void delete_btn_Click(object sender, EventArgs e)
+        {
+            string search = task_cmb.Text;
+            string dateSearch = date_lbl.Text;
+            Console.WriteLine(search);
+            Console.WriteLine(dateSearch);
+            //Gets all tasks not in the selected date
+            File.WriteAllLines("Temp.csv", File.ReadAllLines("Events.csv").Where(line => (!dateSearch.Equals(line.Split(',')[0]))));
+            //Gets all tasks that are in the selected date but not = to the task name
+            File.AppendAllLines("Temp.csv", File.ReadAllLines("Events.csv").Where(line => !search.Equals(line.Split(',')[1])).Where(line => (dateSearch.Equals(line.Split(',')[0]))));
+            //Writes both statements above to the events file
+            File.WriteAllLines("Events.csv", File.ReadAllLines("Temp.csv"));
+        }
+
+        private void edit_btn_Click(object sender, EventArgs e)
+        {
+            delete_btn_Click(sender, e);
+            CreateEvent_btn_Click(sender, e);
+        }
+
         private void searchCSV(string search, int posSearch, int posWrite, string mode)
         {
             //Loop to find time of task
@@ -134,6 +154,13 @@ namespace Daily_Digital_Task_Tracker
             this.CreateEvent_btn.BackColor = ColorTranslator.FromHtml(buttonBackColour);
             this.CreateEvent_btn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
 
+            this.edit_btn.ForeColor = ColorTranslator.FromHtml(textColour);
+            this.edit_btn.BackColor = ColorTranslator.FromHtml(buttonBackColour);
+            this.edit_btn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
+
+            this.delete_btn.ForeColor = ColorTranslator.FromHtml(textColour);
+            this.delete_btn.BackColor = ColorTranslator.FromHtml(buttonBackColour);
+            this.delete_btn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
             //Labels
             this.date_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
             this.taskName_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
@@ -146,7 +173,10 @@ namespace Daily_Digital_Task_Tracker
         {
             if (shown)
             {
+                //Buttons
                 Daily_Digital_Task_Tracker.Resize.resizeControl(CreateEvent_btnlOriginalRectangle, CreateEvent_btn, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(edit_btnlOriginalRectangle, edit_btn, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(delete_btnlOriginalRectangle, delete_btn, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
                 //Combo box
                 Daily_Digital_Task_Tracker.Resize.resizeControl(task_cmbOriginalRectangle, task_cmb, cmbOriginalFontSize, originalFormSize, this.Height, this.Width);
                 Daily_Digital_Task_Tracker.Resize.resizeControl(hours_cmbOriginalRectangle, hours_cmb, cmbOriginalFontSize, originalFormSize, this.Height, this.Width);
@@ -165,10 +195,19 @@ namespace Daily_Digital_Task_Tracker
 
         private void DayExpanded_Shown(object sender, EventArgs e)
         {
-        //Variables for resize
-        originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Width, this.Height);
+            //Sets combo boxes to 0 to avoid error
+            hours_cmb.SelectedIndex = 0;
+            mins_cmb.SelectedIndex = 0;
+            seconds_cmb.SelectedIndex = 0;
+            //Variables for resize
+            originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Width, this.Height);
+            //Buttons
             CreateEvent_btnlOriginalRectangle = new Rectangle(CreateEvent_btn.Location.X, CreateEvent_btn.Location.Y,
                 CreateEvent_btn.Width, CreateEvent_btn.Height);
+            edit_btnlOriginalRectangle = new Rectangle(edit_btn.Location.X, edit_btn.Location.Y,
+    edit_btn.Width, edit_btn.Height);
+            delete_btnlOriginalRectangle = new Rectangle(delete_btn.Location.X, delete_btn.Location.Y,
+    delete_btn.Width, delete_btn.Height);
             //Combo boxes
             task_cmbOriginalRectangle = new Rectangle(task_cmb.Location.X, task_cmb.Location.Y,
                 task_cmb.Width, task_cmb.Height);
@@ -206,6 +245,8 @@ namespace Daily_Digital_Task_Tracker
 
         private Rectangle originalFormSize;
         private Rectangle CreateEvent_btnlOriginalRectangle;
+        private Rectangle edit_btnlOriginalRectangle;
+        private Rectangle delete_btnlOriginalRectangle;
 
         private Rectangle task_cmbOriginalRectangle;
 
