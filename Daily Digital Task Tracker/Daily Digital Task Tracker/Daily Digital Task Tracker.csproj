@@ -90,6 +90,12 @@
     <Compile Include="TaskUserControl.Designer.cs">
       <DependentUpon>TaskUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="themes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="themes.Designer.cs">
+      <DependentUpon>themes.cs</DependentUpon>
+    </Compile>
     <Compile Include="TimerExpanded.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </Compile>
     <EmbeddedResource Include="TaskUserControl.resx">
       <DependentUpon>TaskUserControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="themes.resx">
+      <DependentUpon>themes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TimerExpanded.resx">
       <DependentUpon>TimerExpanded.cs</DependentUpon>
