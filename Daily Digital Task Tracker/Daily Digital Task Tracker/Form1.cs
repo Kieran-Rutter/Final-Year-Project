@@ -312,6 +312,12 @@ namespace Daily_Digital_Task_Tracker
                 smallFont = nextBtn.Font;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            themes Themes = new themes();
+            Themes.Show();
+        }
     }
 }
 
