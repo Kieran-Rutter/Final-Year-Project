@@ -165,32 +165,6 @@ namespace Daily_Digital_Task_Tracker
 
         private void Form1_Activated(object sender, EventArgs e)
         {
-            month_container.Controls.Clear();
-            dateDisplay();
-        }
-
-        //Will be moved to another form later
-        private void Themebtn_Click(object sender, EventArgs e)
-        {
-            Settings set = new Settings();
-            set.readIni();
-            if (set.theme == "light")
-            {
-                set.writeini("SECTION", "key", "dark");
-                set.writeini("SECTION", "backColour", "F8F9FA");
-                set.writeini("SECTION", "textColour", "000000");
-                set.writeini("SECTION", "buttonBackColour", "CED4DA");
-                set.writeini("SECTION", "buttonBorderColour", "ADB5BD");
-            }
-            else if (set.theme == "dark")
-            {
-                Console.WriteLine("dark");
-                set.writeini("SECTION", "key", "light");
-                set.writeini("SECTION", "backColour", "1C1C21");
-                set.writeini("SECTION", "textColour", "FFF1F1F1");
-                set.writeini("SECTION", "buttonBackColour", "393A41");
-                set.writeini("SECTION", "buttonBorderColour", "4B4C52");
-            }
             getIni();
             month_container.Controls.Clear();
             dateDisplay();
@@ -231,9 +205,9 @@ namespace Daily_Digital_Task_Tracker
             this.prevBtn.BackColor = ColorTranslator.FromHtml(buttonBackColour);
             this.prevBtn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
 
-            this.Themebtn.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.Themebtn.BackColor = ColorTranslator.FromHtml(buttonBackColour);
-            this.Themebtn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
+            this.themePage_btn.ForeColor = ColorTranslator.FromHtml(textColour);
+            this.themePage_btn.BackColor = ColorTranslator.FromHtml(buttonBackColour);
+            this.themePage_btn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
             //Label colours
             this.month_year_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
             this.monday_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
@@ -265,7 +239,7 @@ namespace Daily_Digital_Task_Tracker
         private void Form1_Shown(object sender, EventArgs e)
         {
             originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Width, this.Height);
-            ThemebtnOriginalRectangle = new Rectangle(Themebtn.Location.X, Themebtn.Location.Y, Themebtn.Width, Themebtn.Height);
+            ThemebtnOriginalRectangle = new Rectangle(themePage_btn.Location.X, themePage_btn.Location.Y, themePage_btn.Width, themePage_btn.Height);
             nextBtnOriginalRectangle = new Rectangle(nextBtn.Location.X, nextBtn.Location.Y, nextBtn.Width, nextBtn.Height);
             prevBtnOriginalRectangle = new Rectangle(prevBtn.Location.X, prevBtn.Location.Y, prevBtn.Width, prevBtn.Height);
             Dates_lbl_ContainerOriginalRectangle = new Rectangle(Dates_lbl_Container.Location.X,
@@ -292,7 +266,7 @@ namespace Daily_Digital_Task_Tracker
         {
             if (shown)
             {
-                Daily_Digital_Task_Tracker.Resize.resizeControl(ThemebtnOriginalRectangle, Themebtn, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
+                Daily_Digital_Task_Tracker.Resize.resizeControl(ThemebtnOriginalRectangle, themePage_btn, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
                 Daily_Digital_Task_Tracker.Resize.resizeControl(nextBtnOriginalRectangle, nextBtn, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
                 Daily_Digital_Task_Tracker.Resize.resizeControl(prevBtnOriginalRectangle, prevBtn, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
                 Daily_Digital_Task_Tracker.Resize.resizeControl(Dates_lbl_ContainerOriginalRectangle, Dates_lbl_Container, lblOriginalFontSize, originalFormSize, this.Height, this.Width);
@@ -313,7 +287,7 @@ namespace Daily_Digital_Task_Tracker
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void themePage_btn_Click(object sender, EventArgs e)
         {
             themes Themes = new themes();
             Themes.Show();
