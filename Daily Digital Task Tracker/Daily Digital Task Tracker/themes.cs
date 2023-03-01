@@ -21,9 +21,36 @@ namespace Daily_Digital_Task_Tracker
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
-                button1.BackColor = colorDialog1.Color;
-                button1.Text = (colorDialog1.Color.ToArgb() & 0x00FFFFFF).ToString("X6");
+                colour_btn.BackColor = colorDialog1.Color;
+                colour_btn.Text = (colorDialog1.Color.ToArgb() & 0x00FFFFFF).ToString("X6");
             }
+        }
+
+        private void test_btn_Click(object sender, EventArgs e)
+        {
+            Settings set = new Settings();
+            set.readIni();
+            if (set.theme == "light")
+            {
+                Console.WriteLine("set to light");
+                set.writeini("SECTION", "key", "dark");
+                set.writeini("SECTION", "backColour", "F8F9FA");
+                set.writeini("SECTION", "textColour", "000000");
+                set.writeini("SECTION", "buttonBackColour", "CED4DA");
+                set.writeini("SECTION", "buttonBorderColour", "ADB5BD");
+            }
+            else if (set.theme == "dark")
+            {
+                Console.WriteLine("set to dark");
+                set.writeini("SECTION", "key", "light");
+                set.writeini("SECTION", "backColour", "1C1C21");
+                set.writeini("SECTION", "textColour", "FFF1F1F1");
+                set.writeini("SECTION", "buttonBackColour", "393A41");
+                set.writeini("SECTION", "buttonBorderColour", "4B4C52");
+            }
+            //getIni();
+            //month_container.Controls.Clear();
+            //dateDisplay();
         }
     }
 }

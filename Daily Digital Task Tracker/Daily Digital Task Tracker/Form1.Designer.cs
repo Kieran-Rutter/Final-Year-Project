@@ -39,10 +39,9 @@
             this.friday_lbl = new System.Windows.Forms.Label();
             this.saturday_lbl = new System.Windows.Forms.Label();
             this.month_year_lbl = new System.Windows.Forms.Label();
-            this.Themebtn = new System.Windows.Forms.Button();
             this.Dates_lbl_Container = new System.Windows.Forms.TableLayoutPanel();
+            this.themePage_btn = new System.Windows.Forms.Button();
             this.month_container = new System.Windows.Forms.TableLayoutPanel();
-            this.button1 = new System.Windows.Forms.Button();
             this.Dates_lbl_Container.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,10 +51,10 @@
             this.prevBtn.AutoSize = true;
             this.prevBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.prevBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prevBtn.Location = new System.Drawing.Point(8, 727);
+            this.prevBtn.Location = new System.Drawing.Point(141, 2);
             this.prevBtn.Margin = new System.Windows.Forms.Padding(2);
             this.prevBtn.Name = "prevBtn";
-            this.prevBtn.Size = new System.Drawing.Size(91, 79);
+            this.prevBtn.Size = new System.Drawing.Size(135, 29);
             this.prevBtn.TabIndex = 1;
             this.prevBtn.Text = "Previous";
             this.prevBtn.UseVisualStyleBackColor = true;
@@ -67,10 +66,10 @@
             this.nextBtn.AutoSize = true;
             this.nextBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.nextBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nextBtn.Location = new System.Drawing.Point(103, 727);
+            this.nextBtn.Location = new System.Drawing.Point(697, 2);
             this.nextBtn.Margin = new System.Windows.Forms.Padding(2);
             this.nextBtn.Name = "nextBtn";
-            this.nextBtn.Size = new System.Drawing.Size(93, 79);
+            this.nextBtn.Size = new System.Drawing.Size(135, 29);
             this.nextBtn.TabIndex = 2;
             this.nextBtn.Text = "Next";
             this.nextBtn.UseVisualStyleBackColor = true;
@@ -187,30 +186,15 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.month_year_lbl.AutoSize = true;
-            this.Dates_lbl_Container.SetColumnSpan(this.month_year_lbl, 7);
+            this.Dates_lbl_Container.SetColumnSpan(this.month_year_lbl, 3);
             this.month_year_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.month_year_lbl.Location = new System.Drawing.Point(2, 0);
+            this.month_year_lbl.Location = new System.Drawing.Point(280, 0);
             this.month_year_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.month_year_lbl.Name = "month_year_lbl";
-            this.month_year_lbl.Size = new System.Drawing.Size(976, 33);
+            this.month_year_lbl.Size = new System.Drawing.Size(413, 33);
             this.month_year_lbl.TabIndex = 10;
             this.month_year_lbl.Text = "MonthYearPlaceholder";
             this.month_year_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Themebtn
-            // 
-            this.Themebtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Themebtn.AutoSize = true;
-            this.Themebtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Themebtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Themebtn.Location = new System.Drawing.Point(199, 727);
-            this.Themebtn.Margin = new System.Windows.Forms.Padding(2);
-            this.Themebtn.Name = "Themebtn";
-            this.Themebtn.Size = new System.Drawing.Size(93, 79);
-            this.Themebtn.TabIndex = 11;
-            this.Themebtn.Text = "Theme";
-            this.Themebtn.UseVisualStyleBackColor = true;
-            this.Themebtn.Click += new System.EventHandler(this.Themebtn_Click);
             // 
             // Dates_lbl_Container
             // 
@@ -222,14 +206,17 @@
             this.Dates_lbl_Container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.Dates_lbl_Container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.Dates_lbl_Container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.Dates_lbl_Container.Controls.Add(this.themePage_btn, 6, 0);
             this.Dates_lbl_Container.Controls.Add(this.sunday_lbl, 0, 1);
             this.Dates_lbl_Container.Controls.Add(this.saturday_lbl, 6, 1);
             this.Dates_lbl_Container.Controls.Add(this.monday_lbl, 1, 1);
-            this.Dates_lbl_Container.Controls.Add(this.month_year_lbl, 0, 0);
             this.Dates_lbl_Container.Controls.Add(this.tuesday_lbl, 2, 1);
+            this.Dates_lbl_Container.Controls.Add(this.prevBtn, 1, 0);
+            this.Dates_lbl_Container.Controls.Add(this.nextBtn, 5, 0);
             this.Dates_lbl_Container.Controls.Add(this.friday_lbl, 5, 1);
             this.Dates_lbl_Container.Controls.Add(this.wednesday_lbl, 3, 1);
             this.Dates_lbl_Container.Controls.Add(this.thursday_lbl, 4, 1);
+            this.Dates_lbl_Container.Controls.Add(this.month_year_lbl, 2, 0);
             this.Dates_lbl_Container.Location = new System.Drawing.Point(8, 8);
             this.Dates_lbl_Container.Margin = new System.Windows.Forms.Padding(2);
             this.Dates_lbl_Container.Name = "Dates_lbl_Container";
@@ -239,6 +226,21 @@
             this.Dates_lbl_Container.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 13F));
             this.Dates_lbl_Container.Size = new System.Drawing.Size(980, 67);
             this.Dates_lbl_Container.TabIndex = 13;
+            // 
+            // themePage_btn
+            // 
+            this.themePage_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.themePage_btn.AutoSize = true;
+            this.themePage_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.themePage_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.themePage_btn.Location = new System.Drawing.Point(836, 2);
+            this.themePage_btn.Margin = new System.Windows.Forms.Padding(2);
+            this.themePage_btn.Name = "themePage_btn";
+            this.themePage_btn.Size = new System.Drawing.Size(142, 29);
+            this.themePage_btn.TabIndex = 14;
+            this.themePage_btn.Text = "Theme";
+            this.themePage_btn.UseVisualStyleBackColor = true;
+            this.themePage_btn.Click += new System.EventHandler(this.themePage_btn_Click);
             // 
             // month_container
             // 
@@ -263,32 +265,13 @@
             this.month_container.Size = new System.Drawing.Size(980, 644);
             this.month_container.TabIndex = 12;
             // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.AutoSize = true;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(296, 727);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(101, 79);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "ThemeTest";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
-            this.ClientSize = new System.Drawing.Size(992, 813);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(992, 729);
             this.Controls.Add(this.Dates_lbl_Container);
             this.Controls.Add(this.month_container);
-            this.Controls.Add(this.Themebtn);
-            this.Controls.Add(this.nextBtn);
-            this.Controls.Add(this.prevBtn);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
@@ -300,7 +283,6 @@
             this.Dates_lbl_Container.ResumeLayout(false);
             this.Dates_lbl_Container.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -315,10 +297,9 @@
         private System.Windows.Forms.Label friday_lbl;
         private System.Windows.Forms.Label saturday_lbl;
         private System.Windows.Forms.Label month_year_lbl;
-        private System.Windows.Forms.Button Themebtn;
         private System.Windows.Forms.TableLayoutPanel Dates_lbl_Container;
         public System.Windows.Forms.TableLayoutPanel month_container;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button themePage_btn;
     }
 }
 
