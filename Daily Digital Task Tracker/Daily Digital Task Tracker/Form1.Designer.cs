@@ -42,6 +42,7 @@
             this.Dates_lbl_Container = new System.Windows.Forms.TableLayoutPanel();
             this.themePage_btn = new System.Windows.Forms.Button();
             this.month_container = new System.Windows.Forms.TableLayoutPanel();
+            this.menu_btn = new System.Windows.Forms.Button();
             this.Dates_lbl_Container.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -206,6 +207,7 @@
             this.Dates_lbl_Container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.Dates_lbl_Container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
             this.Dates_lbl_Container.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 14.28571F));
+            this.Dates_lbl_Container.Controls.Add(this.menu_btn, 0, 0);
             this.Dates_lbl_Container.Controls.Add(this.themePage_btn, 6, 0);
             this.Dates_lbl_Container.Controls.Add(this.sunday_lbl, 0, 1);
             this.Dates_lbl_Container.Controls.Add(this.saturday_lbl, 6, 1);
@@ -265,6 +267,20 @@
             this.month_container.Size = new System.Drawing.Size(980, 644);
             this.month_container.TabIndex = 12;
             // 
+            // menu_btn
+            // 
+            this.menu_btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.menu_btn.AutoSize = true;
+            this.menu_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.menu_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.menu_btn.Location = new System.Drawing.Point(2, 2);
+            this.menu_btn.Margin = new System.Windows.Forms.Padding(2);
+            this.menu_btn.Name = "menu_btn";
+            this.menu_btn.Size = new System.Drawing.Size(135, 29);
+            this.menu_btn.TabIndex = 15;
+            this.menu_btn.Text = "Menu";
+            this.menu_btn.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -300,6 +316,7 @@
         private System.Windows.Forms.TableLayoutPanel Dates_lbl_Container;
         public System.Windows.Forms.TableLayoutPanel month_container;
         private System.Windows.Forms.Button themePage_btn;
+        private System.Windows.Forms.Button menu_btn;
     }
 }
 

@@ -197,26 +197,16 @@ namespace Daily_Digital_Task_Tracker
             month_container.CellBorderStyle = TableLayoutPanelCellBorderStyle.None;
 
             //Button colours
-            this.nextBtn.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.nextBtn.BackColor = ColorTranslator.FromHtml(buttonBackColour);
             this.nextBtn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
-
-            this.prevBtn.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.prevBtn.BackColor = ColorTranslator.FromHtml(buttonBackColour);
             this.prevBtn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
-
-            this.themePage_btn.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.themePage_btn.BackColor = ColorTranslator.FromHtml(buttonBackColour);
             this.themePage_btn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
-            //Label colours
-            this.month_year_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.monday_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.tuesday_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.wednesday_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.thursday_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.friday_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.saturday_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.sunday_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
+
+            //Loads the colour controll class for each controll in the form.
+            foreach (Control c in this.Controls)
+            {
+                Console.WriteLine(c.ToString());
+                ColourControl.UpdateColorControls(c);
+            }
         }
 
         //Dynamic scale

@@ -47,10 +47,7 @@ namespace Daily_Digital_Task_Tracker
                 set.writeini("SECTION", "textColour", "FFF1F1F1");
                 set.writeini("SECTION", "buttonBackColour", "393A41");
                 set.writeini("SECTION", "buttonBorderColour", "4B4C52");
-            }
-            //getIni();
-            //month_container.Controls.Clear();
-            //dateDisplay();
+            }//https://stackoverflow.com/questions/22935285/change-color-of-all-controls-inside-the-form-in-c-sharp
         }
     }
 }
