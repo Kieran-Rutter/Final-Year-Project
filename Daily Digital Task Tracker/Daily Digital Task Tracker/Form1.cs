@@ -35,50 +35,6 @@ namespace Daily_Digital_Task_Tracker
                 return handleparam;
             }
         }
-
-        //Creates file in bin/debug
-        private void CreateCSV()
-        {
-            try
-            {
-                StreamWriter sw = new StreamWriter(File.Open("config.ini", System.IO.FileMode.CreateNew));
-                Console.WriteLine("File created");
-                sw.Close();
-                File.AppendAllText("config.ini", "[SECTION]" + "\n");
-                File.AppendAllText("config.ini", "key = light" + "\n");
-                File.AppendAllText("config.ini", "backColour = F8F9FA" + "\n");
-                File.AppendAllText("config.ini", "textColour = 000000" + "\n");
-                File.AppendAllText("config.ini", "buttonBackColour = CED4DA" + "\n");
-                File.AppendAllText("config.ini", "buttonBorderColour = ADB5BD" + "\n");
-            }
-            catch (IOException)
-            {
-                Console.WriteLine("File already exists");
-            }
-            //Makes sure that the files exist if not they are made.
-            try
-            {
-                StreamWriter sw = new StreamWriter(File.Open("Events.csv", System.IO.FileMode.CreateNew));
-                Console.WriteLine("File created");
-                sw.Close();
-            }
-            catch (IOException)
-            {
-                Console.WriteLine("File already exists");
-            }
-
-            try
-            {
-                StreamWriter sw = new StreamWriter(File.Open("Temp.csv", System.IO.FileMode.CreateNew));
-                Console.WriteLine("File created");
-                sw.Close();
-            }
-            catch (IOException)
-            {
-                Console.WriteLine("File already exists");
-            }
-        }
-
         public void dateDisplay()
         {
             /*
@@ -170,7 +126,6 @@ namespace Daily_Digital_Task_Tracker
             month_container.Controls.Clear();
             dateDisplay();
         }
-
         /*
          * Functions for theme and auto sizing
          */
@@ -184,7 +139,7 @@ namespace Daily_Digital_Task_Tracker
         //Rectangles created when the for is loaded to save original sizes.
         private void Form1_Load(object sender, EventArgs e)
         {
-            CreateCSV();
+            csvControl.CreateCSV();
             ColourControl.callColours(this);
         }
         private void Form1_Shown(object sender, EventArgs e)

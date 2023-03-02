@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ColourControl.cs" />
+    <Compile Include="csvControl.cs" />
     <Compile Include="expandedDay.cs">
       <SubType>Form</SubType>
     </Compile>
