@@ -173,28 +173,23 @@ namespace Daily_Digital_Task_Tracker
         /*
          * Functions for theme and auto sizing
          */
-
+        //User controls still use these (Change to use colour control class)
         public static String backColour;
         public static String textColour;
         public static String buttonBackColour;
         public static String buttonBorderColour;
 
-        //https://learn.microsoft.com/en-us/visualstudio/extensibility/ux-guidelines/color-value-reference-for-visual-studio?view=vs-2022
         private void getIni()
         {
             Settings settings = new Settings();
             settings.readIni();
-            //https://coolors.co/palettes/trending
-            //https://coolors.co/palette/131316-1c1c21-26262c-2f3037-393a41-4b4c52-5b5c62-6a6b70
 
             backColour = settings.backColour;
             textColour = settings.textColour;
             buttonBackColour = settings.buttonBackColour;
             buttonBorderColour = settings.buttonBorderColour;
 
-
-            this.BackColor = ColorTranslator.FromHtml(backColour);
-            month_container.CellBorderStyle = TableLayoutPanelCellBorderStyle.None;
+            ColourControl.UpdateBackColour(this);
 
             //Button colours
             this.nextBtn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
@@ -204,7 +199,6 @@ namespace Daily_Digital_Task_Tracker
             //Loads the colour controll class for each controll in the form.
             foreach (Control c in this.Controls)
             {
-                Console.WriteLine(c.ToString());
                 ColourControl.UpdateColorControls(c);
             }
         }
@@ -235,7 +229,6 @@ namespace Daily_Digital_Task_Tracker
             Dates_lbl_ContainerOriginalRectangle = new Rectangle(Dates_lbl_Container.Location.X,
                 Dates_lbl_Container.Location.Y, Dates_lbl_Container.Width, Dates_lbl_Container.Height);
             month_containerOriginalRectangle = new Rectangle(month_container.Location.X, month_container.Location.Y, month_container.Width, month_container.Height);
-
 
             //Text
             lblOriginalFontSize = sunday_lbl.Font.Size;
