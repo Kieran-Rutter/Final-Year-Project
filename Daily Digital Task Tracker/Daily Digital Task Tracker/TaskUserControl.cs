@@ -31,7 +31,7 @@ namespace Daily_Digital_Task_Tracker
 
         private void TaskUserControl_Load(object sender, EventArgs e)
         {
-            getIni();
+            ColourControl.callControlColours(this);
         }
 
         private void TaskUserControl_Click(object sender, EventArgs e)
@@ -44,24 +44,9 @@ namespace Daily_Digital_Task_Tracker
             minutes += (hours * 60);
             seconds += (minutes * 60);
 
-
             TimerExpanded timerExpanded = new TimerExpanded();
             timerExpanded.Show();
         }
-
-
-        private void getIni()
-        {
-            ColourControl.UpdateControlBackColour(this);
-
-            //Loads the colour control class for each controll in the form.
-            foreach (Control c in this.Controls)
-            {
-                ColourControl.UpdateColorControls(c);
-            }
-        }
-        public static String backColour;
-        public static String textColour;
 
         private void TaskUserControl_Resize(object sender, EventArgs e)
         {
