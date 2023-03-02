@@ -46,6 +46,7 @@ namespace Daily_Digital_Task_Tracker
 
         private void TimerExpanded_Load(object sender, EventArgs e)
         {
+            ColourControl.callColours(this);
             getIni();
 
             //Calculates how long the counter needs to be
@@ -80,7 +81,6 @@ namespace Daily_Digital_Task_Tracker
             }
         }
 
-
         /*
          * Functions for theme and auto sizing
         */
@@ -92,27 +92,12 @@ namespace Daily_Digital_Task_Tracker
         public static String buttonBorderColour;
         private void getIni()
         {
-            Settings settings = new Settings();
-            settings.readIni();
-
-            textColour = settings.textColour;
-
-            ColourControl.UpdateBackColour(this);
-
-            //Loads the colour controll class for each controll in the form.
-            foreach (Control c in this.Controls)
-            {
-                ColourControl.UpdateColorControls(c);
-            }
 
             //Labels
             this.progressBar.Titles[0].ForeColor = ColorTranslator.FromHtml(textColour);
         }
 
         private Rectangle originalFormSize;
-        private Rectangle start_btnOriginalRectangle;
-
-        private Rectangle progressBarOriginalRectangle;
 
         private float buttonlOriginalFontSize;
 
@@ -151,13 +136,6 @@ namespace Daily_Digital_Task_Tracker
         {
             //Variables for resize
             originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Width, this.Height);
-            start_btnOriginalRectangle = new Rectangle(start_btn.Location.X, start_btn.Location.Y,
-                start_btn.Width, start_btn.Height);
-
-
-            //Progress bar
-            progressBarOriginalRectangle = new Rectangle(progressBar.Location.X, progressBar.Location.Y,
-                progressBar.Width, progressBar.Height);
 
             //Text
             buttonlOriginalFontSize = start_btn.Font.Size;

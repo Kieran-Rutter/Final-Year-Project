@@ -53,7 +53,7 @@ namespace Daily_Digital_Task_Tracker
 
         private void expandedDay_Load(object sender, EventArgs e)
         {
-            getIni();
+            ColourControl.callColours(this);
             string day = DayUserControl.day_stc;
             taskDisplay(day);
         }
@@ -68,16 +68,6 @@ namespace Daily_Digital_Task_Tracker
         public static String textColour;
         public static String buttonBackColour;
         public static String buttonBorderColour;
-        private void getIni()
-        {
-            ColourControl.UpdateBackColour(this);
-
-            //Loads the colour controll class for each controll in the form.
-            foreach (Control c in this.Controls)
-            {
-                ColourControl.UpdateColorControls(c);
-            }
-        }
 
         private void create_btn_Click(object sender, EventArgs e)
         {

@@ -15,6 +15,17 @@ namespace Daily_Digital_Task_Tracker
         public static String buttonBackColour;
         public static String buttonBorderColour;
 
+        public static void callColours(Form myForm)
+        {
+            UpdateBackColour(myForm);
+
+            //Loads the colour controll class for each controll in the form.
+            foreach (Control c in myForm.Controls)
+            {
+                UpdateColorControls(c);
+            }
+        }
+
         public static void readIni()
         {
             Settings settings = new Settings();

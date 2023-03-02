@@ -32,7 +32,7 @@ namespace Daily_Digital_Task_Tracker
 
             date_lbl.Text = DayUserControl.day_stc + "/" + Form1.month.ToString() + "/" + Form1.year.ToString();
             this.Text = date_lbl.Text;
-            getIni();
+            ColourControl.callColours(this);
 
             searchCSV(date_lbl.Text, 0, 1, "startup");
 
@@ -131,17 +131,6 @@ namespace Daily_Digital_Task_Tracker
         /*
          * Functions for theme and auto sizing
          */
-
-        private void getIni()
-        {
-            ColourControl.UpdateBackColour(this);
-
-            //Loads the colour controll class for each controll in the form.
-            foreach (Control c in this.Controls)
-            {
-                ColourControl.UpdateColorControls(c);
-            }
-        }
 
         private void DayExpanded_Resize(object sender, EventArgs e)
         {

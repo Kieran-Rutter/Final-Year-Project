@@ -165,7 +165,8 @@ namespace Daily_Digital_Task_Tracker
 
         private void Form1_Activated(object sender, EventArgs e)
         {
-            getIni();
+            ColourControl.callColours(this);
+
             month_container.Controls.Clear();
             dateDisplay();
         }
@@ -173,17 +174,6 @@ namespace Daily_Digital_Task_Tracker
         /*
          * Functions for theme and auto sizing
          */
-
-        private void getIni()
-        {
-            ColourControl.UpdateBackColour(this);
-
-            //Loads the colour controll class for each controll in the form.
-            foreach (Control c in this.Controls)
-            {
-                ColourControl.UpdateColorControls(c);
-            }
-        }
 
         //Dynamic scale
         private Rectangle originalFormSize;
@@ -195,7 +185,7 @@ namespace Daily_Digital_Task_Tracker
         private void Form1_Load(object sender, EventArgs e)
         {
             CreateCSV();
-            getIni();
+            ColourControl.callColours(this);
         }
         private void Form1_Shown(object sender, EventArgs e)
         {
