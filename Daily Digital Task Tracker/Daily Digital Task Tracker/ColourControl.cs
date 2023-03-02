@@ -35,20 +35,31 @@ namespace Daily_Digital_Task_Tracker
                     UpdateColorControls(c);
                 }
             }
-            if (myControl is Button)
+            if (myControl is Button btn)
             {
-                myControl.BackColor = ColorTranslator.FromHtml(buttonBackColour);
-                myControl.ForeColor = ColorTranslator.FromHtml(textColour);
+                btn.BackColor = ColorTranslator.FromHtml(buttonBackColour);
+                btn.ForeColor = ColorTranslator.FromHtml(textColour);
+                btn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
             }
             if (myControl is Label)
             {
                 myControl.ForeColor = ColorTranslator.FromHtml(textColour);
+            }
+            if (myControl is TextBox txtBx)
+            {
+                txtBx.BackColor = ColorTranslator.FromHtml(buttonBackColour);
+                txtBx.ForeColor = ColorTranslator.FromHtml(textColour);
             }
         }
         public static void UpdateBackColour(Form myForm)
         {
             readIni();
             myForm.BackColor = ColorTranslator.FromHtml(backColour);
+        }
+        public static void UpdateControlBackColour(UserControl myControl)
+        {
+            readIni();
+            myControl.BackColor = ColorTranslator.FromHtml(buttonBackColour);
         }
     }
 }

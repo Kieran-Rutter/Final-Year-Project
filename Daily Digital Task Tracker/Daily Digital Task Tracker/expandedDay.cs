@@ -59,14 +59,6 @@ namespace Daily_Digital_Task_Tracker
         }
 
 
-
-
-
-
-
-
-
-
         /*
  * Functions for theme and auto sizing
 */
@@ -78,23 +70,13 @@ namespace Daily_Digital_Task_Tracker
         public static String buttonBorderColour;
         private void getIni()
         {
-            Settings settings = new Settings();
-            settings.readIni();
+            ColourControl.UpdateBackColour(this);
 
-            backColour = settings.backColour;
-            textColour = settings.textColour;
-            buttonBackColour = settings.buttonBackColour;
-            buttonBorderColour = settings.buttonBorderColour;
-
-            //User control colours
-            this.BackColor = ColorTranslator.FromHtml(backColour);
-            tasks_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
-
-            //Buttons
-            create_btn.BackColor = ColorTranslator.FromHtml(buttonBackColour);
-            create_btn.ForeColor = ColorTranslator.FromHtml(textColour);
-            create_btn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
-            //Labels
+            //Loads the colour controll class for each controll in the form.
+            foreach (Control c in this.Controls)
+            {
+                ColourControl.UpdateColorControls(c);
+            }
         }
 
         private void create_btn_Click(object sender, EventArgs e)
@@ -114,10 +96,28 @@ namespace Daily_Digital_Task_Tracker
         {
             if (shown)
             {
-                Daily_Digital_Task_Tracker.Resize.resizeControl(taskTBL_pnlOriginalRectangle, taskTBL_pnl, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
-                Daily_Digital_Task_Tracker.Resize.resizeControl(tasks_lblOriginalRectangle, tasks_lbl, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
-                Daily_Digital_Task_Tracker.Resize.resizeControl(create_btnOriginalRectangle, create_btn, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
+                //Daily_Digital_Task_Tracker.Resize.resizeControl(taskTBL_pnlOriginalRectangle, taskTBL_pnl, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
+                //Daily_Digital_Task_Tracker.Resize.resizeControl(tasks_lblOriginalRectangle, tasks_lbl, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
+                //Daily_Digital_Task_Tracker.Resize.resizeControl(create_btnOriginalRectangle, create_btn, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
 
+            }
+        }
+        public void resizeTest(Control textc)
+        {
+            if (textc is TableLayoutPanel)
+            {
+                foreach (Control c in textc.Controls)
+                {
+                    resizeTest(c);
+                }
+            }
+            if (textc is Label)
+            {
+                //ResizeControl.resizeTextControl(textc, lblOriginalFontSize, originalFormSize, this.Height, this.Width);
+            }
+            if (textc is Button)
+            {
+                ResizeControl.resizeTextControl(textc, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
             }
         }
 
@@ -126,9 +126,6 @@ namespace Daily_Digital_Task_Tracker
         {
             //Variables for resize
             originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Width, this.Height);
-            create_btnOriginalRectangle = new Rectangle(create_btn.Location.X, create_btn.Location.Y, create_btn.Width, create_btn.Height);
-            taskTBL_pnlOriginalRectangle = new Rectangle(taskTBL_pnl.Location.X, taskTBL_pnl.Location.Y, taskTBL_pnl.Width, taskTBL_pnl.Height);
-            tasks_lblOriginalRectangle = new Rectangle(tasks_lbl.Location.X, tasks_lbl.Location.Y, tasks_lbl.Width, tasks_lbl.Height);
 
             //Text
             buttonlOriginalFontSize = tasks_lbl.Font.Size;

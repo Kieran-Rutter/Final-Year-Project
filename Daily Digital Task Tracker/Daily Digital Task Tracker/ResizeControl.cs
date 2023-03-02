@@ -8,22 +8,13 @@ using System.Windows.Forms;
 
 namespace Daily_Digital_Task_Tracker
 {
-    internal class Resize
+    internal class ResizeControl
     {
-        //Resize control function to calculate new sizes
-        public static void resizeControl(Rectangle r, Control c, float originalFontSize, Rectangle originalFormSize, float height, float width)
+
+        public static void resizeTextControl(Control c, float originalFontSize, Rectangle originalFormSize, float height, float width)
         {
             float xRatio = (float)(width) / (float)(originalFormSize.Width);
             float yRatio = (float)(height) / (float)(originalFormSize.Height);
-
-            int newX = (int)(r.Location.X * xRatio);
-            int newY = (int)(r.Location.Y * yRatio);
-
-            int newWidth = (int)(r.Width * xRatio);
-            int newHeight = (int)(r.Height * yRatio);
-
-            c.Location = new Point(newX, newY);
-            c.Size = new Size(newWidth, newHeight);
 
             float ratio = xRatio;
             if (xRatio >= yRatio)

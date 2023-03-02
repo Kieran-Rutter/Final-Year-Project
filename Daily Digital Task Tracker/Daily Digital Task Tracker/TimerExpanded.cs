@@ -95,18 +95,15 @@ namespace Daily_Digital_Task_Tracker
             Settings settings = new Settings();
             settings.readIni();
 
-            backColour = settings.backColour;
             textColour = settings.textColour;
-            buttonBackColour = settings.buttonBackColour;
-            buttonBorderColour = settings.buttonBorderColour;
 
-            //User control colours
-            this.BackColor = ColorTranslator.FromHtml(backColour);
+            ColourControl.UpdateBackColour(this);
 
-            //Buttons
-            this.start_btn.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.start_btn.BackColor = ColorTranslator.FromHtml(buttonBackColour);
-            this.start_btn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
+            //Loads the colour controll class for each controll in the form.
+            foreach (Control c in this.Controls)
+            {
+                ColourControl.UpdateColorControls(c);
+            }
 
             //Labels
             this.progressBar.Titles[0].ForeColor = ColorTranslator.FromHtml(textColour);
@@ -123,10 +120,30 @@ namespace Daily_Digital_Task_Tracker
         {
             if (shown)
             {
-                Daily_Digital_Task_Tracker.Resize.resizeControl(start_btnOriginalRectangle, start_btn, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
+                //Loads the resize control class for each controll in the form.
+                foreach (Control textc in this.Controls)
+                {
+                    resizeTest(textc);
+                }
+            }
+        }
 
-                Daily_Digital_Task_Tracker.Resize.resizeControl(progressBarOriginalRectangle, progressBar, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
-
+        public void resizeTest(Control textc)
+        {
+            if (textc is TableLayoutPanel)
+            {
+                foreach (Control c in textc.Controls)
+                {
+                    resizeTest(c);
+                }
+            }
+            if (textc is Label)
+            {
+                //ResizeControl.resizeTextControl(textc, lblOriginalFontSize, originalFormSize, this.Height, this.Width);
+            }
+            if (textc is Button)
+            {
+                ResizeControl.resizeTextControl(textc, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
             }
         }
 

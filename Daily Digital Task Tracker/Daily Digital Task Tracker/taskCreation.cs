@@ -132,64 +132,51 @@ namespace Daily_Digital_Task_Tracker
          * Functions for theme and auto sizing
          */
 
-        public static String backColour;
-        public static String textColour;
-        public static String buttonBackColour;
-        public static String buttonBorderColour;
         private void getIni()
         {
-            Settings settings = new Settings();
-            settings.readIni();
+            ColourControl.UpdateBackColour(this);
 
-            backColour = settings.backColour;
-            textColour = settings.textColour;
-            buttonBackColour = settings.buttonBackColour;
-            buttonBorderColour = settings.buttonBorderColour;
-
-            //User control colours
-            this.BackColor = ColorTranslator.FromHtml(backColour);
-
-            //Buttons
-            this.CreateEvent_btn.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.CreateEvent_btn.BackColor = ColorTranslator.FromHtml(buttonBackColour);
-            this.CreateEvent_btn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
-
-            this.edit_btn.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.edit_btn.BackColor = ColorTranslator.FromHtml(buttonBackColour);
-            this.edit_btn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
-
-            this.delete_btn.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.delete_btn.BackColor = ColorTranslator.FromHtml(buttonBackColour);
-            this.delete_btn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
-            //Labels
-            this.date_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.taskName_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.hours_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.mins_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.seconds_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
+            //Loads the colour controll class for each controll in the form.
+            foreach (Control c in this.Controls)
+            {
+                ColourControl.UpdateColorControls(c);
+            }
         }
 
         private void DayExpanded_Resize(object sender, EventArgs e)
         {
             if (shown)
             {
-                //Buttons
-                Daily_Digital_Task_Tracker.Resize.resizeControl(CreateEvent_btnlOriginalRectangle, CreateEvent_btn, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
-                Daily_Digital_Task_Tracker.Resize.resizeControl(edit_btnlOriginalRectangle, edit_btn, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
-                Daily_Digital_Task_Tracker.Resize.resizeControl(delete_btnlOriginalRectangle, delete_btn, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
-                //Combo box
-                Daily_Digital_Task_Tracker.Resize.resizeControl(task_cmbOriginalRectangle, task_cmb, cmbOriginalFontSize, originalFormSize, this.Height, this.Width);
-                Daily_Digital_Task_Tracker.Resize.resizeControl(hours_cmbOriginalRectangle, hours_cmb, cmbOriginalFontSize, originalFormSize, this.Height, this.Width);
-                Daily_Digital_Task_Tracker.Resize.resizeControl(mins_cmbOriginalRectangle, mins_cmb, cmbOriginalFontSize, originalFormSize, this.Height, this.Width);
-                Daily_Digital_Task_Tracker.Resize.resizeControl(seconds_cmbOriginalRectangle, seconds_cmb, cmbOriginalFontSize, originalFormSize, this.Height, this.Width);
+                //Loads the resize control class for each controll in the form.
+                foreach (Control textc in this.Controls)
+                {
+                    resizeTest(textc);
+                }
 
                 //Labels
-                Daily_Digital_Task_Tracker.Resize.resizeControl(date_lblOriginalRectangle, date_lbl, date_lblOriginalFontSize, originalFormSize, this.Height, this.Width);
-
-                Daily_Digital_Task_Tracker.Resize.resizeControl(taskName_lblOriginalRectangle, taskName_lbl, time_lblOriginalFontSize, originalFormSize, this.Height, this.Width);
-                Daily_Digital_Task_Tracker.Resize.resizeControl(hours_lblOriginalRectangle, hours_lbl, time_lblOriginalFontSize, originalFormSize, this.Height, this.Width);
-                Daily_Digital_Task_Tracker.Resize.resizeControl(minutes_lblOriginalRectangle, mins_lbl, time_lblOriginalFontSize, originalFormSize, this.Height, this.Width);
-                Daily_Digital_Task_Tracker.Resize.resizeControl(seconds_lblOriginalRectangle, seconds_lbl, time_lblOriginalFontSize, originalFormSize, this.Height, this.Width);
+                //Daily_Digital_Task_Tracker.Resize.resizeControl(date_lblOriginalRectangle, date_lbl, date_lblOriginalFontSize, originalFormSize, this.Height, this.Width);
+            }
+        }
+        public void resizeTest(Control textc)
+        {
+            if (textc is TableLayoutPanel)
+            {
+                foreach (Control c in textc.Controls)
+                {
+                    resizeTest(c);
+                }
+            }
+            if (textc is Label)
+            {
+                ResizeControl.resizeTextControl(textc, time_lblOriginalFontSize, originalFormSize, this.Height, this.Width);
+            }
+            if (textc is Button)
+            {
+                ResizeControl.resizeTextControl(textc, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
+            }
+            if (textc is ComboBox)
+            {
+                ResizeControl.resizeTextControl(textc, cmbOriginalFontSize, originalFormSize, this.Height, this.Width);
             }
         }
 

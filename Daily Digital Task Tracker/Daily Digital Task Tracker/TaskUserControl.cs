@@ -52,19 +52,13 @@ namespace Daily_Digital_Task_Tracker
 
         private void getIni()
         {
-            Settings settings = new Settings();
-            settings.readIni();
+            ColourControl.UpdateControlBackColour(this);
 
-            backColour = Form1.buttonBackColour;
-            textColour = Form1.textColour;
-
-            //User control colours
-            this.BackColor = ColorTranslator.FromHtml(backColour);
-            this.task_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.hours_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.mins_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.seconds_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
-
+            //Loads the colour control class for each controll in the form.
+            foreach (Control c in this.Controls)
+            {
+                ColourControl.UpdateColorControls(c);
+            }
         }
         public static String backColour;
         public static String textColour;

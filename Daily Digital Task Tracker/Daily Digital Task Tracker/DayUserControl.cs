@@ -73,21 +73,14 @@ namespace Daily_Digital_Task_Tracker
         //Function to set the theme
         private void getIni()
         {
-            Settings settings = new Settings();
-            settings.readIni();
+            ColourControl.UpdateControlBackColour(this);
 
-                backColour = Form1.buttonBackColour;
-                textColour = Form1.textColour;
-
-            //User control colours
-            this.BackColor = ColorTranslator.FromHtml(backColour);
-            this.eventsDisplay_txt.BackColor = ColorTranslator.FromHtml(backColour);
-            this.eventsDisplay_txt.ForeColor = ColorTranslator.FromHtml(textColour);
-            this.date_lbl.ForeColor = ColorTranslator.FromHtml(textColour);
-
+            //Loads the colour control class for each controll in the form.
+            foreach (Control c in this.Controls)
+            {
+                ColourControl.UpdateColorControls(c);
+            }
         }
-        public static String backColour;
-        public static String textColour;
 
         private void DayUserControl_Resize(object sender, EventArgs e)
         {

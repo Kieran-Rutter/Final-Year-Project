@@ -173,28 +173,10 @@ namespace Daily_Digital_Task_Tracker
         /*
          * Functions for theme and auto sizing
          */
-        //User controls still use these (Change to use colour control class)
-        public static String backColour;
-        public static String textColour;
-        public static String buttonBackColour;
-        public static String buttonBorderColour;
 
         private void getIni()
         {
-            Settings settings = new Settings();
-            settings.readIni();
-
-            backColour = settings.backColour;
-            textColour = settings.textColour;
-            buttonBackColour = settings.buttonBackColour;
-            buttonBorderColour = settings.buttonBorderColour;
-
             ColourControl.UpdateBackColour(this);
-
-            //Button colours
-            this.nextBtn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
-            this.prevBtn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
-            this.themePage_btn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
 
             //Loads the colour controll class for each controll in the form.
             foreach (Control c in this.Controls)
@@ -205,11 +187,6 @@ namespace Daily_Digital_Task_Tracker
 
         //Dynamic scale
         private Rectangle originalFormSize;
-        private Rectangle ThemebtnOriginalRectangle;
-        private Rectangle nextBtnOriginalRectangle;
-        private Rectangle prevBtnOriginalRectangle;
-        private Rectangle Dates_lbl_ContainerOriginalRectangle;
-        private Rectangle month_containerOriginalRectangle;
 
         private float lblOriginalFontSize;
         private float buttonlOriginalFontSize;
@@ -223,12 +200,6 @@ namespace Daily_Digital_Task_Tracker
         private void Form1_Shown(object sender, EventArgs e)
         {
             originalFormSize = new Rectangle(this.Location.X, this.Location.Y, this.Width, this.Height);
-            ThemebtnOriginalRectangle = new Rectangle(themePage_btn.Location.X, themePage_btn.Location.Y, themePage_btn.Width, themePage_btn.Height);
-            nextBtnOriginalRectangle = new Rectangle(nextBtn.Location.X, nextBtn.Location.Y, nextBtn.Width, nextBtn.Height);
-            prevBtnOriginalRectangle = new Rectangle(prevBtn.Location.X, prevBtn.Location.Y, prevBtn.Width, prevBtn.Height);
-            Dates_lbl_ContainerOriginalRectangle = new Rectangle(Dates_lbl_Container.Location.X,
-                Dates_lbl_Container.Location.Y, Dates_lbl_Container.Width, Dates_lbl_Container.Height);
-            month_containerOriginalRectangle = new Rectangle(month_container.Location.X, month_container.Location.Y, month_container.Width, month_container.Height);
 
             //Text
             lblOriginalFontSize = sunday_lbl.Font.Size;
@@ -249,24 +220,33 @@ namespace Daily_Digital_Task_Tracker
         {
             if (shown)
             {
-                Daily_Digital_Task_Tracker.Resize.resizeControl(ThemebtnOriginalRectangle, themePage_btn, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
-                Daily_Digital_Task_Tracker.Resize.resizeControl(nextBtnOriginalRectangle, nextBtn, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
-                Daily_Digital_Task_Tracker.Resize.resizeControl(prevBtnOriginalRectangle, prevBtn, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
-                Daily_Digital_Task_Tracker.Resize.resizeControl(Dates_lbl_ContainerOriginalRectangle, Dates_lbl_Container, lblOriginalFontSize, originalFormSize, this.Height, this.Width);
-                //Need to redo text size.
-                Daily_Digital_Task_Tracker.Resize.resizeControl(month_containerOriginalRectangle, month_container, lblOriginalFontSize, originalFormSize, this.Height, this.Width);
-
-                Daily_Digital_Task_Tracker.Resize.resizeControl(month_containerOriginalRectangle, month_year_lbl, lblOriginalFontSize, originalFormSize, this.Height, this.Width);
-                Daily_Digital_Task_Tracker.Resize.resizeControl(month_containerOriginalRectangle, sunday_lbl, lblOriginalFontSize, originalFormSize, this.Height, this.Width);
-                Daily_Digital_Task_Tracker.Resize.resizeControl(month_containerOriginalRectangle, monday_lbl, lblOriginalFontSize, originalFormSize, this.Height, this.Width);
-                Daily_Digital_Task_Tracker.Resize.resizeControl(month_containerOriginalRectangle, tuesday_lbl, lblOriginalFontSize, originalFormSize, this.Height, this.Width);
-                Daily_Digital_Task_Tracker.Resize.resizeControl(month_containerOriginalRectangle, wednesday_lbl, lblOriginalFontSize, originalFormSize, this.Height, this.Width);
-                Daily_Digital_Task_Tracker.Resize.resizeControl(month_containerOriginalRectangle, thursday_lbl, lblOriginalFontSize, originalFormSize, this.Height, this.Width);
-                Daily_Digital_Task_Tracker.Resize.resizeControl(month_containerOriginalRectangle, friday_lbl, lblOriginalFontSize, originalFormSize, this.Height, this.Width);
-                Daily_Digital_Task_Tracker.Resize.resizeControl(month_containerOriginalRectangle, saturday_lbl, lblOriginalFontSize, originalFormSize, this.Height, this.Width);
+                //Loads the resize control class for each controll in the form.
+                foreach (Control textc in this.Controls)
+                {
+                    resizeTest(textc);
+                }
 
                 largeFont = sunday_lbl.Font;
                 smallFont = nextBtn.Font;
+            }
+        }
+
+        public void resizeTest(Control textc)
+        {
+            if (textc is TableLayoutPanel)
+            {
+                foreach (Control c in textc.Controls)
+                {
+                    resizeTest(c);
+                }
+            }
+            if (textc is Label)
+            {
+                ResizeControl.resizeTextControl(textc, lblOriginalFontSize, originalFormSize, this.Height, this.Width);
+            }
+            if (textc is Button)
+            {
+                ResizeControl.resizeTextControl(textc, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
             }
         }
 

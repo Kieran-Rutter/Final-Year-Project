@@ -57,7 +57,7 @@
     <Compile Include="expandedDay.Designer.cs">
       <DependentUpon>expandedDay.cs</DependentUpon>
     </Compile>
-    <Compile Include="Resize.cs" />
+    <Compile Include="ResizeControl.cs" />
     <Compile Include="taskCreation.cs">
       <SubType>Form</SubType>
     </Compile>
