@@ -47,7 +47,6 @@ namespace Daily_Digital_Task_Tracker
         private void TimerExpanded_Load(object sender, EventArgs e)
         {
             ColourControl.callColours(this);
-            getIni();
 
             //Calculates how long the counter needs to be
             counter = TaskUserControl.seconds;
@@ -85,17 +84,6 @@ namespace Daily_Digital_Task_Tracker
          * Functions for theme and auto sizing
         */
         //Dynamic scale
-
-        public static String backColour;
-        public static String textColour;
-        public static String buttonBackColour;
-        public static String buttonBorderColour;
-        private void getIni()
-        {
-
-            //Labels
-            this.progressBar.Titles[0].ForeColor = ColorTranslator.FromHtml(textColour);
-        }
 
         private Rectangle originalFormSize;
 

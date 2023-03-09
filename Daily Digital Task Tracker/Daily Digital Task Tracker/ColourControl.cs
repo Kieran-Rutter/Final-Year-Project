@@ -25,8 +25,18 @@ namespace Daily_Digital_Task_Tracker
                 UpdateColorControls(c);
             }
         }
+        public static void callControlColours(UserControl myUserControl)
+        {
+            ColourControl.UpdateControlBackColour(myUserControl);
 
-        public static void readIni()
+            //Loads the colour control class for each controll in the form.
+            foreach (Control c in myUserControl.Controls)
+            {
+                ColourControl.UpdateColorControls(c);
+            }
+        }
+
+    public static void readIni()
         {
             Settings settings = new Settings();
             settings.readIni();

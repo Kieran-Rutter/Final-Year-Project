@@ -19,11 +19,6 @@ namespace Daily_Digital_Task_Tracker
             InitializeComponent();
         }
 
-        public void day(int day)
-        {
-
-        }
-
         public void taskDisplay(string day)
         {
             string search = day + "/" + Form1.month.ToString() + "/" + Form1.year.ToString();

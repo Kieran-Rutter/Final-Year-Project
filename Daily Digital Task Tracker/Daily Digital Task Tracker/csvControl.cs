@@ -15,7 +15,9 @@ namespace Daily_Digital_Task_Tracker
             try
             {
                 StreamWriter sw = new StreamWriter(File.Open("config.ini", System.IO.FileMode.CreateNew));
+
                 Console.WriteLine("Config file created");
+
                 sw.Close();
                 File.AppendAllText("config.ini", "[SECTION]" + "\n");
                 File.AppendAllText("config.ini", "key = light" + "\n");

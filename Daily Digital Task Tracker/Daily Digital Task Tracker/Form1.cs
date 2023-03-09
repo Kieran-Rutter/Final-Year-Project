@@ -35,7 +35,6 @@ namespace Daily_Digital_Task_Tracker
                 return handleparam;
             }
         }
-
         public void dateDisplay()
         {
             /*
@@ -126,7 +125,6 @@ namespace Daily_Digital_Task_Tracker
             month_container.Controls.Clear();
             dateDisplay();
         }
-
         /*
          * Functions for theme and auto sizing
          */

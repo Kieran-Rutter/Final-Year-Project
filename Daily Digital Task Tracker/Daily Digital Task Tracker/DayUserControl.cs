@@ -27,7 +27,8 @@ namespace Daily_Digital_Task_Tracker
 
         public void eventsDisplay(int day)
         {
-            getIni();
+            ColourControl.callControlColours(this);
+
             string search = day.ToString() + "/" + Form1.month.ToString() + "/" + Form1.year.ToString();
 
             File.WriteAllLines("Temp.csv", File.ReadAllLines("Events.csv").Where(line => search.Equals(line.Split(',')[0])));
@@ -43,15 +44,16 @@ namespace Daily_Digital_Task_Tracker
                     num++;
 
                     //If there are more than 3 tasks stop adding them to the text box.
-                    if (num <= 3)
+                    if (num <= 4)
                     {
-                        eventsDisplay_txt.AppendText(num + ". " + parts[1] + "\r\n");
+                        eventsDisplay_txt.AppendText( " " + num + ". " + parts[1] + "\r\n");
                     }
                 }
                 //displays the total number of tasks
                 if (num != 0)
                 {
-                    eventsDisplay_txt.Text = num + " Tasks:" + "\r\n" + eventsDisplay_txt.Text;
+                    if (num == 1) { taskCount_lbl.Text = num + " Task"; }
+                    else { taskCount_lbl.Text = num + " Tasks"; };
                 }
             }
         }
@@ -70,23 +72,14 @@ namespace Daily_Digital_Task_Tracker
             expandedDay ExpandedDay = new expandedDay();
             ExpandedDay.Show();
         }
-        //Function to set the theme
-        private void getIni()
-        {
-            ColourControl.UpdateControlBackColour(this);
 
-            //Loads the colour control class for each controll in the form.
-            foreach (Control c in this.Controls)
-            {
-                ColourControl.UpdateColorControls(c);
-            }
-        }
 
         private void DayUserControl_Resize(object sender, EventArgs e)
         {
             //Sets the text size based on Form1's resized size
             date_lbl.Font = Form1.largeFont;
             eventsDisplay_txt.Font = Form1.smallFont;
+            taskCount_lbl.Font = Form1.smallFont;
         }
 
         private void DayUserControl_Load(object sender, EventArgs e)
@@ -94,6 +87,11 @@ namespace Daily_Digital_Task_Tracker
             //Sets the text size based on Form1's current size
             date_lbl.Font = Form1.largeFont;
             eventsDisplay_txt.Font = Form1.smallFont;
+        }
+
+        private void day_count_pnl_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
     //https://stackoverflow.com/questions/2189376/how-to-change-row-color-in-datagridview
