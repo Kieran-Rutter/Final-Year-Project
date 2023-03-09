@@ -19,12 +19,12 @@ namespace Daily_Digital_Task_Tracker
                 Console.WriteLine("Config file created");
 
                 sw.Close();
-                File.AppendAllText("config.ini", "[SECTION]" + "\n");
-                File.AppendAllText("config.ini", "key = light" + "\n");
-                File.AppendAllText("config.ini", "backColour = F8F9FA" + "\n");
-                File.AppendAllText("config.ini", "textColour = 000000" + "\n");
-                File.AppendAllText("config.ini", "buttonBackColour = CED4DA" + "\n");
-                File.AppendAllText("config.ini", "buttonBorderColour = ADB5BD" + "\n");
+                File.AppendAllText("config.ini", "[SECTION]" + "\n" + 
+                    "key = light" + "\n" +
+                    "backColour = F8F9FA" + "\n" +
+                    "textColour = 000000" + "\n" +
+                    "buttonBackColour = CED4DA" + "\n" +
+                    "buttonBorderColour = ADB5BD" + "\n" );
             }
             catch (IOException)
             {
