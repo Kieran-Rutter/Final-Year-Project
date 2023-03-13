@@ -50,9 +50,8 @@ namespace Daily_Digital_Task_Tracker
         //Creates a new task in the events csv file
         private void CreateEvent_btn_Click(object sender, EventArgs e)
         {
-            File.AppendAllText("Events.csv", date_lbl.Text + "," + task_cmb.Text + "," +
-                seconds_cmb.Text + "," + mins_cmb.Text + "," + hours_cmb.Text + "\n");
-            MessageBox.Show("Created");
+            csvControl.Append("Events.csv", (date_lbl.Text + "," + task_cmb.Text + "," +
+                seconds_cmb.Text + "," + mins_cmb.Text + "," + hours_cmb.Text + "\n"));
             //Adds new event to the combo box
             task_cmb.Items.Add(task_cmb.Text);
         }

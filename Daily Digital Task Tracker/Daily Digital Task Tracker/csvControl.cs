@@ -41,7 +41,16 @@ namespace Daily_Digital_Task_Tracker
             {
                 Console.WriteLine("Events file already exists");
             }
-
+            try
+            {
+                StreamWriter sw = new StreamWriter(File.Open("Stats.csv", System.IO.FileMode.CreateNew));
+                Console.WriteLine("Stats file created");
+                sw.Close();
+            }
+            catch (IOException)
+            {
+                Console.WriteLine("Stats file already exists");
+            }
             try
             {
                 StreamWriter sw = new StreamWriter(File.Open("Temp.csv", System.IO.FileMode.CreateNew));
@@ -52,6 +61,14 @@ namespace Daily_Digital_Task_Tracker
             {
                 Console.WriteLine("Temp file already exists");
             }
+        }
+        public static void Append(string file, string addition)
+        {
+            File.AppendAllText(file, addition);
+        }
+        public static void Delete(string File)
+        {
+
         }
     }
 }

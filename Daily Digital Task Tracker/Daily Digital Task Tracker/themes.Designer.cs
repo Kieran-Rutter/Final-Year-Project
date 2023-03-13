@@ -36,6 +36,7 @@ namespace Daily_Digital_Task_Tracker
             // 
             // colour_btn
             // 
+            this.colour_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.colour_btn.Location = new System.Drawing.Point(12, 723);
             this.colour_btn.Name = "colour_btn";
             this.colour_btn.Size = new System.Drawing.Size(206, 78);
@@ -46,9 +47,10 @@ namespace Daily_Digital_Task_Tracker
             // 
             // test_btn
             // 
-            this.test_btn.Location = new System.Drawing.Point(824, 723);
+            this.test_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.test_btn.Location = new System.Drawing.Point(751, 723);
             this.test_btn.Name = "test_btn";
-            this.test_btn.Size = new System.Drawing.Size(156, 78);
+            this.test_btn.Size = new System.Drawing.Size(229, 78);
             this.test_btn.TabIndex = 1;
             this.test_btn.Text = "Test";
             this.test_btn.UseVisualStyleBackColor = true;
@@ -65,6 +67,8 @@ namespace Daily_Digital_Task_Tracker
             this.MinimumSize = new System.Drawing.Size(1008, 852);
             this.Name = "themes";
             this.Text = "themes";
+            this.Activated += new System.EventHandler(this.themes_Activated);
+            this.Load += new System.EventHandler(this.themes_Load);
             this.ResumeLayout(false);
 
         }
