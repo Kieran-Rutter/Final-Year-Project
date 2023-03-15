@@ -98,12 +98,6 @@
     <Compile Include="themes.Designer.cs">
       <DependentUpon>themes.cs</DependentUpon>
     </Compile>
-    <Compile Include="TimerExpanded.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TimerExpanded.Designer.cs">
-      <DependentUpon>TimerExpanded.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="expandedDay.resx">
       <DependentUpon>expandedDay.cs</DependentUpon>
     </EmbeddedResource>
@@ -134,9 +128,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="themes.resx">
       <DependentUpon>themes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TimerExpanded.resx">
-      <DependentUpon>TimerExpanded.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="Properties\Settings.settings">

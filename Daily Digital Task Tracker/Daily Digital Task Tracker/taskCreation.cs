@@ -106,21 +106,6 @@ namespace Daily_Digital_Task_Tracker
                 }
             }
         }
-        //https://stackoverflow.com/questions/10576024/c-sharp-windows-form-countdown-timer
-        private void start_btn_Click(object sender, EventArgs e)
-        {
-            //Calculates how long the counter needs to be
-            seconds = Int32.Parse(seconds_cmb.Text);
-            minutes = Int32.Parse(mins_cmb.Text);
-            hours = Int32.Parse(hours_cmb.Text);
-
-            minutes += (hours * 60);
-
-
-            TimerExpanded timerExpanded = new TimerExpanded();
-            timerExpanded.Show();
-        }
-
         //Inserts the time into the input fields when a task is selected
         private void task_cmb_SelectedIndexChanged(object sender, EventArgs e)
         {

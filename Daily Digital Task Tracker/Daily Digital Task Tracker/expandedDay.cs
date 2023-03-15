@@ -33,6 +33,7 @@ namespace Daily_Digital_Task_Tracker
                 {
                     string[] parts = line.Split(',');
                     task = parts;
+
                     TaskUserControl tuc = new TaskUserControl();
 
                     tuc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top
@@ -41,7 +42,6 @@ namespace Daily_Digital_Task_Tracker
                         | System.Windows.Forms.AnchorStyles.Right)));
 
                     task_pnl.Controls.Add(tuc);
-                    tuc.taskDisplay();
                 }
             }
         }
