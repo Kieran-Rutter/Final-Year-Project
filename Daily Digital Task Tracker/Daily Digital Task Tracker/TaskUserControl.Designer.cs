@@ -46,7 +46,7 @@
             // start_btn
             // 
             this.start_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.start_btn.Location = new System.Drawing.Point(3, 165);
+            this.start_btn.Location = new System.Drawing.Point(3, 144);
             this.start_btn.Name = "start_btn";
             this.start_btn.Size = new System.Drawing.Size(143, 32);
             this.start_btn.TabIndex = 5;
@@ -84,7 +84,7 @@
             series1.Points.Add(dataPoint2);
             series1.ShadowColor = System.Drawing.Color.Transparent;
             this.progressBar.Series.Add(series1);
-            this.progressBar.Size = new System.Drawing.Size(145, 108);
+            this.progressBar.Size = new System.Drawing.Size(145, 87);
             this.progressBar.TabIndex = 20;
             // 
             // timer
@@ -119,7 +119,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(149, 221);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(149, 182);
             this.tableLayoutPanel1.TabIndex = 22;
             // 
             // timer_lbl
@@ -127,7 +127,7 @@
             this.timer_lbl.AutoSize = true;
             this.timer_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.timer_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.timer_lbl.Location = new System.Drawing.Point(3, 137);
+            this.timer_lbl.Location = new System.Drawing.Point(3, 116);
             this.timer_lbl.Name = "timer_lbl";
             this.timer_lbl.Size = new System.Drawing.Size(143, 25);
             this.timer_lbl.TabIndex = 22;
@@ -142,7 +142,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "TaskUserControl";
-            this.Size = new System.Drawing.Size(149, 221);
+            this.Size = new System.Drawing.Size(149, 182);
             this.Load += new System.EventHandler(this.TaskUserControl_Load);
             this.Click += new System.EventHandler(this.TaskUserControl_Click);
             this.Resize += new System.EventHandler(this.TaskUserControl_Resize);
