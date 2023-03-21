@@ -70,5 +70,9 @@ namespace Daily_Digital_Task_Tracker
         {
 
         }
+        public static void Read(string File)
+        {
+
+        }
     }
 }

@@ -45,12 +45,33 @@ namespace Daily_Digital_Task_Tracker
                 }
             }
         }
+        public void statsDisplay(string day)
+        {
+            string search = day + "/" + Form1.month.ToString() + "/" + Form1.year.ToString();
+
+            File.WriteAllLines("Temp.csv", File.ReadAllLines("Stats.csv").Where(line => search.Equals(line.Split(',')[0])));
+
+            using (StreamReader tempRead = new StreamReader("Temp.csv"))
+            {
+
+                String line;
+                while ((line = tempRead.ReadLine()) != null)
+                {
+                    string[] parts = line.Split(',');
+                    task = parts;
+                    Console.WriteLine("Test");
+                    StatisticBox_lbl.Text = task[1];
+
+                }
+            }
+        }
 
         private void expandedDay_Load(object sender, EventArgs e)
         {
             ColourControl.callColours(this);
             string day = DayUserControl.day_stc;
             taskDisplay(day);
+            statsDisplay(day);
         }
 
 

@@ -54,6 +54,8 @@ namespace Daily_Digital_Task_Tracker
                 seconds_cmb.Text + "," + mins_cmb.Text + "," + hours_cmb.Text + "\n"));
             //Adds new event to the combo box
             task_cmb.Items.Add(task_cmb.Text);
+
+            csvControl.Append("Stats.csv", (date_lbl.Text + "," + "1278"));
         }
 
         private void delete_btn_Click(object sender, EventArgs e)
