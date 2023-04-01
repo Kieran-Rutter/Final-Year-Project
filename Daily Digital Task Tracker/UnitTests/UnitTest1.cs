@@ -117,4 +117,13 @@ namespace UnitTests
             Assert.AreEqual(6, daysInWeek);
         }
     }
+    [TestClass]
+    public class ThemeTests
+    {
+        [TestMethod]
+        public void ThemeIni()
+        {
+
+        }
+    }
 }
