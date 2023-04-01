@@ -1,4 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Globalization;
 
 namespace UnitTests
 {
@@ -77,6 +79,42 @@ namespace UnitTests
 
             Assert.AreEqual(12, month);
             Assert.AreEqual(0, year);
+        }
+
+        [TestMethod]
+        public void MonthStrFunction()
+        {
+            //Takes an int and converts it to the month nanme.
+            String monthText = DateTimeFormatInfo.CurrentInfo.GetMonthName(12);
+            //Checks if monthText is December
+            Assert.AreEqual("December", monthText);
+        }
+
+        [TestMethod]
+        public void DaysInMonth()
+        {
+            //4 = April
+            int days = DateTime.DaysInMonth(2023, 4);
+            //Expects 30
+            Assert.AreEqual(30, days);
+        }
+
+        [TestMethod]
+        public void MonthWeekStart()
+        {
+            int month = 4;//4 = April
+            int year = 2023;
+
+            //GetScaledBounds the first day of the moth
+            DateTime monthStart = new DateTime(year, month, 1);
+            int days = DateTime.DaysInMonth(year, month);
+            //Converts monthstart to an ineger
+            int daysInWeek = Convert.ToInt32(monthStart.DayOfWeek.ToString("d"));
+
+            //Expects 30 days in april
+            Assert.AreEqual(30, days);
+            //Expects the first day of the month starts after 6 days (Sunday)
+            Assert.AreEqual(6, daysInWeek);
         }
     }
 }
