@@ -59,13 +59,10 @@ namespace Daily_Digital_Task_Tracker
                 {
                     string[] parts = line.Split(',');
                     task = parts;
-                    Console.WriteLine("Test");
-                    StatisticBox_lbl.Text = task[1];
-
+                    StatisticBox_lbl.Text = task[2];
                 }
             }
         }
-
         private void expandedDay_Load(object sender, EventArgs e)
         {
             ColourControl.callColours(this);

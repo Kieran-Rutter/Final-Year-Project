@@ -66,10 +66,20 @@ namespace Daily_Digital_Task_Tracker
         {
             File.AppendAllText(file, addition);
         }
-        public static void Delete(string File)
+        public static void Delete(string file, string date, string searchItem)
         {
-
+            string search = searchItem;
+            string dateSearch = date;
+            Console.WriteLine(search);
+            Console.WriteLine(dateSearch);
+            //Gets all tasks not in the selected date
+            File.WriteAllLines("Temp.csv", File.ReadAllLines(file).Where(line => (!dateSearch.Equals(line.Split(',')[0]))));
+            //Gets all tasks that are in the selected date but not = to the task name
+            File.AppendAllLines("Temp.csv", File.ReadAllLines(file).Where(line => !search.Equals(line.Split(',')[1])).Where(line => (dateSearch.Equals(line.Split(',')[0]))));
+            //Writes both statements above to the events file
+            File.WriteAllLines(file, File.ReadAllLines("Temp.csv"));
         }
+
         public static void Read(string File)
         {
 

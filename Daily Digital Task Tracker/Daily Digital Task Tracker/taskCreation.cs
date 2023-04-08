@@ -16,6 +16,9 @@ namespace Daily_Digital_Task_Tracker
         public static int seconds;
         public static int minutes;
         public static int hours;
+
+        public static int task_count;
+        public static string[] task;
         //Shown used to make sure the form has fully loaded, used to make sure form does not try to resize before loaded.
         private static bool shown = false;
 
@@ -55,21 +58,38 @@ namespace Daily_Digital_Task_Tracker
             //Adds new event to the combo box
             task_cmb.Items.Add(task_cmb.Text);
 
-            csvControl.Append("Stats.csv", (date_lbl.Text + "," + "1278"));
+            //Reads value from csv to add
+            string search = date_lbl.Text;
+
+            File.WriteAllLines("Temp.csv", File.ReadAllLines("Stats.csv").Where(line => search.Equals(line.Split(',')[0])));
+
+            using (StreamReader tempRead = new StreamReader("Temp.csv"))
+            {
+                String line;
+                while ((line = tempRead.ReadLine()) != null)
+                {
+                    string[] parts = line.Split(',');
+                    task = parts;
+                    task_count = Int32.Parse(task[2]);
+                    task_count++;
+                }
+                if (task_count == 0)
+                {
+                    task_count = 1;
+                }
+            }
+
+            csvControl.Delete("Stats.csv", date_lbl.Text, "task_count");
+            //Writes to csv (change to edit mode)
+            csvControl.Append("Stats.csv", (date_lbl.Text + "," + "task_count" +  "," + task_count));
         }
 
         private void delete_btn_Click(object sender, EventArgs e)
         {
             string search = task_cmb.Text;
             string dateSearch = date_lbl.Text;
-            Console.WriteLine(search);
-            Console.WriteLine(dateSearch);
-            //Gets all tasks not in the selected date
-            File.WriteAllLines("Temp.csv", File.ReadAllLines("Events.csv").Where(line => (!dateSearch.Equals(line.Split(',')[0]))));
-            //Gets all tasks that are in the selected date but not = to the task name
-            File.AppendAllLines("Temp.csv", File.ReadAllLines("Events.csv").Where(line => !search.Equals(line.Split(',')[1])).Where(line => (dateSearch.Equals(line.Split(',')[0]))));
-            //Writes both statements above to the events file
-            File.WriteAllLines("Events.csv", File.ReadAllLines("Temp.csv"));
+
+            csvControl.Delete("Events.csv", dateSearch, search);
         }
 
         private void edit_btn_Click(object sender, EventArgs e)
