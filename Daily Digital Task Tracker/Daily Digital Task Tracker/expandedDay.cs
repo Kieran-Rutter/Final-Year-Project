@@ -14,6 +14,7 @@ namespace Daily_Digital_Task_Tracker
     public partial class expandedDay : Form
     {
         public static string[] task;
+        public static int incom_count = 0;
         public expandedDay()
         {
             InitializeComponent();
@@ -47,9 +48,16 @@ namespace Daily_Digital_Task_Tracker
         }
         public void statsDisplay(string day)
         {
-            string search = day + "/" + Form1.month.ToString() + "/" + Form1.year.ToString();
+            string searchDate = day + "/" + Form1.month.ToString() + "/" + Form1.year.ToString();
 
-            File.WriteAllLines("Temp.csv", File.ReadAllLines("Stats.csv").Where(line => search.Equals(line.Split(',')[0])));
+            displayAdd(searchDate, "task_count", "Tasks Created: ");
+            displayAdd(searchDate, "task_deleted", "Tasks Deleted: ");
+        }
+        public void displayAdd(string day, string search, string text)
+        {
+            File.WriteAllLines("Temp.csv", File.ReadAllLines("Stats.csv").Where(line => day.Equals(line.Split(',')[0])));
+            int line_count = File.ReadAllLines("Temp.csv").Length;
+
 
             using (StreamReader tempRead = new StreamReader("Temp.csv"))
             {
@@ -59,7 +67,7 @@ namespace Daily_Digital_Task_Tracker
                 {
                     string[] parts = line.Split(',');
                     task = parts;
-                    StatisticBox_lbl.Text = task[2];
+                    StatisticBox_lbl.Text += (text + task[2] + "\n");
                 }
             }
         }

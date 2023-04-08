@@ -61,6 +61,16 @@ namespace Daily_Digital_Task_Tracker
             {
                 Console.WriteLine("Temp file already exists");
             }
+            try
+            {
+                StreamWriter sw = new StreamWriter(File.Open("Temp2.csv", System.IO.FileMode.CreateNew));
+                Console.WriteLine("Temp2 file created");
+                sw.Close();
+            }
+            catch (IOException)
+            {
+                Console.WriteLine("Temp2 file already exists");
+            }
         }
         public static void Append(string file, string addition)
         {
@@ -73,11 +83,11 @@ namespace Daily_Digital_Task_Tracker
             Console.WriteLine(search);
             Console.WriteLine(dateSearch);
             //Gets all tasks not in the selected date
-            File.WriteAllLines("Temp.csv", File.ReadAllLines(file).Where(line => (!dateSearch.Equals(line.Split(',')[0]))));
+            File.WriteAllLines("Temp2.csv", File.ReadAllLines(file).Where(line => (!dateSearch.Equals(line.Split(',')[0]))));
             //Gets all tasks that are in the selected date but not = to the task name
-            File.AppendAllLines("Temp.csv", File.ReadAllLines(file).Where(line => !search.Equals(line.Split(',')[1])).Where(line => (dateSearch.Equals(line.Split(',')[0]))));
+            File.AppendAllLines("Temp2.csv", File.ReadAllLines(file).Where(line => !search.Equals(line.Split(',')[1])).Where(line => (dateSearch.Equals(line.Split(',')[0]))));
             //Writes both statements above to the events file
-            File.WriteAllLines(file, File.ReadAllLines("Temp.csv"));
+            File.WriteAllLines(file, File.ReadAllLines("Temp2.csv"));
         }
 
         public static void Read(string File)

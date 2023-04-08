@@ -53,15 +53,19 @@ namespace Daily_Digital_Task_Tracker
         //Creates a new task in the events csv file
         private void CreateEvent_btn_Click(object sender, EventArgs e)
         {
+            task_count = 0;
+
             csvControl.Append("Events.csv", (date_lbl.Text + "," + task_cmb.Text + "," +
                 seconds_cmb.Text + "," + mins_cmb.Text + "," + hours_cmb.Text + "\n"));
             //Adds new event to the combo box
             task_cmb.Items.Add(task_cmb.Text);
 
             //Reads value from csv to add
-            string search = date_lbl.Text;
+            string day = date_lbl.Text;
+            string taskEvent = "task_count";
 
-            File.WriteAllLines("Temp.csv", File.ReadAllLines("Stats.csv").Where(line => search.Equals(line.Split(',')[0])));
+            //Gets all tasks that are in the selected date and = to the task name
+            File.AppendAllLines("Temp.csv", File.ReadAllLines("Stats.csv").Where(line => !taskEvent.Equals(line.Split(',')[1])).Where(line => (day.Equals(line.Split(',')[0]))));
 
             using (StreamReader tempRead = new StreamReader("Temp.csv"))
             {
@@ -78,18 +82,48 @@ namespace Daily_Digital_Task_Tracker
                     task_count = 1;
                 }
             }
-
+            //Deletes existing line in csv
             csvControl.Delete("Stats.csv", date_lbl.Text, "task_count");
-            //Writes to csv (change to edit mode)
+            //Writes to csv
             csvControl.Append("Stats.csv", (date_lbl.Text + "," + "task_count" +  "," + task_count));
         }
 
         private void delete_btn_Click(object sender, EventArgs e)
         {
-            string search = task_cmb.Text;
-            string dateSearch = date_lbl.Text;
+            task_count = 0;
 
-            csvControl.Delete("Events.csv", dateSearch, search);
+            //Reads value from csv to add
+            string search = task_cmb.Text;
+            string day = date_lbl.Text;
+            string taskEvent = "task_deleted";
+
+
+            csvControl.Delete("Events.csv", day, search);
+
+
+            //Gets all tasks that are in the selected date and = to the task name
+            File.AppendAllLines("Temp.csv", File.ReadAllLines("Stats.csv").Where(line => !taskEvent.Equals(line.Split(',')[1])).Where(line => (day.Equals(line.Split(',')[0]))));
+
+            using (StreamReader tempRead = new StreamReader("Temp.csv"))
+            {
+                String line;
+                while ((line = tempRead.ReadLine()) != null)
+                {
+                    string[] parts = line.Split(',');
+                    task = parts;
+                    task_count = Int32.Parse(task[2]);
+                    task_count++;
+                }
+                if (task_count == 0)
+                {
+                    task_count = 1;
+                }
+
+                //Deletes existing line in csv
+                csvControl.Delete("Stats.csv", date_lbl.Text, "task_deleted");
+                //Writes to csv
+                csvControl.Append("Stats.csv", (date_lbl.Text + "," + "task_deleted" + "," + task_count));
+            }
         }
 
         private void edit_btn_Click(object sender, EventArgs e)

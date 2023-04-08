@@ -51,7 +51,7 @@
             this.task_pnl.Name = "task_pnl";
             this.task_pnl.RowCount = 1;
             this.task_pnl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.task_pnl.Size = new System.Drawing.Size(127, 0);
+            this.task_pnl.Size = new System.Drawing.Size(126, 0);
             this.task_pnl.TabIndex = 0;
             // 
             // taskTBL_pnl
@@ -62,7 +62,7 @@
             this.taskTBL_pnl.Location = new System.Drawing.Point(2, 34);
             this.taskTBL_pnl.Margin = new System.Windows.Forms.Padding(2);
             this.taskTBL_pnl.Name = "taskTBL_pnl";
-            this.taskTBL_pnl.Size = new System.Drawing.Size(127, 471);
+            this.taskTBL_pnl.Size = new System.Drawing.Size(126, 471);
             this.taskTBL_pnl.TabIndex = 1;
             // 
             // tasks_lbl
@@ -73,7 +73,7 @@
             this.tasks_lbl.Location = new System.Drawing.Point(2, 0);
             this.tasks_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.tasks_lbl.Name = "tasks_lbl";
-            this.tasks_lbl.Size = new System.Drawing.Size(127, 32);
+            this.tasks_lbl.Size = new System.Drawing.Size(126, 32);
             this.tasks_lbl.TabIndex = 2;
             this.tasks_lbl.Text = "Tasks";
             this.tasks_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -87,7 +87,7 @@
             this.create_btn.Location = new System.Drawing.Point(2, 509);
             this.create_btn.Margin = new System.Windows.Forms.Padding(2);
             this.create_btn.Name = "create_btn";
-            this.create_btn.Size = new System.Drawing.Size(127, 50);
+            this.create_btn.Size = new System.Drawing.Size(126, 50);
             this.create_btn.TabIndex = 12;
             this.create_btn.Text = "Create / Edit";
             this.create_btn.UseVisualStyleBackColor = true;
@@ -98,10 +98,10 @@
             this.graphsTitle_lbl.AutoSize = true;
             this.graphsTitle_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.graphsTitle_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.graphsTitle_lbl.Location = new System.Drawing.Point(133, 0);
+            this.graphsTitle_lbl.Location = new System.Drawing.Point(132, 0);
             this.graphsTitle_lbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.graphsTitle_lbl.Name = "graphsTitle_lbl";
-            this.graphsTitle_lbl.Size = new System.Drawing.Size(398, 32);
+            this.graphsTitle_lbl.Size = new System.Drawing.Size(399, 32);
             this.graphsTitle_lbl.TabIndex = 13;
             this.graphsTitle_lbl.Text = "Statistics";
             this.graphsTitle_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -131,12 +131,11 @@
             this.StatisticBox_lbl.AutoSize = true;
             this.StatisticBox_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.StatisticBox_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.StatisticBox_lbl.Location = new System.Drawing.Point(134, 32);
+            this.StatisticBox_lbl.Location = new System.Drawing.Point(133, 32);
             this.StatisticBox_lbl.Name = "StatisticBox_lbl";
-            this.StatisticBox_lbl.Size = new System.Drawing.Size(396, 475);
+            this.StatisticBox_lbl.Size = new System.Drawing.Size(397, 475);
             this.StatisticBox_lbl.TabIndex = 14;
             this.StatisticBox_lbl.Text = "Statistics Here";
-            this.StatisticBox_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // expandedDay
             // 
