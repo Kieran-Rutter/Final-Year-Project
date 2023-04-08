@@ -34,9 +34,10 @@
             this.create_btn = new System.Windows.Forms.Button();
             this.graphsTitle_lbl = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.StatisticBox_lbl = new System.Windows.Forms.Label();
+            this.statisticsGridView = new System.Windows.Forms.DataGridView();
             this.taskTBL_pnl.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.statisticsGridView)).BeginInit();
             this.SuspendLayout();
             // 
             // task_pnl
@@ -115,7 +116,7 @@
             this.tableLayoutPanel1.Controls.Add(this.taskTBL_pnl, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tasks_lbl, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.graphsTitle_lbl, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.StatisticBox_lbl, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.statisticsGridView, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -126,16 +127,13 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(533, 561);
             this.tableLayoutPanel1.TabIndex = 14;
             // 
-            // StatisticBox_lbl
+            // statisticsGridView
             // 
-            this.StatisticBox_lbl.AutoSize = true;
-            this.StatisticBox_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.StatisticBox_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F);
-            this.StatisticBox_lbl.Location = new System.Drawing.Point(133, 32);
-            this.StatisticBox_lbl.Name = "StatisticBox_lbl";
-            this.StatisticBox_lbl.Size = new System.Drawing.Size(397, 475);
-            this.StatisticBox_lbl.TabIndex = 14;
-            this.StatisticBox_lbl.Text = "Statistics Here";
+            this.statisticsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.statisticsGridView.Location = new System.Drawing.Point(133, 35);
+            this.statisticsGridView.Name = "statisticsGridView";
+            this.statisticsGridView.Size = new System.Drawing.Size(388, 206);
+            this.statisticsGridView.TabIndex = 14;
             // 
             // expandedDay
             // 
@@ -155,6 +153,7 @@
             this.taskTBL_pnl.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.statisticsGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -167,6 +166,6 @@
         private System.Windows.Forms.Button create_btn;
         private System.Windows.Forms.Label graphsTitle_lbl;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label StatisticBox_lbl;
+        private System.Windows.Forms.DataGridView statisticsGridView;
     }
 }

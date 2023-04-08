@@ -65,7 +65,7 @@ namespace Daily_Digital_Task_Tracker
             string taskEvent = "task_count";
 
             //Gets all tasks that are in the selected date and = to the task name
-            File.AppendAllLines("Temp.csv", File.ReadAllLines("Stats.csv").Where(line => !taskEvent.Equals(line.Split(',')[1])).Where(line => (day.Equals(line.Split(',')[0]))));
+            File.WriteAllLines("Temp.csv", File.ReadAllLines("Stats.csv").Where(line => taskEvent.Equals(line.Split(',')[1])).Where(line => (day.Equals(line.Split(',')[0]))));
 
             using (StreamReader tempRead = new StreamReader("Temp.csv"))
             {
@@ -75,6 +75,7 @@ namespace Daily_Digital_Task_Tracker
                     string[] parts = line.Split(',');
                     task = parts;
                     task_count = Int32.Parse(task[2]);
+                    MessageBox.Show(task[2]);
                     task_count++;
                 }
                 if (task_count == 0)
@@ -102,7 +103,7 @@ namespace Daily_Digital_Task_Tracker
 
 
             //Gets all tasks that are in the selected date and = to the task name
-            File.AppendAllLines("Temp.csv", File.ReadAllLines("Stats.csv").Where(line => !taskEvent.Equals(line.Split(',')[1])).Where(line => (day.Equals(line.Split(',')[0]))));
+            File.WriteAllLines("Temp.csv", File.ReadAllLines("Stats.csv").Where(line => taskEvent.Equals(line.Split(',')[1])).Where(line => (day.Equals(line.Split(',')[0]))));
 
             using (StreamReader tempRead = new StreamReader("Temp.csv"))
             {

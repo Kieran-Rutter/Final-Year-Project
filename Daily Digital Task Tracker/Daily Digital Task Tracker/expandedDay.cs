@@ -46,37 +46,37 @@ namespace Daily_Digital_Task_Tracker
                 }
             }
         }
-        public void statsDisplay(string day)
+        public List<dateStatistic> statsDisplay(string day)
         {
-            string searchDate = day + "/" + Form1.month.ToString() + "/" + Form1.year.ToString();
+            string daySearch = day + "/" + Form1.month.ToString() + "/" + Form1.year.ToString();
 
-            displayAdd(searchDate, "task_count", "Tasks Created: ");
-            displayAdd(searchDate, "task_deleted", "Tasks Deleted: ");
+            File.WriteAllLines("Temp.csv", File.ReadAllLines("Stats.csv").Where(line => daySearch.Equals(line.Split(',')[0])));
+
+            var query = from l in File.ReadAllLines("Temp.csv")
+                        let data = l.Split(',')
+                        select new dateStatistic
+                        {
+                            eventDate = data[0],
+                            eventName = data[1],
+                            eventCount = Int32.Parse(data[2]),
+                        };
+            return query.ToList();
         }
-        public void displayAdd(string day, string search, string text)
+
+        public class dateStatistic
         {
-            File.WriteAllLines("Temp.csv", File.ReadAllLines("Stats.csv").Where(line => day.Equals(line.Split(',')[0])));
-            int line_count = File.ReadAllLines("Temp.csv").Length;
-
-
-            using (StreamReader tempRead = new StreamReader("Temp.csv"))
-            {
-
-                String line;
-                while ((line = tempRead.ReadLine()) != null)
-                {
-                    string[] parts = line.Split(',');
-                    task = parts;
-                    StatisticBox_lbl.Text += (text + task[2] + "\n");
-                }
-            }
+            public string eventDate { get; set; }
+            public string eventName { get; set; }
+            public int eventCount { get; set; }
         }
+
         private void expandedDay_Load(object sender, EventArgs e)
         {
             ColourControl.callColours(this);
             string day = DayUserControl.day_stc;
             taskDisplay(day);
-            statsDisplay(day);
+            statisticsGridView.RowHeadersVisible = false;
+            statisticsGridView.DataSource = statsDisplay(day);
         }
 
 
