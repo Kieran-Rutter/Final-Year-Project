@@ -77,6 +77,13 @@ namespace Daily_Digital_Task_Tracker
             taskDisplay(day);
             statisticsGridView.RowHeadersVisible = false;
             statisticsGridView.DataSource = statsDisplay(day);
+
+            //First line is the date and not needed
+            statisticsGridView.Columns["eventDate"].Visible = false;
+            statisticsGridView.ColumnHeadersVisible = false;
+
+            statisticsGridView.Columns[1].Width = (int)(statisticsGridView.Width * 0.5);
+            statisticsGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
 

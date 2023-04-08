@@ -62,7 +62,7 @@ namespace Daily_Digital_Task_Tracker
 
             //Reads value from csv to add
             string day = date_lbl.Text;
-            string taskEvent = "task_count";
+            string taskEvent = "Tasks Created";
 
             //Gets all tasks that are in the selected date and = to the task name
             File.WriteAllLines("Temp.csv", File.ReadAllLines("Stats.csv").Where(line => taskEvent.Equals(line.Split(',')[1])).Where(line => (day.Equals(line.Split(',')[0]))));
@@ -84,9 +84,9 @@ namespace Daily_Digital_Task_Tracker
                 }
             }
             //Deletes existing line in csv
-            csvControl.Delete("Stats.csv", date_lbl.Text, "task_count");
+            csvControl.Delete("Stats.csv", date_lbl.Text, "Tasks Created");
             //Writes to csv
-            csvControl.Append("Stats.csv", (date_lbl.Text + "," + "task_count" +  "," + task_count));
+            csvControl.Append("Stats.csv", (date_lbl.Text + "," + "Tasks Created" +  "," + task_count));
         }
 
         private void delete_btn_Click(object sender, EventArgs e)
@@ -96,7 +96,7 @@ namespace Daily_Digital_Task_Tracker
             //Reads value from csv to add
             string search = task_cmb.Text;
             string day = date_lbl.Text;
-            string taskEvent = "task_deleted";
+            string taskEvent = "Tasks Deleted";
 
 
             csvControl.Delete("Events.csv", day, search);
@@ -121,9 +121,9 @@ namespace Daily_Digital_Task_Tracker
                 }
 
                 //Deletes existing line in csv
-                csvControl.Delete("Stats.csv", date_lbl.Text, "task_deleted");
+                csvControl.Delete("Stats.csv", date_lbl.Text, "Tasks Deleted");
                 //Writes to csv
-                csvControl.Append("Stats.csv", (date_lbl.Text + "," + "task_deleted" + "," + task_count));
+                csvControl.Append("Stats.csv", (date_lbl.Text + "," + "Tasks Deleted" + "," + task_count));
             }
         }
 

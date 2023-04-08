@@ -71,6 +71,14 @@ namespace Daily_Digital_Task_Tracker
                 txtBx.BackColor = ColorTranslator.FromHtml(buttonBackColour);
                 txtBx.ForeColor = ColorTranslator.FromHtml(textColour);
             }
+            if (myControl is DataGridView dgv)
+            {
+                dgv.BackgroundColor = ColorTranslator.FromHtml(buttonBackColour);
+                dgv.DefaultCellStyle.BackColor = ColorTranslator.FromHtml(buttonBackColour);
+                dgv.DefaultCellStyle.ForeColor = ColorTranslator.FromHtml(textColour);
+                dgv.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 15);
+
+            }
         }
         public static void UpdateBackColour(Form myForm)
         {

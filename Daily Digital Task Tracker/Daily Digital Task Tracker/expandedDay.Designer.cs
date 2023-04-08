@@ -130,9 +130,11 @@
             // statisticsGridView
             // 
             this.statisticsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.statisticsGridView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.statisticsGridView.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.statisticsGridView.Location = new System.Drawing.Point(133, 35);
             this.statisticsGridView.Name = "statisticsGridView";
-            this.statisticsGridView.Size = new System.Drawing.Size(388, 206);
+            this.statisticsGridView.Size = new System.Drawing.Size(397, 469);
             this.statisticsGridView.TabIndex = 14;
             // 
             // expandedDay
