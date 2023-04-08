@@ -94,5 +94,34 @@ namespace Daily_Digital_Task_Tracker
         {
 
         }
+        public static int task_count;
+        public static string[] task;
+        public static void plusOneStat(string statName, string day)
+        {
+            task_count = 0;
+
+            //Gets all tasks that are in the selected date and = to the task name
+            File.WriteAllLines("Temp.csv", File.ReadAllLines("Stats.csv").Where(line => statName.Equals(line.Split(',')[1])).Where(line => (day.Equals(line.Split(',')[0]))));
+
+            using (StreamReader tempRead = new StreamReader("Temp.csv"))
+            {
+                String line;
+                while ((line = tempRead.ReadLine()) != null)
+                {
+                    string[] parts = line.Split(',');
+                    task = parts;
+                    task_count = Int32.Parse(task[2]);
+                    task_count++;
+                }
+                if (task_count == 0)
+                {
+                    task_count = 1;
+                }
+            }
+            //Deletes existing line in csv
+            csvControl.Delete("Stats.csv", day, statName);
+            //Writes to csv
+            csvControl.Append("Stats.csv", (day + "," + statName + "," + task_count));
+        }
     }
 }

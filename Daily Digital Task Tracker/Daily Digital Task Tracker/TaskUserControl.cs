@@ -98,6 +98,10 @@ namespace Daily_Digital_Task_Tracker
             if (counter == 0)
             {
                 timer.Stop();
+                start_btn.Text = "Completed";
+                string day = DayUserControl.day_stc;
+                string dayDate = day + "/" + Form1.month.ToString() + "/" + Form1.year.ToString();
+                csvControl.plusOneStat("Tasks Completed", dayDate);
             }
         }
     }

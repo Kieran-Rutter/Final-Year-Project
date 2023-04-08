@@ -62,31 +62,10 @@ namespace Daily_Digital_Task_Tracker
 
             //Reads value from csv to add
             string day = date_lbl.Text;
-            string taskEvent = "Tasks Created";
 
-            //Gets all tasks that are in the selected date and = to the task name
-            File.WriteAllLines("Temp.csv", File.ReadAllLines("Stats.csv").Where(line => taskEvent.Equals(line.Split(',')[1])).Where(line => (day.Equals(line.Split(',')[0]))));
-
-            using (StreamReader tempRead = new StreamReader("Temp.csv"))
-            {
-                String line;
-                while ((line = tempRead.ReadLine()) != null)
-                {
-                    string[] parts = line.Split(',');
-                    task = parts;
-                    task_count = Int32.Parse(task[2]);
-                    MessageBox.Show(task[2]);
-                    task_count++;
-                }
-                if (task_count == 0)
-                {
-                    task_count = 1;
-                }
-            }
-            //Deletes existing line in csv
-            csvControl.Delete("Stats.csv", date_lbl.Text, "Tasks Created");
-            //Writes to csv
-            csvControl.Append("Stats.csv", (date_lbl.Text + "," + "Tasks Created" +  "," + task_count));
+            csvControl.plusOneStat("Tasks Created", day);
+            //Closes the menu
+            this.Close();
         }
 
         private void delete_btn_Click(object sender, EventArgs e)
@@ -96,41 +75,20 @@ namespace Daily_Digital_Task_Tracker
             //Reads value from csv to add
             string search = task_cmb.Text;
             string day = date_lbl.Text;
-            string taskEvent = "Tasks Deleted";
-
 
             csvControl.Delete("Events.csv", day, search);
 
-
-            //Gets all tasks that are in the selected date and = to the task name
-            File.WriteAllLines("Temp.csv", File.ReadAllLines("Stats.csv").Where(line => taskEvent.Equals(line.Split(',')[1])).Where(line => (day.Equals(line.Split(',')[0]))));
-
-            using (StreamReader tempRead = new StreamReader("Temp.csv"))
-            {
-                String line;
-                while ((line = tempRead.ReadLine()) != null)
-                {
-                    string[] parts = line.Split(',');
-                    task = parts;
-                    task_count = Int32.Parse(task[2]);
-                    task_count++;
-                }
-                if (task_count == 0)
-                {
-                    task_count = 1;
-                }
-
-                //Deletes existing line in csv
-                csvControl.Delete("Stats.csv", date_lbl.Text, "Tasks Deleted");
-                //Writes to csv
-                csvControl.Append("Stats.csv", (date_lbl.Text + "," + "Tasks Deleted" + "," + task_count));
-            }
+            csvControl.plusOneStat("Tasks Deleted", day);
+            //Closes the menu
+            this.Close();
         }
 
         private void edit_btn_Click(object sender, EventArgs e)
         {
             delete_btn_Click(sender, e);
             CreateEvent_btn_Click(sender, e);
+            //Closes the menu
+            this.Close();
         }
 
         private void searchCSV(string search, int posSearch, int posWrite, string mode)
