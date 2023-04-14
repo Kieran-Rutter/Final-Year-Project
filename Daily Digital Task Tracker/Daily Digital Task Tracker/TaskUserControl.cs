@@ -86,21 +86,25 @@ namespace Daily_Digital_Task_Tracker
             counter--;
             Console.WriteLine(counter.ToString());
 
-            // Performs one step
+            // Performs one second
             progressBar.Series[0].Points[0].YValues[0] -= 1;
             progressBar.Series[0].Points[1].YValues[0] += 1;
             progressBar.Refresh();
+
+            string day = DayUserControl.day_stc;
+            string dayDate = day + "/" + Form1.month.ToString() + "/" + Form1.year.ToString();
+            //Adds one to the Time Completed stat
+            csvControl.plusOneStat("Time Completed", dayDate);
 
             if (timer.Enabled)
             {
                 timer_lbl.Text = dt.AddSeconds(counter).ToString("HH:mm:ss");
             }
+            //If counter is finished
             if (counter == 0)
             {
                 timer.Stop();
                 start_btn.Text = "Completed";
-                string day = DayUserControl.day_stc;
-                string dayDate = day + "/" + Form1.month.ToString() + "/" + Form1.year.ToString();
                 csvControl.plusOneStat("Tasks Completed", dayDate);
             }
         }
