@@ -106,6 +106,7 @@ namespace Daily_Digital_Task_Tracker
                 timer.Stop();
                 start_btn.Text = "Completed";
                 csvControl.plusOneStat("Tasks Completed", dayDate);
+                coinControl.addCoins();
             }
         }
     }

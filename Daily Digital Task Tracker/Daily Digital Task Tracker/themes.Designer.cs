@@ -66,7 +66,6 @@ namespace Daily_Digital_Task_Tracker
             this.MaximumSize = new System.Drawing.Size(1008, 852);
             this.MinimumSize = new System.Drawing.Size(1008, 852);
             this.Name = "themes";
-            this.Text = "themes";
             this.Activated += new System.EventHandler(this.themes_Activated);
             this.Load += new System.EventHandler(this.themes_Load);
             this.ResumeLayout(false);

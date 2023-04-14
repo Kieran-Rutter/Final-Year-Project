@@ -24,7 +24,8 @@ namespace Daily_Digital_Task_Tracker
                     "backColour = F8F9FA" + "\n" +
                     "textColour = 000000" + "\n" +
                     "buttonBackColour = CED4DA" + "\n" +
-                    "buttonBorderColour = ADB5BD" + "\n" );
+                    "buttonBorderColour = ADB5BD" + "\n" +
+                    "coinCount = 0" + "\n" );
             }
             catch (IOException)
             {

@@ -24,11 +24,13 @@ namespace Daily_Digital_Task_Tracker
         public StringBuilder sbTextColour;
         public StringBuilder sbButtonBackColour;
         public StringBuilder sbButtonBorderColour;
+        public StringBuilder sbCoinCount;
         public string theme { get; set; }
         public string backColour { get; set; }
         public string textColour { get; set; }
         public string buttonBackColour { get; set; }
         public string buttonBorderColour { get; set; }
+        public string coinCount { get; set; }
 
         public void readIni()
         {
@@ -40,6 +42,8 @@ namespace Daily_Digital_Task_Tracker
             sbButtonBackColour = new StringBuilder(10);
             sbButtonBorderColour = new StringBuilder(10);
 
+            sbCoinCount = new StringBuilder(10);
+
             //Gets values from ini
             resaultSize = GetPrivateProfileString("SECTION", "key", "", sbTheme, sbTheme.Capacity, iniPath);
             resaultSize = GetPrivateProfileString("SECTION", "backColour", "", sbBackColour, sbBackColour.Capacity, iniPath);
@@ -47,12 +51,16 @@ namespace Daily_Digital_Task_Tracker
             resaultSize = GetPrivateProfileString("SECTION", "buttonBackColour", "", sbButtonBackColour, sbButtonBackColour.Capacity, iniPath);
             resaultSize = GetPrivateProfileString("SECTION", "buttonBorderColour", "", sbButtonBorderColour, sbButtonBorderColour.Capacity, iniPath);
 
+            resaultSize = GetPrivateProfileString("SECTION", "coinCount", "", sbCoinCount, sbCoinCount.Capacity, iniPath);
+
             this.theme = sbTheme.ToString();
             //Make variables a valid hex string to be used to theme the app
             this.backColour = "#" + sbBackColour.ToString();
             this.textColour = "#" + sbTextColour.ToString();
             this.buttonBackColour = "#" + sbButtonBackColour.ToString();
             this.buttonBorderColour = "#" + sbButtonBorderColour.ToString();
+
+            this.coinCount = sbCoinCount.ToString();
 
         }
         public void writeini(string section, string key, string value)

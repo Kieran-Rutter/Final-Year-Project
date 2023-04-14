@@ -36,7 +36,7 @@ namespace Daily_Digital_Task_Tracker
             }
         }
 
-    public static void readIni()
+        public static void readIni()
         {
             Settings settings = new Settings();
             settings.readIni();

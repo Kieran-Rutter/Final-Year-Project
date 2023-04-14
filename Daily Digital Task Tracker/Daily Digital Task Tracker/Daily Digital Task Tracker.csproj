@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="coinControl.cs" />
     <Compile Include="ColourControl.cs" />
     <Compile Include="csvControl.cs" />
     <Compile Include="expandedDay.cs">

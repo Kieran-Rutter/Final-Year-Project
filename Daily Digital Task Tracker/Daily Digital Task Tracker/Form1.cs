@@ -124,6 +124,7 @@ namespace Daily_Digital_Task_Tracker
 
             month_container.Controls.Clear();
             dateDisplay();
+            coinDisplay();
         }
         /*
          * Functions for theme and auto sizing
@@ -156,7 +157,14 @@ namespace Daily_Digital_Task_Tracker
 
             month_container.Controls.Clear();
             dateDisplay();
+            coinDisplay();
         }
+        private void coinDisplay()
+        {
+            string coinCount = coinControl.readCoins();
+            themePage_btn.Text = ("Theme (" + coinCount + ")" );
+        }
+
         public static Font largeFont;
         public static Font smallFont;
         //When for is being reszied the resize control function is called to calculate new sizes
