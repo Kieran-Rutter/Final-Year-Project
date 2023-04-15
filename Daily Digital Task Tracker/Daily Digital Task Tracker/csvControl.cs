@@ -21,10 +21,7 @@ namespace Daily_Digital_Task_Tracker
                 sw.Close();
                 File.AppendAllText("config.ini", "[SECTION]" + "\n" + 
                     "key = light" + "\n" +
-                    "backColour = F8F9FA" + "\n" +
-                    "textColour = 000000" + "\n" +
-                    "buttonBackColour = CED4DA" + "\n" +
-                    "buttonBorderColour = ADB5BD" + "\n" +
+                    "themeColour = 1C1C21" + "\n" +
                     "coinCount = 0" + "\n" );
             }
             catch (IOException)
@@ -51,6 +48,16 @@ namespace Daily_Digital_Task_Tracker
             catch (IOException)
             {
                 Console.WriteLine("Stats file already exists");
+            }
+            try
+            {
+                StreamWriter sw = new StreamWriter(File.Open("Theme.csv", System.IO.FileMode.CreateNew));
+                Console.WriteLine("Theme file created");
+                sw.Close();
+            }
+            catch (IOException)
+            {
+                Console.WriteLine("Theme file already exists");
             }
             try
             {

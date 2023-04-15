@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,13 +28,57 @@ namespace Daily_Digital_Task_Tracker
             ColourControl.callColours(this);
         }
 
-
-        private void button1_Click(object sender, EventArgs e)
+        private void try_btn_Click(object sender, EventArgs e)
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
-                test_btn.BackColor = colorDialog1.Color;
-                //colour_btn.Text = (colorDialog1.Color.ToArgb() & 0x00FFFFFF).ToString("X6");
+                string search = (colorDialog1.Color.ToArgb() & 0x00FFFFFF).ToString("X6");
+
+                File.WriteAllLines("Temp.csv", File.ReadAllLines("Theme.csv").Where(line => search.Equals(line.Split(',')[0])));
+
+                using (StreamReader tempRead = new StreamReader("Temp.csv"))
+                {
+
+                    if ((tempRead.ReadLine()) == null)
+                    {
+                        save_btn.Text = "Buy Colour \n" +
+                                        "-1 Coin";
+                    }
+                    else
+                    {
+                        save_btn.Text = "Apply Colour";
+                    }
+                }
+
+                try_btn.BackColor = colorDialog1.Color;
+            }
+        }
+
+        private void save_btn_Click(object sender, EventArgs e)
+        {
+            Settings set = new Settings();
+            int coinCount = Int32.Parse(coinControl.readCoins());
+
+            string newHex = (try_btn.BackColor.ToArgb() & 0x00FFFFFF).ToString("X6");
+
+            if (save_btn.Text == "Apply Colour")
+            {
+                MessageBox.Show(newHex);
+                set.writeini("SECTION", "themeColour", (newHex + "\n"));
+                ColourControl.callColours(this);
+            }
+            else
+            {
+                if (coinCount <= 0)
+                {
+                    MessageBox.Show("Not enough coins \n" +
+                                    "Complete more tasks to earn coins");
+                }
+                else
+                {
+                    save_btn.Text = "Apply Colour";
+                    csvControl.Append("Theme.csv", newHex);
+                }
             }
         }
 
@@ -43,25 +88,14 @@ namespace Daily_Digital_Task_Tracker
 
             Settings set = new Settings();
             set.readIni();
-            if (set.theme == "light")
-            {
-                Console.WriteLine("set to light");
-                set.writeini("SECTION", "key", "dark");
-                set.writeini("SECTION", "backColour", "F8F9FA");
-                set.writeini("SECTION", "textColour", "000000");
-                set.writeini("SECTION", "buttonBackColour", "CED4DA");
-                set.writeini("SECTION", "buttonBorderColour", "ADB5BD");
-            }
-            else if (set.theme == "dark")
-            {
-                Console.WriteLine("set to dark");
-                set.writeini("SECTION", "key", "light");
-                set.writeini("SECTION", "backColour", "1C1C21");
-                set.writeini("SECTION", "textColour", "FFF1F1F1");
-                set.writeini("SECTION", "buttonBackColour", "393A41");
-                set.writeini("SECTION", "buttonBorderColour", "4B4C52");
-            }//https://stackoverflow.com/questions/22935285/change-color-of-all-controls-inside-the-form-in-c-sharp
+            set.writeini("SECTION", "themeColour", "1C1C21");
+            //https://stackoverflow.com/questions/22935285/change-color-of-all-controls-inside-the-form-in-c-sharp
+            ColourControl.callColours(this);
         }
 
+        private void buyColour_btn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

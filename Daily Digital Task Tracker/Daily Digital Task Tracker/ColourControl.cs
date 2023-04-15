@@ -10,10 +10,12 @@ namespace Daily_Digital_Task_Tracker
 {
     class ColourControl
     {
-        public static String backColour;
-        public static String textColour;
-        public static String buttonBackColour;
-        public static String buttonBorderColour;
+        public static String themeColour;
+
+        public static Color fColour;
+        public static Color bColour;
+        public static Color tColour;
+        public static Color borderColour;
 
         public static void callColours(Form myForm)
         {
@@ -41,10 +43,14 @@ namespace Daily_Digital_Task_Tracker
             Settings settings = new Settings();
             settings.readIni();
 
-            backColour = settings.backColour;
-            textColour = settings.textColour;
-            buttonBackColour = settings.buttonBackColour;
-            buttonBorderColour = settings.buttonBorderColour;
+
+            themeColour = settings.themeColour;
+
+            bColour = ColorTranslator.FromHtml(themeColour);
+            borderColour = ControlPaint.DarkDark(bColour);
+            fColour = ControlPaint.Dark(bColour);
+
+            tColour = Color.FromArgb(bColour.ToArgb() ^ 0xfffff);
         }
         public static void UpdateColorControls(Control myControl)
         {
@@ -58,37 +64,36 @@ namespace Daily_Digital_Task_Tracker
             }
             if (myControl is Button btn)
             {
-                btn.BackColor = ColorTranslator.FromHtml(buttonBackColour);
-                btn.ForeColor = ColorTranslator.FromHtml(textColour);
-                btn.FlatAppearance.BorderColor = ColorTranslator.FromHtml(buttonBorderColour);
+                btn.BackColor = bColour;
+                btn.ForeColor = tColour;
+                btn.FlatAppearance.BorderColor = borderColour;
             }
             if (myControl is Label)
             {
-                myControl.ForeColor = ColorTranslator.FromHtml(textColour);
+                myControl.ForeColor = tColour;
             }
             if (myControl is TextBox txtBx)
             {
-                txtBx.BackColor = ColorTranslator.FromHtml(buttonBackColour);
-                txtBx.ForeColor = ColorTranslator.FromHtml(textColour);
+                txtBx.BackColor = bColour;
+                txtBx.ForeColor = tColour;
             }
             if (myControl is DataGridView dgv)
             {
-                dgv.BackgroundColor = ColorTranslator.FromHtml(buttonBackColour);
-                dgv.DefaultCellStyle.BackColor = ColorTranslator.FromHtml(buttonBackColour);
-                dgv.DefaultCellStyle.ForeColor = ColorTranslator.FromHtml(textColour);
+                dgv.BackgroundColor = bColour;
+                dgv.DefaultCellStyle.BackColor = bColour;
+                dgv.DefaultCellStyle.ForeColor = tColour;
                 dgv.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 15);
-
             }
         }
         public static void UpdateBackColour(Form myForm)
         {
             readIni();
-            myForm.BackColor = ColorTranslator.FromHtml(backColour);
+            myForm.BackColor = fColour;
         }
         public static void UpdateControlBackColour(UserControl myControl)
         {
             readIni();
-            myControl.BackColor = ColorTranslator.FromHtml(buttonBackColour);
+            myControl.BackColor = bColour;
         }
     }
 }

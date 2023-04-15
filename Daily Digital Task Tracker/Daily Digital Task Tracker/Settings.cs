@@ -19,46 +19,27 @@ namespace Daily_Digital_Task_Tracker
         private static extern int WritePrivateProfileString(String section, String keyname, string value, string path );
 
         //Declair all string builders
-        public StringBuilder sbTheme;
-        public StringBuilder sbBackColour;
-        public StringBuilder sbTextColour;
-        public StringBuilder sbButtonBackColour;
-        public StringBuilder sbButtonBorderColour;
+        public StringBuilder sbThemeColour;
         public StringBuilder sbCoinCount;
-        public string theme { get; set; }
-        public string backColour { get; set; }
-        public string textColour { get; set; }
-        public string buttonBackColour { get; set; }
-        public string buttonBorderColour { get; set; }
+        public string themeColour { get; set; }
         public string coinCount { get; set; }
 
         public void readIni()
         {
             int resaultSize;
             //Creates string builders
-            sbTheme = new StringBuilder(10);
-            sbBackColour = new StringBuilder(10);
-            sbTextColour = new StringBuilder(10);
-            sbButtonBackColour = new StringBuilder(10);
-            sbButtonBorderColour = new StringBuilder(10);
+
+            sbThemeColour = new StringBuilder(10);
 
             sbCoinCount = new StringBuilder(10);
 
             //Gets values from ini
-            resaultSize = GetPrivateProfileString("SECTION", "key", "", sbTheme, sbTheme.Capacity, iniPath);
-            resaultSize = GetPrivateProfileString("SECTION", "backColour", "", sbBackColour, sbBackColour.Capacity, iniPath);
-            resaultSize = GetPrivateProfileString("SECTION", "textColour", "", sbTextColour, sbTextColour.Capacity, iniPath);
-            resaultSize = GetPrivateProfileString("SECTION", "buttonBackColour", "", sbButtonBackColour, sbButtonBackColour.Capacity, iniPath);
-            resaultSize = GetPrivateProfileString("SECTION", "buttonBorderColour", "", sbButtonBorderColour, sbButtonBorderColour.Capacity, iniPath);
+            resaultSize = GetPrivateProfileString("SECTION", "themeColour", "", sbThemeColour, sbThemeColour.Capacity, iniPath);
 
             resaultSize = GetPrivateProfileString("SECTION", "coinCount", "", sbCoinCount, sbCoinCount.Capacity, iniPath);
 
-            this.theme = sbTheme.ToString();
             //Make variables a valid hex string to be used to theme the app
-            this.backColour = "#" + sbBackColour.ToString();
-            this.textColour = "#" + sbTextColour.ToString();
-            this.buttonBackColour = "#" + sbButtonBackColour.ToString();
-            this.buttonBorderColour = "#" + sbButtonBorderColour.ToString();
+            this.themeColour = "#" + sbThemeColour.ToString();
 
             this.coinCount = sbCoinCount.ToString();
 
