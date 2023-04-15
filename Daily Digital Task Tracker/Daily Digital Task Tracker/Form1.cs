@@ -141,6 +141,12 @@ namespace Daily_Digital_Task_Tracker
         {
             csvControl.Create();
             ColourControl.callColours(this);
+
+            Settings set = new Settings();
+            set.readIni();
+
+            string themeReset = set.themeColour.Replace("#", ""); ;
+            set.writeini("SECTION", "testTheme", themeReset);
         }
         private void Form1_Shown(object sender, EventArgs e)
         {

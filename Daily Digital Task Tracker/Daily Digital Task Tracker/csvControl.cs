@@ -20,8 +20,8 @@ namespace Daily_Digital_Task_Tracker
 
                 sw.Close();
                 File.AppendAllText("config.ini", "[SECTION]" + "\n" + 
-                    "key = light" + "\n" +
                     "themeColour = 1C1C21" + "\n" +
+                    "testTheme = 1C1C21" + "\n" +
                     "coinCount = 0" + "\n" );
             }
             catch (IOException)
@@ -54,6 +54,8 @@ namespace Daily_Digital_Task_Tracker
                 StreamWriter sw = new StreamWriter(File.Open("Theme.csv", System.IO.FileMode.CreateNew));
                 Console.WriteLine("Theme file created");
                 sw.Close();
+
+                File.AppendAllText("Theme.csv", "1C1C21");
             }
             catch (IOException)
             {

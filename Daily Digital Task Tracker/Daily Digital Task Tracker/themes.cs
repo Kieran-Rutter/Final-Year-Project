@@ -13,6 +13,7 @@ namespace Daily_Digital_Task_Tracker
 {
     public partial class themes : Form
     {
+        public int i = 0;
         public themes()
         {
             InitializeComponent();
@@ -21,8 +22,48 @@ namespace Daily_Digital_Task_Tracker
 
         private void themes_Load(object sender, EventArgs e)
         {
+            Settings set = new Settings();
+            set.readIni();
+
+            hex_lbl.Text = set.testTheme.Replace("#", ""); ;
+
             ColourControl.callColours(this);
         }
+        private void next_btn_Click(object sender, EventArgs e)
+        {
+            i++;
+            changeHex();
+        }
+        private void changeHex()
+        {
+            using (StreamReader tempRead = new StreamReader("Theme.csv"))
+            {
+                try
+                {
+                    String line;
+                    line = tempRead.ReadLine();
+                    string[] parts = line.Split(',');
+
+                    if (i > (parts.Length - 1))
+                    {
+                        i = 0;
+                    }
+                    else if(i == 0)
+                    {
+                        i = parts.Length;
+                    }
+
+                    hex_lbl.Text = parts[i];
+
+                    write_Theme("testTheme", parts[i]);
+                }
+                catch(NullReferenceException)
+                {
+
+                }
+            }
+        }
+
         private void themes_Activated(object sender, EventArgs e)
         {
             ColourControl.callColours(this);
@@ -32,7 +73,11 @@ namespace Daily_Digital_Task_Tracker
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)
             {
+
                 string search = (colorDialog1.Color.ToArgb() & 0x00FFFFFF).ToString("X6");
+
+                write_Theme("testTheme", search);
+                hex_lbl.Text = search;
 
                 File.WriteAllLines("Temp.csv", File.ReadAllLines("Theme.csv").Where(line => search.Equals(line.Split(',')[0])));
 
@@ -49,8 +94,6 @@ namespace Daily_Digital_Task_Tracker
                         save_btn.Text = "Apply Colour";
                     }
                 }
-
-                try_btn.BackColor = colorDialog1.Color;
             }
         }
 
@@ -59,13 +102,11 @@ namespace Daily_Digital_Task_Tracker
             Settings set = new Settings();
             int coinCount = Int32.Parse(coinControl.readCoins());
 
-            string newHex = (try_btn.BackColor.ToArgb() & 0x00FFFFFF).ToString("X6");
+            string newHex = hex_lbl.Text;
 
             if (save_btn.Text == "Apply Colour")
             {
-                MessageBox.Show(newHex);
-                set.writeini("SECTION", "themeColour", (newHex + "\n"));
-                ColourControl.callColours(this);
+                write_Theme("themeColour", newHex);
             }
             else
             {
@@ -77,25 +118,28 @@ namespace Daily_Digital_Task_Tracker
                 else
                 {
                     save_btn.Text = "Apply Colour";
-                    csvControl.Append("Theme.csv", newHex);
+                    csvControl.Append("Theme.csv", ("," + newHex));
                 }
             }
         }
 
-        private void test_btn_Click(object sender, EventArgs e)
+        private void reset_btn_Click(object sender, EventArgs e)
         {
-            ColourControl.callColours(this);
-
-            Settings set = new Settings();
-            set.readIni();
-            set.writeini("SECTION", "themeColour", "1C1C21");
-            //https://stackoverflow.com/questions/22935285/change-color-of-all-controls-inside-the-form-in-c-sharp
-            ColourControl.callColours(this);
+            write_Theme("themeColour", "1C1C21");
+            write_Theme("testTheme", "1C1C21");
         }
 
-        private void buyColour_btn_Click(object sender, EventArgs e)
+        private void themes_Leave(object sender, EventArgs e)
         {
-
+            write_Theme("testTheme", "1C1C21");
+        }
+        private void write_Theme(string key, string hex)
+        {
+            Settings set = new Settings();
+            set.readIni();
+            set.writeini("SECTION", key, hex);
+            //https://stackoverflow.com/questions/22935285/change-color-of-all-controls-inside-the-form-in-c-sharp
+            ColourControl.callColours(this);
         }
     }
 }

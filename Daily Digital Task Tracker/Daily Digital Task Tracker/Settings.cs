@@ -20,8 +20,10 @@ namespace Daily_Digital_Task_Tracker
 
         //Declair all string builders
         public StringBuilder sbThemeColour;
+        public StringBuilder sbTestTheme;
         public StringBuilder sbCoinCount;
         public string themeColour { get; set; }
+        public string testTheme { get; set; }
         public string coinCount { get; set; }
 
         public void readIni()
@@ -30,17 +32,17 @@ namespace Daily_Digital_Task_Tracker
             //Creates string builders
 
             sbThemeColour = new StringBuilder(10);
-
+            sbTestTheme = new StringBuilder(10);
             sbCoinCount = new StringBuilder(10);
 
             //Gets values from ini
             resaultSize = GetPrivateProfileString("SECTION", "themeColour", "", sbThemeColour, sbThemeColour.Capacity, iniPath);
-
+            resaultSize = GetPrivateProfileString("SECTION", "testTheme", "", sbTestTheme, sbTestTheme.Capacity, iniPath);
             resaultSize = GetPrivateProfileString("SECTION", "coinCount", "", sbCoinCount, sbCoinCount.Capacity, iniPath);
 
             //Make variables a valid hex string to be used to theme the app
             this.themeColour = "#" + sbThemeColour.ToString();
-
+            this.testTheme = "#" + sbTestTheme.ToString();
             this.coinCount = sbCoinCount.ToString();
 
         }

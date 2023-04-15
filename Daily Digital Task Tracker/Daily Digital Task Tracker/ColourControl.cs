@@ -16,10 +16,22 @@ namespace Daily_Digital_Task_Tracker
         public static Color bColour;
         public static Color tColour;
         public static Color borderColour;
+        public static Color baseColour;
+
+        public static bool testMode = false;
 
         public static void callColours(Form myForm)
         {
             UpdateBackColour(myForm);
+
+            if (myForm.Text == "Themes")
+            {
+                testMode = true;
+            }
+            else
+            {
+                testMode = false;
+            }
 
             //Loads the colour controll class for each controll in the form.
             foreach (Control c in myForm.Controls)
@@ -43,14 +55,21 @@ namespace Daily_Digital_Task_Tracker
             Settings settings = new Settings();
             settings.readIni();
 
+            if(testMode)
+            {
+                themeColour = settings.testTheme;
+            }
+            else
+            {
+                themeColour = settings.themeColour;
+            }
+            baseColour = ColorTranslator.FromHtml(themeColour);
 
-            themeColour = settings.themeColour;
+            fColour = ControlPaint.Dark(baseColour);
+            borderColour = ControlPaint.DarkDark(baseColour);
+            bColour = ControlPaint.Light(baseColour);
 
-            bColour = ColorTranslator.FromHtml(themeColour);
-            borderColour = ControlPaint.DarkDark(bColour);
-            fColour = ControlPaint.Dark(bColour);
-
-            tColour = Color.FromArgb(bColour.ToArgb() ^ 0xfffff);
+            tColour = Color.FromArgb(fColour.ToArgb() ^ 0xfffff);
         }
         public static void UpdateColorControls(Control myControl)
         {
