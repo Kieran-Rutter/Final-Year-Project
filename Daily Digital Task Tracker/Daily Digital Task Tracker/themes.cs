@@ -34,6 +34,11 @@ namespace Daily_Digital_Task_Tracker
             i++;
             changeHex();
         }
+        private void prev_btn_Click(object sender, EventArgs e)
+        {
+            i--;
+            changeHex();
+        }
         private void changeHex()
         {
             using (StreamReader tempRead = new StreamReader("Theme.csv"))
@@ -48,9 +53,9 @@ namespace Daily_Digital_Task_Tracker
                     {
                         i = 0;
                     }
-                    else if(i == 0)
+                    else if(i < 0)
                     {
-                        i = parts.Length;
+                        i = (parts.Length - 1);
                     }
 
                     hex_lbl.Text = parts[i];

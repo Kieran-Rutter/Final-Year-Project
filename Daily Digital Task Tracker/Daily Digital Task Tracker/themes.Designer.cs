@@ -133,6 +133,7 @@ namespace Daily_Digital_Task_Tracker
             this.prev_btn.TabIndex = 6;
             this.prev_btn.Text = "< Prev";
             this.prev_btn.UseVisualStyleBackColor = true;
+            this.prev_btn.Click += new System.EventHandler(this.prev_btn_Click);
             // 
             // next_btn
             // 
