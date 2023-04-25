@@ -22,6 +22,7 @@ namespace Daily_Digital_Task_Tracker
 
         public void taskDisplay(string day)
         {
+            task_pnl.Controls.Clear();
             string search = day + "/" + Form1.month.ToString() + "/" + Form1.year.ToString();
 
             File.WriteAllLines("Temp.csv", File.ReadAllLines("Events.csv").Where(line => search.Equals(line.Split(',')[0])));
@@ -102,6 +103,16 @@ namespace Daily_Digital_Task_Tracker
             //Loads day expanded form
             taskCreation TaskCreation = new taskCreation();
             TaskCreation.Show();
+
+            TaskCreation.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
+        }
+        //Runs when the task creation form is closed
+        void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            string day = DayUserControl.day_stc;
+            taskDisplay(day);
+            statisticsGridView.RowHeadersVisible = false;
+            statisticsGridView.DataSource = statsDisplay(day);
         }
 
         private Rectangle originalFormSize;

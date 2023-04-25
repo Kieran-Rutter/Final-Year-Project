@@ -112,6 +112,7 @@ namespace Daily_Digital_Task_Tracker
             if (save_btn.Text == "Apply Colour")
             {
                 write_Theme("themeColour", newHex);
+                coinControl.takeCoins();
             }
             else
             {

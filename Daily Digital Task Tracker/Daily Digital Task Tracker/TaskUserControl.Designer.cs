@@ -95,7 +95,7 @@
             // 
             this.title_lbl.AutoSize = true;
             this.title_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.title_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             this.title_lbl.Location = new System.Drawing.Point(3, 0);
             this.title_lbl.Name = "title_lbl";
             this.title_lbl.Size = new System.Drawing.Size(143, 25);

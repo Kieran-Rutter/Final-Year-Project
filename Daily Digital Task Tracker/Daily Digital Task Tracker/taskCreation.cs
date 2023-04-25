@@ -40,9 +40,12 @@ namespace Daily_Digital_Task_Tracker
             searchCSV(date_lbl.Text, 0, 1, "startup");
 
             //Loops to insert values into combo boxes
-            for (int i = 0; i < 60; i++)
+            for (int i = 1; i < 60; i++)
             {
                 this.seconds_cmb.Items.Add(i.ToString());
+            }
+            for (int i = 0; i < 60; i++)
+            {
                 this.mins_cmb.Items.Add(i.ToString());
             }
             for (int i = 0; i <= 24; i++)
