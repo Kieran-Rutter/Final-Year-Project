@@ -109,8 +109,8 @@ namespace Daily_Digital_Task_Tracker
                 cht.BackColor = bColour;
                 cht.ForeColor = tColour;
                 cht.Series[0].Points[0].Color = tColour;
-                cht.Series[0].Points[0].LabelForeColor = borderColour;
-                cht.Series[0].Points[1].Color = borderColour;
+                cht.Series[0].Points[0].LabelForeColor = fColour;
+                cht.Series[0].Points[1].Color = fColour;
                 cht.Series[0].Points[1].LabelForeColor = tColour;
                 cht.ChartAreas[0].BackColor = bColour;
             }
