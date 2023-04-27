@@ -31,9 +31,9 @@ namespace Daily_Digital_Task_Tracker
 
             string search = day.ToString() + "/" + Form1.month.ToString() + "/" + Form1.year.ToString();
 
-            File.WriteAllLines("Temp.csv", File.ReadAllLines("Events.csv").Where(line => search.Equals(line.Split(',')[0])));
+            File.WriteAllLines("Temp2.csv", File.ReadAllLines("Events.csv").Where(line => search.Equals(line.Split(',')[0])));
 
-            using (StreamReader tempRead = new StreamReader("Temp.csv"))
+            using (StreamReader tempRead = new StreamReader("Temp2.csv"))
             {
                 String line;
 

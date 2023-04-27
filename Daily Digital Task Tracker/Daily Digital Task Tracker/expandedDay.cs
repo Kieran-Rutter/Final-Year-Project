@@ -85,6 +85,32 @@ namespace Daily_Digital_Task_Tracker
 
             statisticsGridView.Columns[1].Width = (int)(statisticsGridView.Width * 0.5);
             statisticsGridView.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            //Works out completed ratio
+            int completed = 1;
+            int created = 1;
+
+            try
+            {
+                DataGridViewRow row = statisticsGridView.Rows
+                    .Cast<DataGridViewRow>()
+                    .Where(r => r.Cells["eventName"].Value.ToString().Equals("Tasks Completed"))
+                    .First();
+
+                completed = int.Parse(statisticsGridView.Rows[row.Index].Cells[2].Value.ToString());
+
+                row = statisticsGridView.Rows
+                .Cast<DataGridViewRow>()
+                .Where(r => r.Cells["eventName"].Value.ToString().Equals("Tasks Created"))
+                .First();
+
+                created = int.Parse(statisticsGridView.Rows[row.Index].Cells[2].Value.ToString());
+
+                completionRation_lbl.Text = ("You have a completion ratio of roughly %" + ((completed / created) * 100).ToString());
+            }
+            catch {
+                completionRation_lbl.Text = "Complete some tasks to see the completion ratio.";
+            }
         }
 
 

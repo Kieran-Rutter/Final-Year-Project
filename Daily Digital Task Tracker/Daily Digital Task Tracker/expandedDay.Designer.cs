@@ -35,9 +35,12 @@
             this.graphsTitle_lbl = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.statisticsGridView = new System.Windows.Forms.DataGridView();
+            this.stats_pnl = new System.Windows.Forms.TableLayoutPanel();
+            this.completionRation_lbl = new System.Windows.Forms.Label();
             this.taskTBL_pnl.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statisticsGridView)).BeginInit();
+            this.stats_pnl.SuspendLayout();
             this.SuspendLayout();
             // 
             // task_pnl
@@ -116,7 +119,8 @@
             this.tableLayoutPanel1.Controls.Add(this.taskTBL_pnl, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.tasks_lbl, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.graphsTitle_lbl, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.statisticsGridView, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.stats_pnl, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.completionRation_lbl, 1, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -132,10 +136,36 @@
             this.statisticsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.statisticsGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.statisticsGridView.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.statisticsGridView.Location = new System.Drawing.Point(133, 35);
+            this.statisticsGridView.Location = new System.Drawing.Point(3, 3);
             this.statisticsGridView.Name = "statisticsGridView";
-            this.statisticsGridView.Size = new System.Drawing.Size(397, 469);
+            this.statisticsGridView.Size = new System.Drawing.Size(391, 228);
             this.statisticsGridView.TabIndex = 14;
+            // 
+            // stats_pnl
+            // 
+            this.stats_pnl.ColumnCount = 1;
+            this.stats_pnl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.stats_pnl.Controls.Add(this.statisticsGridView, 0, 0);
+            this.stats_pnl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.stats_pnl.Location = new System.Drawing.Point(133, 35);
+            this.stats_pnl.Name = "stats_pnl";
+            this.stats_pnl.RowCount = 2;
+            this.stats_pnl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.stats_pnl.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.stats_pnl.Size = new System.Drawing.Size(397, 469);
+            this.stats_pnl.TabIndex = 15;
+            // 
+            // completionRation_lbl
+            // 
+            this.completionRation_lbl.AutoSize = true;
+            this.completionRation_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.completionRation_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.completionRation_lbl.Location = new System.Drawing.Point(133, 507);
+            this.completionRation_lbl.Name = "completionRation_lbl";
+            this.completionRation_lbl.Size = new System.Drawing.Size(397, 54);
+            this.completionRation_lbl.TabIndex = 16;
+            this.completionRation_lbl.Text = "label1";
+            this.completionRation_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // expandedDay
             // 
@@ -156,6 +186,7 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statisticsGridView)).EndInit();
+            this.stats_pnl.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -169,5 +200,7 @@
         private System.Windows.Forms.Label graphsTitle_lbl;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.DataGridView statisticsGridView;
+        private System.Windows.Forms.TableLayoutPanel stats_pnl;
+        private System.Windows.Forms.Label completionRation_lbl;
     }
 }
