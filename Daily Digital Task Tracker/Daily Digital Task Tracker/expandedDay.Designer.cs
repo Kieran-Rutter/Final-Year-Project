@@ -28,6 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint1 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
+            System.Windows.Forms.DataVisualization.Charting.DataPoint dataPoint2 = new System.Windows.Forms.DataVisualization.Charting.DataPoint(0D, 0D);
             this.task_pnl = new System.Windows.Forms.TableLayoutPanel();
             this.taskTBL_pnl = new System.Windows.Forms.Panel();
             this.tasks_lbl = new System.Windows.Forms.Label();
@@ -37,10 +42,12 @@
             this.statisticsGridView = new System.Windows.Forms.DataGridView();
             this.stats_pnl = new System.Windows.Forms.TableLayoutPanel();
             this.completionRation_lbl = new System.Windows.Forms.Label();
+            this.CompletionChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.taskTBL_pnl.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statisticsGridView)).BeginInit();
             this.stats_pnl.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CompletionChart)).BeginInit();
             this.SuspendLayout();
             // 
             // task_pnl
@@ -146,6 +153,7 @@
             this.stats_pnl.ColumnCount = 1;
             this.stats_pnl.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.stats_pnl.Controls.Add(this.statisticsGridView, 0, 0);
+            this.stats_pnl.Controls.Add(this.CompletionChart, 0, 1);
             this.stats_pnl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.stats_pnl.Location = new System.Drawing.Point(133, 35);
             this.stats_pnl.Name = "stats_pnl";
@@ -167,6 +175,34 @@
             this.completionRation_lbl.Text = "label1";
             this.completionRation_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // CompletionChart
+            // 
+            this.CompletionChart.BackColor = System.Drawing.Color.Transparent;
+            this.CompletionChart.BorderlineColor = System.Drawing.Color.Transparent;
+            chartArea1.Name = "ChartArea1";
+            this.CompletionChart.ChartAreas.Add(chartArea1);
+            this.CompletionChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            legend1.Enabled = false;
+            legend1.Name = "Legend1";
+            this.CompletionChart.Legends.Add(legend1);
+            this.CompletionChart.Location = new System.Drawing.Point(3, 237);
+            this.CompletionChart.Name = "CompletionChart";
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Pie;
+            series1.Color = System.Drawing.Color.Transparent;
+            series1.IsVisibleInLegend = false;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            dataPoint1.AxisLabel = "Completed";
+            dataPoint2.AxisLabel = "Created";
+            dataPoint2.BackImageTransparentColor = System.Drawing.Color.Transparent;
+            series1.Points.Add(dataPoint1);
+            series1.Points.Add(dataPoint2);
+            this.CompletionChart.Series.Add(series1);
+            this.CompletionChart.Size = new System.Drawing.Size(391, 229);
+            this.CompletionChart.TabIndex = 15;
+            this.CompletionChart.Text = "chart1";
+            // 
             // expandedDay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,6 +223,7 @@
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.statisticsGridView)).EndInit();
             this.stats_pnl.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.CompletionChart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -202,5 +239,6 @@
         private System.Windows.Forms.DataGridView statisticsGridView;
         private System.Windows.Forms.TableLayoutPanel stats_pnl;
         private System.Windows.Forms.Label completionRation_lbl;
+        private System.Windows.Forms.DataVisualization.Charting.Chart CompletionChart;
     }
 }

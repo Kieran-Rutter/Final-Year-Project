@@ -111,6 +111,8 @@ namespace Daily_Digital_Task_Tracker
             catch {
                 completionRation_lbl.Text = "Complete some tasks to see the completion ratio.";
             }
+            CompletionChart.Series[0].Points[0].YValues[0] = completed;
+            CompletionChart.Series[0].Points[1].YValues[0] = created;
         }
 
 

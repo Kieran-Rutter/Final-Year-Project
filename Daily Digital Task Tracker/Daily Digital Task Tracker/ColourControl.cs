@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Daily_Digital_Task_Tracker
 {
@@ -102,6 +103,16 @@ namespace Daily_Digital_Task_Tracker
                 dgv.DefaultCellStyle.BackColor = bColour;
                 dgv.DefaultCellStyle.ForeColor = tColour;
                 dgv.DefaultCellStyle.Font = new Font("Microsoft Sans Serif", 15);
+            }
+            if (myControl is Chart cht)
+            {
+                cht.BackColor = bColour;
+                cht.ForeColor = tColour;
+                cht.Series[0].Points[0].Color = tColour;
+                cht.Series[0].Points[0].LabelForeColor = borderColour;
+                cht.Series[0].Points[1].Color = borderColour;
+                cht.Series[0].Points[1].LabelForeColor = tColour;
+                cht.ChartAreas[0].BackColor = bColour;
             }
         }
         public static void UpdateBackColour(Form myForm)
