@@ -33,6 +33,11 @@ https://user-images.githubusercontent.com/77963947/235477131-a5f9d1eb-28ac-4192-
 
 #### Edit
 
+
+https://user-images.githubusercontent.com/77963947/235486375-232bed86-7119-48dc-86b8-67e1ad78fe80.mp4
+
+
+
 #### Delete
 
 ### Themes
