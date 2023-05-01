@@ -27,9 +27,7 @@ Extract the zip and select the visual studio solution file to open the program.
 
 #### Create
 
-
 https://user-images.githubusercontent.com/77963947/235477131-a5f9d1eb-28ac-4192-a851-333df94531fc.mp4
-
 
 #### Edit
 
@@ -37,8 +35,11 @@ https://user-images.githubusercontent.com/77963947/235477131-a5f9d1eb-28ac-4192-
 https://user-images.githubusercontent.com/77963947/235486375-232bed86-7119-48dc-86b8-67e1ad78fe80.mp4
 
 
-
 #### Delete
+
+
+https://user-images.githubusercontent.com/77963947/235487281-6196d444-58e7-4fab-a322-2c1ea7bbf27d.mp4
+
 
 ### Themes
 
