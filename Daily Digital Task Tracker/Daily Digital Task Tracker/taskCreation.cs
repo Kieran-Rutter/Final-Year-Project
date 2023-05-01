@@ -141,7 +141,7 @@ namespace Daily_Digital_Task_Tracker
                 //Loads the resize control class for each controll in the form.
                 foreach (Control textc in this.Controls)
                 {
-                    resizeTest(textc);
+                    //resizeTest(textc);
                 }
 
                 //Labels
