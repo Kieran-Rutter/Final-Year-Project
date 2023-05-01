@@ -27,6 +27,10 @@ Extract the zip and select the visual studio solution file to open the program.
 
 #### Create
 
+
+https://user-images.githubusercontent.com/77963947/235477131-a5f9d1eb-28ac-4192-a851-333df94531fc.mp4
+
+
 #### Edit
 
 #### Delete
