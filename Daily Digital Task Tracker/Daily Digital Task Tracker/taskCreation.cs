@@ -17,7 +17,6 @@ namespace Daily_Digital_Task_Tracker
         public static int minutes;
         public static int hours;
 
-        public static int task_count;
         public static string[] task;
         //Shown used to make sure the form has fully loaded, used to make sure form does not try to resize before loaded.
         private static bool shown = false;
@@ -56,16 +55,9 @@ namespace Daily_Digital_Task_Tracker
         //Creates a new task in the events csv file
         private void CreateEvent_btn_Click(object sender, EventArgs e)
         {
-            task_count = 0;
-
-            csvControl.Append("Events.csv", (date_lbl.Text + "," + task_cmb.Text + "," +
-                seconds_cmb.Text + "," + mins_cmb.Text + "," + hours_cmb.Text + "\n"));
-            //Adds new event to the combo box
-            task_cmb.Items.Add(task_cmb.Text);
-
-            //Reads value from csv to add
+            createEvent();
+            //Adds one to stat
             string day = date_lbl.Text;
-
             csvControl.plusOneStat("Tasks Created", day);
             //Closes the menu
             this.Close();
@@ -73,14 +65,9 @@ namespace Daily_Digital_Task_Tracker
 
         private void delete_btn_Click(object sender, EventArgs e)
         {
-            task_count = 0;
-
-            //Reads value from csv to add
-            string search = task_cmb.Text;
+            deleteEvent();
+            //Adds one to stat
             string day = date_lbl.Text;
-
-            csvControl.Delete("Events.csv", day, search);
-
             csvControl.plusOneStat("Tasks Deleted", day);
             //Closes the menu
             this.Close();
@@ -88,10 +75,31 @@ namespace Daily_Digital_Task_Tracker
 
         private void edit_btn_Click(object sender, EventArgs e)
         {
-            delete_btn_Click(sender, e);
-            CreateEvent_btn_Click(sender, e);
+            deleteEvent();
+            createEvent();
+            //Adds one to stat
+            string day = date_lbl.Text;
+            csvControl.plusOneStat("Tasks Edited", day);
             //Closes the menu
             this.Close();
+        }
+
+        private void createEvent()
+        {
+            csvControl.Append("Events.csv", (date_lbl.Text + "," + task_cmb.Text + "," +
+                seconds_cmb.Text + "," + mins_cmb.Text + "," + hours_cmb.Text + "\n"));
+            //Adds new event to the combo box
+            task_cmb.Items.Add(task_cmb.Text);
+
+        }
+
+        private void deleteEvent()
+        {
+            //Reads value from csv to add
+            string search = task_cmb.Text;
+            string day = date_lbl.Text;
+
+            csvControl.Delete("Events.csv", day, search);
         }
 
         private void searchCSV(string search, int posSearch, int posWrite, string mode)
