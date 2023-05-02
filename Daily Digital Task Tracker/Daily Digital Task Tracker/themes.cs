@@ -25,7 +25,8 @@ namespace Daily_Digital_Task_Tracker
             Settings set = new Settings();
             set.readIni();
 
-            hex_lbl.Text = set.testTheme.Replace("#", ""); ;
+            hex_lbl.Text = set.testTheme.Replace("#", "");
+            coin_lbl.Text = "Coins: " + set.coinCount;
 
             ColourControl.callColours(this);
         }
@@ -82,7 +83,7 @@ namespace Daily_Digital_Task_Tracker
                 string search = (colorDialog1.Color.ToArgb() & 0x00FFFFFF).ToString("X6");
 
                 write_Theme("testTheme", search);
-                hex_lbl.Text = search;
+                hex_lbl.Text = search ;
 
                 File.WriteAllLines("Temp.csv", File.ReadAllLines("Theme.csv").Where(line => search.Equals(line.Split(',')[0])));
 
@@ -102,6 +103,11 @@ namespace Daily_Digital_Task_Tracker
             }
         }
 
+        private void themeSearch()
+        {
+
+        }
+
         private void save_btn_Click(object sender, EventArgs e)
         {
             Settings set = new Settings();
@@ -112,7 +118,6 @@ namespace Daily_Digital_Task_Tracker
             if (save_btn.Text == "Apply Colour")
             {
                 write_Theme("themeColour", newHex);
-                coinControl.takeCoins();
             }
             else
             {
@@ -125,8 +130,11 @@ namespace Daily_Digital_Task_Tracker
                 {
                     save_btn.Text = "Apply Colour";
                     csvControl.Append("Theme.csv", ("," + newHex));
+                    coinControl.takeCoins();
+
                 }
             }
+            coin_lbl.Text = "Coins: " + Int32.Parse(coinControl.readCoins());
         }
 
         private void reset_btn_Click(object sender, EventArgs e)
