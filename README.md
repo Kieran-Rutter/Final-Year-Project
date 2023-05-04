@@ -3,7 +3,7 @@
 ### Install
 
 #### Latest Release (Recommended)
-
+Find releases here: https://github.com/theKIEgit/Final-Year-Project/releases 
 
 #### Download Zip
 
