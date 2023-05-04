@@ -19,7 +19,7 @@ Before extracting right click on the zip folder and select properties, at the bo
 
 Extract the zip and select the visual studio solution file that is inside the Daily Digital Task tracker folder to open the program and view the code.
 
-Alternatly to just use the program without viewing the code select the Daily Digital Task Tracker (Application file).
+Alternatly to just use the program without viewing the code select the Daily Digital Task Tracker (Application file), this may display a popup saying that windows does not trust the application selecting "more info" and "Run anyway" will launch the program.
 
 
 
