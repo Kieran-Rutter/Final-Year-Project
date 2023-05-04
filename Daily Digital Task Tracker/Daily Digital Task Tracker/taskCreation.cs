@@ -25,7 +25,7 @@ namespace Daily_Digital_Task_Tracker
         {
             InitializeComponent();
         }
-
+        //Runs when page loaded.
         private void DayExpanded_Load(object sender, EventArgs e)
         {
             shown = false;
@@ -156,6 +156,7 @@ namespace Daily_Digital_Task_Tracker
                 //Daily_Digital_Task_Tracker.Resize.resizeControl(date_lblOriginalRectangle, date_lbl, date_lblOriginalFontSize, originalFormSize, this.Height, this.Width);
             }
         }
+        //Old resize code removed due to errors.
         public void resizeTest(Control textc)
         {
             if (textc is TableLayoutPanel)

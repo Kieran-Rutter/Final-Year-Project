@@ -29,7 +29,7 @@ namespace Daily_Digital_Task_Tracker
 
             using (StreamReader tempRead = new StreamReader("Temp.csv"))
             {
-
+                //Displays the users controls with tasks information
                 String line;
                 while ((line = tempRead.ReadLine()) != null)
                 {
@@ -47,6 +47,7 @@ namespace Daily_Digital_Task_Tracker
                 }
             }
         }
+        //Function that reads and displays all stats from that day.
         public List<dateStatistic> statsDisplay(string day)
         {
             string daySearch = day + "/" + Form1.month.ToString() + "/" + Form1.year.ToString();
@@ -70,7 +71,7 @@ namespace Daily_Digital_Task_Tracker
             public string eventName { get; set; }
             public int eventCount { get; set; }
         }
-
+        //Sets up the dat agrid view when loaded.
         private void expandedDay_Load(object sender, EventArgs e)
         {
             ColourControl.callColours(this);
@@ -116,16 +117,11 @@ namespace Daily_Digital_Task_Tracker
         }
 
 
-        /*
- * Functions for theme and auto sizing
-*/
-        //Dynamic scale
-
         public static String backColour;
         public static String textColour;
         public static String buttonBackColour;
         public static String buttonBorderColour;
-
+        // Opens the task creation form and waits for it to close.
         private void create_btn_Click(object sender, EventArgs e)
         {
             //Loads day expanded form
@@ -134,7 +130,7 @@ namespace Daily_Digital_Task_Tracker
 
             TaskCreation.FormClosed += new FormClosedEventHandler(Form1_FormClosed);
         }
-        //Runs when the task creation form is closed
+        //Runs when the task creation form is closed and resets the task list.
         void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             string day = DayUserControl.day_stc;

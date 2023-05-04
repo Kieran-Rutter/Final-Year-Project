@@ -19,7 +19,7 @@ namespace Daily_Digital_Task_Tracker
             InitializeComponent();
         }
         //https://stackoverflow.com/questions/38185178/how-to-get-the-hex-color-code-from-a-color-dialog-in-visual-studio
-
+        //Loads the current theme.
         private void themes_Load(object sender, EventArgs e)
         {
             Settings set = new Settings();
@@ -30,6 +30,7 @@ namespace Daily_Digital_Task_Tracker
 
             ColourControl.callColours(this);
         }
+        //Adds or takes one from the index.
         private void next_btn_Click(object sender, EventArgs e)
         {
             i++;
@@ -40,6 +41,7 @@ namespace Daily_Digital_Task_Tracker
             i--;
             changeHex();
         }
+        //Uses the index to get a hex from the themes CSV.
         private void changeHex()
         {
             using (StreamReader tempRead = new StreamReader("Theme.csv"))
@@ -69,12 +71,12 @@ namespace Daily_Digital_Task_Tracker
                 }
             }
         }
-
+        //Calls colours when the form is loaded
         private void themes_Activated(object sender, EventArgs e)
         {
             ColourControl.callColours(this);
         }
-
+        // Button will display a color diolog box and chenge the theme when a colour is selected.
         private void try_btn_Click(object sender, EventArgs e)
         {
             if (colorDialog1.ShowDialog() == DialogResult.OK)
@@ -89,7 +91,7 @@ namespace Daily_Digital_Task_Tracker
 
                 using (StreamReader tempRead = new StreamReader("Temp.csv"))
                 {
-
+                    //Checks to see if the theme is owned and will promt the user to unlcock if not.
                     if ((tempRead.ReadLine()) == null)
                     {
                         save_btn.Text = "Buy Colour \n" +
@@ -103,11 +105,7 @@ namespace Daily_Digital_Task_Tracker
             }
         }
 
-        private void themeSearch()
-        {
-
-        }
-
+        //Saves selected hex to a csv file.
         private void save_btn_Click(object sender, EventArgs e)
         {
             Settings set = new Settings();
@@ -121,6 +119,7 @@ namespace Daily_Digital_Task_Tracker
             }
             else
             {
+                //Checks if the user has enough coins.
                 if (coinCount <= 0)
                 {
                     MessageBox.Show("Not enough coins \n" +
@@ -136,7 +135,7 @@ namespace Daily_Digital_Task_Tracker
             }
             coin_lbl.Text = "Coins: " + Int32.Parse(coinControl.readCoins());
         }
-
+        // resets to default theme.
         private void reset_btn_Click(object sender, EventArgs e)
         {
             write_Theme("themeColour", "1C1C21");

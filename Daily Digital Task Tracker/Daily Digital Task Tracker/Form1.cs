@@ -188,7 +188,7 @@ namespace Daily_Digital_Task_Tracker
                 smallFont = nextBtn.Font;
             }
         }
-
+        // Resizes all objects dnamically.
         public void resizeTest(Control textc)
         {
             if (textc is TableLayoutPanel)
@@ -207,7 +207,7 @@ namespace Daily_Digital_Task_Tracker
                 ResizeControl.resizeTextControl(textc, buttonlOriginalFontSize, originalFormSize, this.Height, this.Width);
             }
         }
-
+        //Opens the themes page.
         private void themePage_btn_Click(object sender, EventArgs e)
         {
             themes Themes = new themes();
@@ -219,6 +219,4 @@ namespace Daily_Digital_Task_Tracker
 /* Refrences
  * https://stackoverflow.com/questions/3184121/get-month-name-from-month-number
  * https://github.com/cccu-uk/autorentals-Kieran-Rutter/tree/master/FormAutoRentals
- * 
- * 
  */
