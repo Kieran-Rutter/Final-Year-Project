@@ -4,7 +4,6 @@
 
 #### Latest Release (Recommended)
 
-#### Clone Repo
 
 #### Download Zip
 
