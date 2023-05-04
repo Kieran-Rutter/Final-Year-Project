@@ -3,11 +3,11 @@
 ### Install
 
 #### Latest Release (Recommended)
-
+Find releases here: https://github.com/theKIEgit/Final-Year-Project/releases 
 
 #### Download Zip
 
-
+To use the program first download the zip folder for the project, you can then either load the solution file and run the program or simply select the application (Note that both have independent storage from one another so please only use one method) the videos below show both methods.
 
 https://user-images.githubusercontent.com/77963947/235473085-1581b0d1-2cdd-4672-92e4-d62adb2b9e26.mp4
 
@@ -17,7 +17,8 @@ Before extracting right click on the zip folder and select properties, at the bo
 
 ![image](https://user-images.githubusercontent.com/77963947/235445352-82e7737f-acc1-4e1f-b4b3-8556b02f6277.png)
 
-Extract the zip and select the visual studio solution file to open the program.
+Extract the zip and select the visual studio solution file that is inside the Daily Digital Task tracker folder to open the program and view the code.
+
 Alternatly to just use the program without viewing the code select the Daily Digital Task Tracker (Application file).
 
 
@@ -50,6 +51,7 @@ https://user-images.githubusercontent.com/77963947/235487281-6196d444-58e7-4fab-
 
 ### Themes
 
-#### New Themes
 
-#### Already Owned Theme
+https://user-images.githubusercontent.com/77963947/236330827-bbfc41eb-2e9c-4e20-81e9-168e95c5646f.mp4
+
+
