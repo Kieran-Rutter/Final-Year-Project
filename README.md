@@ -14,9 +14,17 @@ https://user-images.githubusercontent.com/77963947/235473085-1581b0d1-2cdd-4672-
 
 
 Before extracting right click on the zip folder and select properties, at the bottom of the tab select "Unblock" and apply.
+
 ![image](https://user-images.githubusercontent.com/77963947/235445352-82e7737f-acc1-4e1f-b4b3-8556b02f6277.png)
 
 Extract the zip and select the visual studio solution file to open the program.
+Alternatly to just use the program without viewing the code select the Daily Digital Task Tracker (Application file).
+
+
+
+https://user-images.githubusercontent.com/77963947/236328823-7664b480-ee3b-4dcb-b9b6-9cfb35d50838.mp4
+
+
 
 ### Form1 (Main Page)
 
